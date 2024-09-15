@@ -1,0 +1,55 @@
+/* Background image styling */
+.homepage-background {
+    background-image: url('./assets/background.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Text container with absolute positioning */
+.text-container {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+/* Animating the text */
+.animated-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    color: red;
+    font-weight: bold;
+    text-transform: uppercase;
+    opacity: 0;
+    /* Start fully transparent */
+    transform: translateY(100px);
+    /* Start below the screen */
+    animation: slideUpFadeIn 2s ease-out forwards;
+    /* Apply the animation */
+}
+
+/* Keyframes for the slide-up and fade-in effect */
+@keyframes slideUpFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+        /* Start position */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        /* End position */
+    }
+}
+
+/* For small screens, adjust font size */
+@media (max-width: 768px) {
+    .animated-text {
+        font-size: 2rem;
+    }
+}

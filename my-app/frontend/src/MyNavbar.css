@@ -1,0 +1,94 @@
+/* Custom styles for the navbar */
+.custom-navbar {
+    background-color: (0, 0, 0, 0.95);
+    /* Dark background */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+    /* Add a shadow for a 3D effect */
+    padding: 0.8rem 1.5rem;
+}
+
+.brand-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 1.6rem;
+    color: #fff;
+    /* White logo text */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.brand-logo:hover {
+    color: #00d4ff;
+    /* Custom hover color */
+}
+
+.nav-link-custom {
+    font-family: 'Open Sans', sans-serif;
+    color: #fff !important;
+    /* White text for links */
+    margin-right: 15px;
+    transition: color 0.3s ease-in-out;
+    /* Smooth transition */
+}
+
+.nav-link-custom:hover {
+    color: #00d4ff !important;
+    /* Hover effect for nav links */
+}
+
+.navbar .dropdown-menu {
+    background-color: #444;
+    /* Darker background for dropdown */
+    color: #fff;
+    border: none;
+}
+
+.navbar .dropdown-menu a {
+    color: #ddd;
+    /* Slightly lighter text */
+}
+
+.navbar .dropdown-menu a:hover {
+    background-color: #555;
+    /* Darker hover background */
+    color: #fff;
+    /* White text on hover */
+}
+
+.search-bar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.search-input {
+    border-radius: 25px;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    background-color: #222;
+    color: #fff;
+    outline: none;
+}
+
+.custom-search-btn {
+    background-color: #00d4ff;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0.5rem 1.2rem;
+    margin-left: 10px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.custom-search-btn:hover {
+    background-color: #00aaff;
+    /* Darker blue on hover */
+}
+
+@media (max-width: 992px) {
+
+    /* Mobile styling for better appearance */
+    .search-bar {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+}
