@@ -1,0 +1,17 @@
+.navbar {
+    opacity: 0.9;
+    background-color: azure;
+}
+
+.nav-link {
+    margin-left: 30px;
+}
+
+.nav-item a {
+    color: black;
+    font-weight: 700;
+}
+
+.nav-item a:hover {
+    color: red;
+}

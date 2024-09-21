@@ -1,0 +1,51 @@
+.explore-container {
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.image-head {
+    color: white;
+}
+
+.image-1 {
+    background-image: url('../assets/img1.jpg');
+}
+
+.image-2 {
+    background-image: url('../assets/img2.jpg');
+}
+
+.image-3 {
+    background-image: url('../assets/img3.jpg');
+}
+
+.image-4 {
+    background-image: url('../assets/img4.jpg');
+}
+
+.image.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h1 {
+    font-size: 3em;
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
