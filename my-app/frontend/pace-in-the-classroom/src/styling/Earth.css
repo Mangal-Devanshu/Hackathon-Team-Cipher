@@ -1,0 +1,9 @@
+.text-container {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    margin-left: 350px;
+    transform: translateY(-50%);
+    color: white;
+    z-index: 10;
+}

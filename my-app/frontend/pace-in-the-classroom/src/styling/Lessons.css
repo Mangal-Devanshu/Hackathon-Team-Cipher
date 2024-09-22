@@ -1,0 +1,65 @@
+.lessons-container {
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    height: 94.5vh;
+    /* Full height */
+}
+
+.image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.image.visible {
+    opacity: 1;
+}
+
+.content {
+    text-align: center;
+    color: white;
+}
+
+.image-head {
+    font-size: 3em;
+    font-weight: 700;
+    text-decoration: none;
+    /* Remove underline */
+    color: white;
+    /* Link color */
+    transition: color 0.3s;
+    /* Smooth transition for hover */
+}
+
+.image-text {
+    font-size: 1.5em;
+    /* Adjust text size as needed */
+    margin-top: 10px;
+    /* Space between title and text */
+    max-width: 600px;
+    /* Limit width for better readability */
+}
+
+.image-1 {
+    background-image: url('../assets/img1.jpg');
+}
+
+.image-2 {
+    background-image: url('../assets/SPXone.png');
+}
+
+.image-3 {
+    background-image: url('../assets/HARP2.png');
+}

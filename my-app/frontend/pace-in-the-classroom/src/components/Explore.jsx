@@ -1,44 +1,74 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Button } from 'react-bootstrap';
 import '../styling/Explore.css';
 
+const videos = [
+    {
+        id: 1,
+        src: '/videos/1.mp4',
+        text: 'First Video Text Here',
+        link: 'https://example.com/first-video'
+    },
+    {
+        id: 2,
+        src: '/videos/2.mp4',
+        text: 'Second Video Text Here',
+        link: 'https://example.com/second-video'
+    },
+    {
+        id: 3,
+        src: '/videos/3.mp4',
+        text: 'Third Video Text Here',
+        link: 'https://example.com/third-video'
+    },
+    {
+        id: 4,
+        src: '/videos/4.mp4',
+        text: 'Fourth Video Text Here',
+        link: 'https://example.com/third-video'
+    },
+    {
+        id: 5,
+        src: '/videos/5.mp4',
+        text: 'Sixth Video Text Here',
+        link: 'https://example.com/third-video'
+    }
+];
+
 function Explore() {
+    const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+
+    const handleVideoEnd = () => {
+        setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
+    };
+
     useEffect(() => {
-        const images = document.querySelectorAll('.explore-container .image');
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                } else {
-                    entry.target.classList.remove('visible');
-                }
-            });
-        }, { threshold: 0.5, });
-
-        images.forEach((image) => {
-            observer.observe(image);
+        // Preload videos
+        videos.forEach(video => {
+            const preloadedVideo = document.createElement('video');
+            preloadedVideo.src = video.src;
         });
-
-        return () => {
-            images.forEach((image) => {
-                observer.unobserve(image);
-            });
-        };
     }, []);
 
     return (
-        <div className="explore-container">
-            <div className="image image-1">
-                <h1 className="image-head">Section 1 Text</h1>
-            </div>
-            <div className="image image-2">
-                <h1 className="image-head">Section 2 Text</h1>
-            </div>
-            <div className="image image-3">
-                <h1 className="image-head">Section 3 Text</h1>
-            </div>
-            <div className="image image-4">
-                <h1 className="image-head">Section 4 Text</h1>
+        <div className="video-sequence-container">
+            <video
+                key={videos[currentVideoIndex].id}
+                src={videos[currentVideoIndex].src}
+                className="background-video"
+                autoPlay
+                muted
+                onEnded={handleVideoEnd}
+            />
+            <div className="text-overlay">
+                <h1>{videos[currentVideoIndex].text}</h1>
+                <Button
+                    variant="primary"
+                    href={videos[currentVideoIndex].link}
+                    target="_blank"
+                >
+                    Learn More
+                </Button>
             </div>
         </div>
     );

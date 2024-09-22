@@ -1,5 +1,6 @@
 .card {
-    max-width: 450px;
+    height: 700px;
+    width: 620px;
     color: whitesmoke;
     margin: 2rem;
     padding: 2rem;
@@ -14,15 +15,14 @@
     inherits: false;
 }
 
-
 .card::after,
 .card::before {
     content: '';
     --angle: 0deg;
     position: absolute;
     height: 106%;
-    width: 103%;
-    background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff);
+    width: 102%;
+    background-image: conic-gradient(from var(--angle), #ff4545, #ffff00, #006aff);
     top: 50%;
     left: 50%;
     translate: -50% -50%;

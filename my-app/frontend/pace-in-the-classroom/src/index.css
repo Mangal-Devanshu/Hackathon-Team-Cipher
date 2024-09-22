@@ -1,3 +1,14 @@
-body {
-    font-family: 'Century Gothic', Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
+
+body,
+html,
+* {
+    font-family: 'Raleway', sans-serif;
+    /* Apply Archivo font to all elements */
+    margin: 0;
+    /* Remove default margin */
+    padding: 0;
+    /* Remove default padding */
+    box-sizing: border-box;
+    /* Adjust box model */
 }

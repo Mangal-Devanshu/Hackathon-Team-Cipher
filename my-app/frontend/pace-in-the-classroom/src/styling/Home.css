@@ -1,6 +1,19 @@
+/* Home.css */
 .home-container {
     background-color: black;
     opacity: 0.9;
     width: 100%;
     height: 100vh;
+    position: relative;
+    /* Ensure proper stacking */
+    overflow: hidden;
+    /* Prevent overflow issues */
+}
+
+.earth {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

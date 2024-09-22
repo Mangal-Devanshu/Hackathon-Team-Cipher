@@ -4,7 +4,6 @@ import * as THREE from 'three';
 import { interpolateTurbo, interpolateRdBu, interpolateYlGnBu } from 'd3-scale-chromatic';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import '../styling/Globe.css'; // Optional CSS file
 
 function Globe({ data, dataType }) {
   const globeRef = useRef(null);
@@ -43,7 +42,7 @@ function Globe({ data, dataType }) {
 
     if (data && data.latitudes && data.longitudes && data.data_values.length > 0) {
       const { latitudes, longitudes, data_values } = data;
-      
+
       const validMin = validRanges[dataType].min;
       const validMax = validRanges[dataType].max;
       const colorScale = colorScales[dataType];
