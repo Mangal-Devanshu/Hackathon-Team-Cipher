@@ -9,16 +9,34 @@ CORS(app)
 uri = "mongodb+srv://devanshu:Rathod%40pace01@cluster0.lvq61.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 client = MongoClient(uri)
 db = client['earthDataDB']
-collection = db['paceOCI_chlor_downsampled']  # Corrected collection reference
+
+# Collections
+collections = {
+    'chl': db['paceOCI_chlor_downsampled'],
+    'carbon': db['paceOCI_carbon_downsampled'],
+    'sst': db['paceOCI_sst_downsampled']
+}
+
+# In-memory cache to avoid fetching the same data multiple times
+cache = {}
 
 # Function to fetch paginated data based on lat/lon ranges and chunk size
-def get_paginated_data(start_lat, start_lon, lat_chunk_size, lon_chunk_size):
+def get_paginated_data(start_lat, start_lon, lat_chunk_size, lon_chunk_size, dataset):
     try:
+        cache_key = f"{dataset}_{start_lat}_{start_lon}_{lat_chunk_size}_{lon_chunk_size}"
+        if cache_key in cache:
+            return cache[cache_key]
+
+        # Select the appropriate collection based on dataset
+        collection = collections.get(dataset)
+        if collection is None:
+            return None
+
         # Fetch documents from MongoDB that match the latitude and longitude ranges
-        documents = collection.find({
+        documents = list(collection.find({
             'latitude': {'$gte': start_lat, '$lt': start_lat + lat_chunk_size},
             'longitude': {'$gte': start_lon, '$lt': start_lon + lon_chunk_size}
-        })
+        }))
 
         # Prepare data for the response
         if not documents:
@@ -27,19 +45,25 @@ def get_paginated_data(start_lat, start_lon, lat_chunk_size, lon_chunk_size):
         # Extract data from the MongoDB documents
         latitudes = []
         longitudes = []
-        chlorophyll_data = []
+        data_values = []
 
         for document in documents:
             latitudes.append(document['latitude'])
             longitudes.append(document['longitude'])
-            chlorophyll_data.append(document['chlorophyll_a'])
+            data_values.append(
+                document.get('chlorophyll_a') or
+                document.get('carbon_phyto') or
+                document.get('sst')
+            )
 
         data = {
             'latitudes': latitudes,
             'longitudes': longitudes,
-            'chlorophyll_data': chlorophyll_data
+            'data_values': data_values
         }
 
+        # Cache the result for future requests
+        cache[cache_key] = data
         return data
     except Exception as e:
         print(f"Unexpected error: {e}")
@@ -49,12 +73,14 @@ def get_paginated_data(start_lat, start_lon, lat_chunk_size, lon_chunk_size):
 def get_data():
     try:
         # Get pagination parameters from request query
-        start_lat = float(request.args.get('start_lat', 0))  # Default to 0 if not provided
-        start_lon = float(request.args.get('start_lon', 0))  # Default to 0 if not provided
-        lat_chunk_size = float(request.args.get('lat_chunk_size', 10))  # Default to 10-degree chunks
-        lon_chunk_size = float(request.args.get('lon_chunk_size', 10))  # Default to 10-degree chunks
+        start_lat = float(request.args.get('start_lat', 0))
+        start_lon = float(request.args.get('start_lon', 0))
+        lat_chunk_size = float(request.args.get('lat_chunk_size', 10))
+        lon_chunk_size = float(request.args.get('lon_chunk_size', 10))
+        dataset = request.args.get('dataset', 'chl')  # Default to 'chl'
 
-        data = get_paginated_data(start_lat, start_lon, lat_chunk_size, lon_chunk_size)
+        # Get paginated data
+        data = get_paginated_data(start_lat, start_lon, lat_chunk_size, lon_chunk_size, dataset)
 
         if data:
             return jsonify(data)
