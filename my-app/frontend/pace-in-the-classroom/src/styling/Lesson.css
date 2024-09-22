@@ -1,8 +1,3 @@
-body {
-  background-color: black; /* Set the main page background to black */
-  color: white; /* Default text color to white for contrast */
-}
-
 .lesson-container {
   margin-bottom: 20px;
   cursor: pointer; /* Indicate that the area is clickable */
@@ -17,7 +12,8 @@ body {
   width: 100%; /* Ensure the image fills the container width */
   height: auto; /* Maintain aspect ratio */
   max-width: 784px; /* Set max width for the image */
-  border-radius: 8px; /* Optional: Add rounded corners */
+  border-radius: 8px 8px 0 0; /* Round only the top corners */
+  display: block; /* Ensure there's no bottom rounding */
 }
 
 .title-overlay {
@@ -37,7 +33,7 @@ body {
   color: black; /* Text color */
   padding: 20px; /* Padding for the content */
   text-align: center; /* Center align text */
-  border-radius: 8px; /* Rounded corners */
+  border-radius: 0 0 8px 8px; /* Rounded corners at the bottom */
   position: absolute;
   bottom: 0; /* Align to the bottom of the image */
   left: 0; /* Align to left */
