@@ -6,13 +6,13 @@ app = Flask(__name__)
 CORS(app)
 
 # MongoDB connection
-uri = "mongodb+srv://devanshu:Rathod%40pace01@cluster0.lvq61.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+uri = "mongodb://ronitrathod:Rathod%40pace01@localhost:27017/admin"
 client = MongoClient(uri)
-db = client['earthDataDB']
+db = client['nasaDataDB']
 
 # Collections
 collections = {
-    'chl': db['paceOCI_chlor_downsampled'],
+    'chl': db['chlor_data'],
     'carbon': db['paceOCI_carbon_downsampled'],
     'sst': db['paceOCI_sst_downsampled']
 }

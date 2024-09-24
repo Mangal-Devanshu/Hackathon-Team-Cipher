@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Card, Form, Alert } from "react-bootstrap";
-import quizModules from "./quizModules";
+import QuizContent from "./QuizContent";
 
 const QuizModule = ({ setScore, score }) => {
   const [selectedAnswers, setSelectedAnswers] = useState({});
@@ -12,7 +12,7 @@ const QuizModule = ({ setScore, score }) => {
 
   const handleQuizSubmit = () => {
     let calculatedScore = 0;
-    quizModules.forEach((module, moduleIndex) => {
+    QuizContent.forEach((module, moduleIndex) => {
       module.questions.forEach((questionObj, questionIndex) => {
         const questionKey = `module-${moduleIndex}-question-${questionIndex}`;
         if (selectedAnswers[questionKey] === questionObj.correctAnswer) {
@@ -29,7 +29,7 @@ const QuizModule = ({ setScore, score }) => {
       <Card.Body>
         <h4 className="mb-4">Test Your Knowledge! 🎓</h4>
         <Form>
-          {quizModules.map((module, moduleIndex) => (
+          {QuizContent.map((module, moduleIndex) => (
             <div key={moduleIndex}>
               <h5>{module.title}</h5>
               {module.questions.map((questionObj, questionIndex) => (
@@ -56,8 +56,8 @@ const QuizModule = ({ setScore, score }) => {
         </Form>
 
         {showResult && (
-          <Alert className="mt-4" variant={score === quizModules.length ? "success" : "info"}>
-            You got {score} out of {quizModules.length} correct!
+          <Alert className="mt-4" variant={score === QuizContent.length ? "success" : "info"}>
+            You got {score} out of {QuizContent.length} correct!
           </Alert>
         )}
       </Card.Body>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Container, Row, Col } from "react-bootstrap";
-import Lesson from "./Lesson";
+import LessonCard from "./LessonCard";
 import Journey from "./Journey";
 import sections from "./Modules";
 import QuizModule from "./QuizModule";
@@ -32,14 +32,14 @@ const Lessons = () => {
           <Row className="justify-content-center">
             {section.modules.map((module, index) => (
               <Col key={index} xs={12} sm={6} md={4} lg={3}>
-                <Lesson
+                <LessonCard
                   lessonIndex={index + 1}
                   title={module.title}
                   content={module.keyPoints}
                   discussion={module.discussion}
                   fact={module.fact}
                   link={module.resource}
-                  image={module.image}  
+                  image={module.image}
                   openLesson={openLesson}
                   toggleLesson={toggleLesson}
                 />
