@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from 'react';
+import Navbar from './Navbar';
 import axios from 'axios';
 import Globe from './Globe'; // 3D Globe component
 import Map2D from './Map2D'; // 2D Map component
+import MapControls from './MapControls';
+import { Container, Row, Col } from 'react-bootstrap';
+import '../styling/NewMap.css';
 
 function NewMap() {
   const [data, setData] = useState({ latitudes: [], longitudes: [], data_values: [] });
   const [startLat, setStartLat] = useState(-90);
   const [startLon, setStartLon] = useState(-180);
-  const [isFetching, setIsFetching] = useState(true);
-  const [viewMode, setViewMode] = useState('globe'); // State to toggle between globe and map
-  const [dataset, setDataset] = useState('chl'); // Default to chlorophyll
+  const [isFetching, setIsFetching] = useState(false);
+  const [viewMode, setViewMode] = useState('');
+  const [dataset, setDataset] = useState('');
 
   const latChunkSize = 90;
   const lonChunkSize = 180;
   const fetchInterval = 500;
 
-  // Fetch data in chunks using pagination
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -37,80 +40,73 @@ function NewMap() {
       }
     };
 
-    const interval = setInterval(() => {
-      fetchData();
-      setStartLon((prevLon) => {
-        const newLon = prevLon + lonChunkSize;
-        if (newLon >= 180) {
-          const newLat = startLat + latChunkSize;
-          if (newLat >= 90) {
-            setIsFetching(false);
+    if (isFetching) {
+      const interval = setInterval(() => {
+        fetchData();
+        setStartLon((prevLon) => {
+          const newLon = prevLon + lonChunkSize;
+          if (newLon >= 180) {
+            const newLat = startLat + latChunkSize;
+            if (newLat >= 90) {
+              setIsFetching(false);
+              return -180;
+            }
+            setStartLat(newLat);
             return -180;
           }
-          setStartLat(newLat);
-          return -180;
-        }
-        return newLon;
-      });
-    }, fetchInterval);
+          return newLon;
+        });
+      }, fetchInterval);
 
-    if (!isFetching) clearInterval(interval);
+      return () => clearInterval(interval);
+    }
+  }, [startLat, startLon, isFetching, dataset]);
 
-    return () => clearInterval(interval);
-  }, [startLat, startLon, latChunkSize, lonChunkSize, isFetching, dataset]);
-
-  // Handle mode switching (globe or map)
-  const handleModeChange = (event) => {
-    setViewMode(event.target.value);
-  };
-
-  // Handle dataset change and reset the state
-  const handleDatasetChange = (event) => {
-    setDataset(event.target.value);
-    setData({ latitudes: [], longitudes: [], data_values: [] }); // Clear existing data when changing dataset
-    setStartLat(-90);
-    setStartLon(-180);
-    setIsFetching(true); // Restart fetching for the new dataset
+  const handleSubmit = () => {
+    if (dataset && viewMode) {
+      setIsFetching(true);
+      setStartLat(-90);
+      setStartLon(-180);
+      setData({ latitudes: [], longitudes: [], data_values: [] });
+    }
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Data Visualization</h1>
+    <Container fluid className="visualization-container text-white">
+      <div className="navbar-container">
+        <Navbar />
+      </div>
+      <Row className="justify-content-center mb-4">
+        <h1 className="text-light">Data Visualization</h1>
+      </Row>
 
-        {/* Dataset Selection */}
-        <div>
-          <label htmlFor="datasetSelect">Select Dataset: </label>
-          <select id="datasetSelect" value={dataset} onChange={handleDatasetChange}>
-            <option value="chl">Chlorophyll</option>
-            <option value="carbon">Carbon</option>
-            <option value="sst">Sea Surface Temperature (SST)</option>
-          </select>
-        </div>
+      <Row>
+        {/* Map Controls Component */}
+        <Col md={4}>
+          <MapControls
+            dataset={dataset}
+            setDataset={setDataset}
+            viewMode={viewMode}
+            setViewMode={setViewMode}
+            isFetching={isFetching}
+            handleSubmit={handleSubmit}
+          />
+        </Col>
 
-        {/* Mode Selection Dropdown */}
-        <div>
-          <label htmlFor="modeSelect">Select Mode: </label>
-          <select id="modeSelect" value={viewMode} onChange={handleModeChange}>
-            <option value="globe">3D Globe</option>
-            <option value="map">2D Map</option>
-          </select>
-        </div>
-
-        {/* Submit Button */}
-        <div>
-          <button onClick={() => { setIsFetching(true); }}>Submit</button>
-        </div>
-
-        {/* Data Loading Indicator */}
-        <p>{isFetching ? 'Loading data...' : 'Data loaded successfully!'}</p>
-
-        {/* Render 3D Globe or 2D Map */}
-        {data.latitudes.length > 0 && (
-          viewMode === 'globe' ? <Globe data={data} dataType={dataset} /> : <Map2D data={data} dataType={dataset} />
-        )}
-      </header>
-    </div>
+        {/* Data Content Section */}
+        <Col md={8} className="data-content-container">
+          <div className="data-content">
+            {data.latitudes.length > 0 && viewMode === 'globe' ? (
+              <Globe data={data} dataType={dataset} />
+            ) : data.latitudes.length > 0 && viewMode === 'map' ? (
+              <Map2D data={data} dataType={dataset} />
+            ) : (
+              <p className="text-white">Please select options and submit to see the visualization.</p>
+            )}
+          </div>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

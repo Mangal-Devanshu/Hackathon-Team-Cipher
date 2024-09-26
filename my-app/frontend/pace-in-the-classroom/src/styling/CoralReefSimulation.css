@@ -1,0 +1,37 @@
+.coral-reef-container {
+    text-align: center;
+    font-family: 'Comic Sans MS', sans-serif;
+    margin: 20px;
+    background-image: url('/textures/Water_background.png');
+    /* Fun underwater background */
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.temperature-slider {
+    width: 80%;
+    margin: 20px auto;
+    appearance: none;
+    height: 15px;
+    background: linear-gradient(to right, lightblue, red);
+    outline: none;
+    border-radius: 10px;
+}
+
+.temperature-slider::-webkit-slider-thumb {
+    width: 30px;
+    height: 30px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.coral-health-status {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 15px;
+}

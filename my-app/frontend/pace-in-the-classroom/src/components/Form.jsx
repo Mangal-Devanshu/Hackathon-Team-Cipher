@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Navbar from './Navbar';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import '../styling/Temp.css'
@@ -39,30 +40,35 @@ function FormDisabledExample() {
     };
 
     return (
-        <div className="temp-container">
-            <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3">
-                    <Form.Label htmlFor="disabledTextInput" className="txt">Longitude:</Form.Label>
-                    <Form.Control
-                        className="form-input"
-                        type="text"
-                        placeholder="Longitude"
-                        value={longitude}
-                        onChange={(e) => setLongitude(e.target.value)} // Update longitude state
-                    />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label htmlFor="disabledTextInput" className="txt">Latitude:</Form.Label>
-                    <Form.Control
-                        className="form-input"
-                        type="text"
-                        placeholder="Latitude"
-                        value={latitude}
-                        onChange={(e) => setLatitude(e.target.value)} // Update latitude state
-                    />
-                </Form.Group>
-                <Button type="submit">Submit</Button>
-            </Form>
+        <div className="temps">
+            <div className="navbar-container">
+                <Navbar />
+            </div>
+            <div className="temp-container">
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group className="mb-3">
+                        <Form.Label htmlFor="disabledTextInput" className="txt">Longitude:</Form.Label>
+                        <Form.Control
+                            className="form-input"
+                            type="text"
+                            placeholder="Longitude"
+                            value={longitude}
+                            onChange={(e) => setLongitude(e.target.value)} // Update longitude state
+                        />
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label htmlFor="disabledTextInput" className="txt">Latitude:</Form.Label>
+                        <Form.Control
+                            className="form-input"
+                            type="text"
+                            placeholder="Latitude"
+                            value={latitude}
+                            onChange={(e) => setLatitude(e.target.value)} // Update latitude state
+                        />
+                    </Form.Group>
+                    <Button type="submit">Submit</Button>
+                </Form>
+            </div>
         </div>
     );
 }

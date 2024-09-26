@@ -42,7 +42,7 @@ function Map2D({ data, dataType }) {
       const svg = d3.select(svgRef.current);
       svg.selectAll('*').remove(); // Clear the SVG before drawing
 
-      const width = 800;
+      const width = 700;
       const height = 400;
 
       const projection = d3.geoEquirectangular()
@@ -94,9 +94,9 @@ function Map2D({ data, dataType }) {
   return (
     <div>
       {cachedImage ? (
-        <img src={cachedImage} alt="Cached 2D map" width="800" height="400" />
+        <img src={cachedImage} alt="Cached 2D map" width="700" height="400" />
       ) : (
-        <svg ref={svgRef} width="800" height="400" />
+        <svg ref={svgRef} width="700" height="400" />
       )}
     </div>
   );

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Card from './Card';
 import '../styling/About.css';
 import myImage from '../assets/dhairya.jpg'
+import Navbar from './Navbar'
 
 const cardsData = [
     { name: "Devanshu Mangal", field: "Database + Backend" },
@@ -23,17 +24,22 @@ function About() {
 
     return (
         <div className="about-container">
-            <div className="background-svg"></div>
-            <div className="arrow left" onClick={prevCard}>&lt;</div>
-            <div className="card-container">
-                <Card
-                    name={cardsData[currentIndex].name}
-                    field={cardsData[currentIndex].field}
-                    img={myImage}
-                    className="animated-card"
-                />
+            <div className="navbar-container">
+                <Navbar />
             </div>
-            <div className="arrow right" onClick={nextCard}>&gt;</div>
+            <div className="abouts">
+                <div className="background-svg"></div>
+                <div className="arrow left" onClick={prevCard}>&lt;</div>
+                <div className="card-container">
+                    <Card
+                        name={cardsData[currentIndex].name}
+                        field={cardsData[currentIndex].field}
+                        img={myImage}
+                        className="animated-card"
+                    />
+                </div>
+                <div className="arrow right" onClick={nextCard}>&gt;</div>
+            </div>
         </div>
     );
 }

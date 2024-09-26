@@ -18,7 +18,7 @@ function Navbar() {
                     <Nav.Link
                         as={NavLink}
                         to={item.path}
-                        className={({ isActive }) => (isActive ? 'active' : '')} // Apply active class when route is active
+                        className={({ isActive }) => (isActive ? 'active blink' : '')} // Add 'blink' class when active
                     >
                         {item.label}
                     </Nav.Link>

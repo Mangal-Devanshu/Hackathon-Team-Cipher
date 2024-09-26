@@ -1,5 +1,10 @@
-.map-container {
-    height: 91.7vh;
-    width: 100%;
-    background-color: black;
+/* Maps.css */
+
+.maps {
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar-container {
+    margin: 0;
 }

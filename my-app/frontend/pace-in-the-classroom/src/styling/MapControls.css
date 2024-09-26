@@ -1,0 +1,71 @@
+/* MapControls.css */
+.map-controls-container {
+    height: 100%;
+    color: #fff;
+}
+
+.left-column {
+    /* Darker shade for the left panel */
+    padding: 20px;
+    width: 500px;
+    /* Spacing inside the left panel */
+}
+
+.map-controls {
+    border: 1px solid #007bff;
+    /* Blue border */
+    border-radius: 8px;
+    /* Rounded corners */
+    padding: 20px;
+    background-color: #0d0d0d;
+    /* Slightly lighter background for the form */
+}
+
+.right-column {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.data-content {
+    width: 100%;
+    height: 120%;
+    border: 1px solid #007bff;
+    /* Blue border */
+    border-radius: 8px;
+    /* Rounded corners */
+    padding: 20px;
+    background-color: #0d0d0d;
+    /* Background color */
+    color: #ffffff;
+    /* Text color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-primary {
+    color: #007bff !important;
+    /* Bootstrap primary color for text */
+}
+
+.text-success {
+    color: #28a745 !important;
+    /* Bootstrap success color for text */
+}
+
+.bg-dark {
+    background-color: #1a1a1a !important;
+    /* Dark background for form controls */
+}
+
+.border-primary {
+    border-color: #007bff !important;
+    /* Bootstrap primary border color */
+}
+
+.text-white {
+    color: #ffffff !important;
+    /* White text color */
+}

@@ -1,32 +1,34 @@
-import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Home from './components/Home';
-import Lessons from './components/Explore';
-import Explore from './components/Lessons';
-import Maps from './components/Maps';
-import About from './components/About';
-import Form from './components/Form';
+
+// Lazy load components
+const Home = lazy(() => import('./components/Home'));
+const Lessons = lazy(() => import('./components/Explore'));
+const Explore = lazy(() => import('./components/Lessons'));
+const Maps = lazy(() => import('./components/Maps'));
+const About = lazy(() => import('./components/About'));
+const Form = lazy(() => import('./components/Form'));
 
 function App() {
   return (
     <Router>
       <div className="main-container">
-        <div className="navbar-container">
-          <Navbar />
+        <div className="content-container">
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+              <Route path="/home" element={<Home />} />
+              <Route path="/explore" element={<Lessons />} />
+              <Route path="/lessons" element={<Explore />} />
+              <Route path="/maps" element={<Maps />} />
+              <Route path="/temp" element={<Form />} />
+              <Route path="/about-us" element={<About />} />
+              {/* Default route handling */}
+              <Route path="*" element={<Navigate to="/home" replace />} />
+            </Routes>
+          </Suspense>
         </div>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="/explore" element={<Lessons />} />
-            <Route path="/lessons" element={<Explore />} />
-            <Route path="/maps" element={<Maps />} />
-            <Route path="/temp" element={<Form />} />
-            <Route path="/about-us" element={<About />} />
-            <Route path="*" element={<Home />} />
-          </Routes>
-        </Suspense>
-      </div >
+      </div>
     </Router>
   );
 }

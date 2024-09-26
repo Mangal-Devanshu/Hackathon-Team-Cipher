@@ -1,65 +1,122 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import { Button, Container, Row, Col } from "react-bootstrap";
+import Navbar from './Navbar';
 import LessonCard from "./LessonCard";
-import Journey from "./Journey";
 import sections from "./Modules";
 import QuizModule from "./QuizModule";
 import "../styling/Lessons.css";
 
-const Lessons = () => {
-  const [openLesson, setOpenLesson] = useState(null);
-  const [quizVisible, setQuizVisible] = useState(false);
-  const [completedLessons, setCompletedLessons] = useState(0);
-  const [score, setScore] = useState(0);
+function Lessons() {
+    const [openLesson, setOpenLesson] = useState(0); // Initialize to the first lesson index
+    const [quizVisible, setQuizVisible] = useState(false);
+    const [score, setScore] = useState(0);
+    const [sectionIndex, setSectionIndex] = useState(0); // For section navigation
 
-  const toggleLesson = (lessonIndex) => {
-    setOpenLesson(openLesson === lessonIndex ? null : lessonIndex);
-    if (openLesson !== lessonIndex && openLesson === null) {
-      setCompletedLessons((prev) => prev + 1);
-    }
-  };
+    const toggleLesson = (lessonIndex) => {
+        setOpenLesson(openLesson === lessonIndex ? null : lessonIndex);
+    };
 
-  return (
-    <Container className="mt-4">
-      <h1 className="text-center mb-4">Why is PACE Important?</h1>
-      <p className="lead text-center">Join us on a fun journey to learn about how PACE helps us understand our planet!</p>
+    const nextLesson = () => {
+        setOpenLesson(prevLessonIndex => {
+            const nextIndex = prevLessonIndex + 1;
+            if (nextIndex < sections[sectionIndex].modules.length) {
+                return nextIndex;
+            }
+            return prevLessonIndex; // Stay on the last lesson
+        });
+    };
 
-      <Journey completedLessons={completedLessons} />
+    const prevLesson = () => {
+        setOpenLesson(prevLessonIndex => {
+            const newIndex = prevLessonIndex - 1;
+            if (newIndex >= 0) {
+                return newIndex;
+            }
+            return prevLessonIndex; // Stay on the first lesson
+        });
+    };
 
-      {sections.map((section, secIndex) => (
-        <div key={secIndex}>
-          <h2 className="text-center mb-4">{section.section}</h2>
-          <Row className="justify-content-center">
-            {section.modules.map((module, index) => (
-              <Col key={index} xs={12} sm={6} md={4} lg={3}>
-                <LessonCard
-                  lessonIndex={index + 1}
-                  title={module.title}
-                  content={module.keyPoints}
-                  discussion={module.discussion}
-                  fact={module.fact}
-                  link={module.resource}
-                  image={module.image}
-                  openLesson={openLesson}
-                  toggleLesson={toggleLesson}
-                />
-              </Col>
-            ))}
-          </Row>
+    const nextSection = () => {
+        setSectionIndex((prevIndex) => (prevIndex + 1) % sections.length);
+        setOpenLesson(0); // Reset to the first lesson of the new section
+    };
+
+    const prevSection = () => {
+        setSectionIndex((prevIndex) => (prevIndex - 1 + sections.length) % sections.length);
+        setOpenLesson(0); // Reset to the first lesson of the new section
+    };
+
+    return (
+        <div className="lessons-page">
+            <div className="navbar-container">
+                <Navbar />
+            </div>
+            <div className="lessons-container">
+                <Container className="mt-4 position-relative z-index-1">
+                    <h1 className="text-center mb-4 lesson-title animate-title">
+                        {sections[sectionIndex].section}
+                    </h1>
+
+                    {/* Section Navigation */}
+                    <div className="arrow-container text-center mb-4 lesson-navigation">
+                        <Button variant="outline-primary" onClick={prevSection}>Previous Section</Button>
+                        <Button variant="outline-primary" onClick={nextSection}>Next Section</Button>
+                    </div>
+
+                    {/* Single Lesson Card Display */}
+                    <div>
+                        <Row>
+                            <Col className="card-column" lg={6} md={8}>
+                                <LessonCard
+                                    lessonIndex={openLesson}
+                                    title={sections[sectionIndex].modules[openLesson]?.title}
+                                    content={sections[sectionIndex].modules[openLesson]?.keyPoints}
+                                    discussion={sections[sectionIndex].modules[openLesson]?.discussion}
+                                    fact={sections[sectionIndex].modules[openLesson]?.fact}
+                                    link={sections[sectionIndex].modules[openLesson]?.resource}
+                                    image={sections[sectionIndex].modules[openLesson]?.image}
+                                    openLesson={openLesson}
+                                    toggleLesson={toggleLesson}
+                                />
+                            </Col>
+                        </Row>
+                    </div>
+
+                    {/* Lesson Navigation Buttons */}
+                    <div className="lesson-navigation text-center mt-4">
+                        <Button
+                            variant="outline-light"
+                            onClick={prevLesson}
+                            disabled={openLesson === 0} // Disable if on the first lesson
+                        >
+                            Previous Lesson
+                        </Button>
+                        <Button
+                            variant="outline-light"
+                            onClick={nextLesson}
+                            disabled={openLesson >= sections[sectionIndex].modules.length - 1} // Disable if on the last lesson
+                        >
+                            Next Lesson
+                        </Button>
+                    </div>
+
+                    {/* Quiz Section */}
+                    <Row className="mt-4 text-center">
+                        <Col>
+                            <Button
+                                className={`quiz-button ${quizVisible ? "quiz-button-active" : ""}`}
+                                onClick={() => setQuizVisible(!quizVisible)}
+                            >
+                                {quizVisible ? "Hide Quiz" : "Take the Quiz!"}
+                            </Button>
+                        </Col>
+                    </Row>
+
+                    {quizVisible && <QuizModule setScore={setScore} score={score} />}
+                </Container>
+            </div>
         </div>
-      ))}
-
-      <Row className="mt-4 text-center">
-        <Col>
-          <Button onClick={() => setQuizVisible(!quizVisible)}>
-            {quizVisible ? "Hide Quiz" : "Take the Quiz!"}
-          </Button>
-        </Col>
-      </Row>
-
-      {quizVisible && <QuizModule setScore={setScore} score={score} />}
-    </Container>
-  );
-};
+    );
+}
 
 export default Lessons;

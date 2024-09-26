@@ -1,6 +1,6 @@
 .card {
-    height: 700px;
-    width: 620px;
+    height: 300px;
+    width: 600px;
     color: whitesmoke;
     margin: 2rem;
     padding: 2rem;
@@ -20,8 +20,8 @@
     content: '';
     --angle: 0deg;
     position: absolute;
-    height: 106%;
-    width: 102%;
+    height: 105.5%;
+    width: 103%;
     background-image: conic-gradient(from var(--angle), #ff4545, #ffff00, #006aff);
     top: 50%;
     left: 50%;

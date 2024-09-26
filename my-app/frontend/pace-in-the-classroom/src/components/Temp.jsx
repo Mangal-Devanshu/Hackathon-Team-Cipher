@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Navbar from './Navbar';
 
 function Temp() {
     const [longitude, setLongitude] = useState('');

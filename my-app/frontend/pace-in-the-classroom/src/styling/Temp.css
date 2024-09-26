@@ -1,3 +1,9 @@
+.temps {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+}
+
 .temp-container {
     background-color: black;
     display: flex;
