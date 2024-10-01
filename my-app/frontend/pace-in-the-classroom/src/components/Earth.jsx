@@ -4,16 +4,53 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import getStarfield from '../three-earth/getStarfield.js';
 import { getFresnelMat } from '../three-earth/getFresnelMat.js';
+import NasaFooter from './NasaFooter'; // Import the footer component
 import '../styling/Earth.css';
 
 const Earth = () => {
     const mountRef = useRef(null);
+    const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+    const [showFooter, setShowFooter] = useState(true); // State to track the footer visibility
+
+    // Define the messages to display
+    const messages = [
+        "Explore the beauty of our planet Earth.",
+        "Discover new horizons and possibilities.",
+        "Witness the wonders of our universe.",
+        "Embrace the adventure and mystery of space."
+    ];
+
+    // Scroll listener to hide footer on scroll
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 150) {
+                setShowFooter(false); // Hide footer when scroll passes 50px
+            } else {
+                setShowFooter(true); // Show footer when scrolled back to the top
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll); // Cleanup event listener on component unmount
+        };
+    }, []);
+
+    useEffect(() => {
+        // Update message every 3 seconds
+        const messageInterval = setInterval(() => {
+            setCurrentMessageIndex(prevIndex => (prevIndex + 1) % messages.length);
+        }, 3000);
+
+        return () => clearInterval(messageInterval);
+    }, [messages.length]);
 
     useEffect(() => {
         const w = window.innerWidth;
         const h = window.innerHeight;
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(60, w / h, 0.1, 1000);
+        const camera = new THREE.PerspectiveCamera(65, w / h, 0.1, 1000);
         camera.position.set(0, 0, 3); // Set camera directly in front of Earth
         const renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setSize(w, h);
@@ -32,68 +69,91 @@ const Earth = () => {
 
         const loader = new THREE.TextureLoader();
         const geometry = new THREE.SphereGeometry(1, 64, 64); // Use SphereGeometry for a perfect sphere
-        const material = new THREE.MeshPhongMaterial({
-            map: loader.load('/textures/earth/00_earthmap1k.jpg'),
-            specularMap: loader.load('/textures/earth/02_earthspec1k.jpg'),
-            bumpMap: loader.load('/textures/earth/00_earthmap1k.jpg'),
-            bumpScale: 0.3
+
+        // Load the high-res textures
+        const earthColorMap = loader.load('/new_textures/earth_color_10K_optimized.png');
+        const earthLandOceanMap = loader.load('/new_textures/earth_landocean_4K_optimized.png');
+        const topographyMap = loader.load('/new_textures/topography_5K_optimized.png');
+        const nightLightsMap = loader.load('/new_textures/earth_nightlights_10K_optimized.png');
+        const cloudMap = loader.load('/new_textures/earth_clouds_8K_optimized.png');
+
+        // Earth material for day textures, normal map, bump map, roughness map, and clearcoat
+        const earthMaterial = new THREE.MeshPhysicalMaterial({
+            map: earthColorMap,                // Base color map
+            roughnessMap: earthLandOceanMap,    // Roughness map for land and ocean
+            bumpMap: topographyMap,             // Bump map for terrain details
+            bumpScale: 3,                    // Adjust bump intensity
+            roughness: 0.8,                     // General roughness for Earth's surface
+            clearcoat: 1,                       // Reflection for atmosphere
+            clearcoatRoughness: 0.1,            // Smooth reflection for atmosphere
         });
-        material.map.colorSpace = THREE.SRGBColorSpace;
-        const earthMesh = new THREE.Mesh(geometry, material);
+
+        const earthMesh = new THREE.Mesh(geometry, earthMaterial);
         earthGroup.add(earthMesh);
 
-        const cloudsMat = new THREE.MeshStandardMaterial({
-            map: loader.load('/textures/earth/04_earthcloudmap.jpg'),
+        // Cloud layer with subtle transparency
+        const cloudsMaterial = new THREE.MeshStandardMaterial({
+            map: cloudMap,
             transparent: true,
-            opacity: 0.3,
+            opacity: 1,
             blending: THREE.AdditiveBlending,
-            alphaMap: loader.load('/textures/earth/05_earthcloudmaptrans.jpg'),
         });
-        const cloudsMesh = new THREE.Mesh(geometry, cloudsMat);
-        cloudsMesh.scale.setScalar(1.01); // Slightly larger than the earthMesh to simulate clouds
+        const cloudsMesh = new THREE.Mesh(geometry, cloudsMaterial);
+        cloudsMesh.scale.setScalar(1.01); // Slightly larger than earthMesh
         earthGroup.add(cloudsMesh);
 
+        // Night lights material
+        const nightLightsMaterial = new THREE.MeshPhongMaterial({
+            map: nightLightsMap,
+            transparent: true,
+            blending: THREE.AdditiveBlending,
+            opacity: 2.5,  // Slightly dimmed to blend with day texture
+        });
+        const nightLightsMesh = new THREE.Mesh(geometry, nightLightsMaterial);
+        earthGroup.add(nightLightsMesh);
+
+        // Add Fresnel effect for atmosphere/glow
         const fresnelMat = getFresnelMat();
         const glowMesh = new THREE.Mesh(geometry, fresnelMat);
-        glowMesh.scale.setScalar(0.92);
+        glowMesh.scale.setScalar(0.94); // Slightly smaller to give a glow around the Earth
         earthGroup.add(glowMesh);
 
+        // Starfield background
         const stars = getStarfield({ numStars: 1600 });
         scene.add(stars);
 
-        const sunLight = new THREE.DirectionalLight(0xffffff, 2.0);
+        // Add sun-like directional light
+        const sunLight = new THREE.DirectionalLight(0xffffff, 3.5);
         sunLight.position.set(-2, 0.5, 1.5);
         scene.add(sunLight);
 
-        // Satellite loader
+        // Satellite loader (optional)
         const satelliteLoader = new GLTFLoader();
         let satelliteMesh;
         satelliteLoader.load('/models/satellite.glb', (gltf) => {
             satelliteMesh = gltf.scene;
-            satelliteMesh.scale.set(0.002, 0.002, 0.002); // Small size for the satellite
+            satelliteMesh.scale.set(0.0025, 0.0025, 0.0025); // Small size for the satellite
             earthGroup.add(satelliteMesh);
         });
 
         // Custom orbit parameters
-        const satelliteOrbitRadiusX = 1.6; // Custom orbit radius on X-axis
-        const satelliteOrbitRadiusY = 0.4; // Custom orbit radius on Y-axis
-        const satelliteOrbitRadiusZ = 0.7; // Custom orbit radius on Z-axis
-        const satelliteSpeed = 0.0001; // Significantly reduced speed
+        const satelliteOrbitRadiusX = 1.6;
+        const satelliteOrbitRadiusY = 0.4;
+        const satelliteOrbitRadiusZ = 0.7;
+        const satelliteSpeed = 0.00009;
 
-        // Create a curve path for the satellite
         const curve = new THREE.EllipseCurve(
-            0, 0,                        // Center of the orbit
-            satelliteOrbitRadiusX,        // X radius
-            satelliteOrbitRadiusZ,        // Z radius
-            0, 2 * Math.PI,               // Start and end angle
-            false,                        // Clockwise
-            0                             // Rotation
+            0, 0,
+            satelliteOrbitRadiusX,
+            satelliteOrbitRadiusZ,
+            0, 2 * Math.PI,
+            false,
+            0
         );
 
-        // Points along the curve path
         const points = curve.getPoints(100);
         const path = new THREE.CatmullRomCurve3(points.map(p => new THREE.Vector3(p.x, 0, p.y)));
-        let time = 0; // Time variable to control the position along the path
+        let time = 0;
 
         const animate = () => {
             requestAnimationFrame(animate);
@@ -102,12 +162,11 @@ const Earth = () => {
             glowMesh.rotation.y += 0.002;
             stars.rotation.y -= 0.0002;
 
-            // Update satellite position if loaded
             if (satelliteMesh) {
-                const position = path.getPointAt((time % 1) * 1); // Get position along the path
-                satelliteMesh.position.set(position.x, satelliteOrbitRadiusY * Math.sin(time * Math.PI * 2) + 1, position.z); // Adjust position along the path with Y oscillation
-                satelliteMesh.rotation.y += 0.01; // Slow rotation of the satellite itself
-                time += satelliteSpeed; // Increment time for slow speed
+                const position = path.getPointAt((time % 1) * 1);
+                satelliteMesh.position.set(position.x, satelliteOrbitRadiusY * Math.sin(time * Math.PI * 2) + 1, position.z);
+                satelliteMesh.rotation.y += 0.01;
+                time += satelliteSpeed;
             }
 
             renderer.render(scene, camera);
@@ -127,10 +186,11 @@ const Earth = () => {
     }, []);
 
     return (
-        <div className="earth-container">
-            <div ref={mountRef} style={{ width: '100%', height: '100vh', overflow: 'hidden' }} />
+        <div>
+            <div ref={mountRef} className="w-full h-screen overflow-hidden"></div>
+            {showFooter && <NasaFooter />} {/* Conditionally render NasaFooter based on scroll */}
         </div>
     );
 };
 
-export default Earth;    
+export default Earth;

@@ -96,7 +96,7 @@ function Globe({ data, dataType }) {
           <pointsMaterial size={0.1} vertexColors />
         </points>
       )}
-      <OrbitControls enableZoom={false} /> {/* Disable zoom */}
+      <OrbitControls enableZoom={true} />
     </Canvas>
   );
 }

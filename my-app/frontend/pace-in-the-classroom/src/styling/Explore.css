@@ -1,138 +1,20 @@
-.explore-container {
-    display: flex;
-    flex-direction: column;
+.animate-gradient {
+    background-size: 300%;
+    -webkit-animation: animatedgradient 6s ease infinite alternate;
+    -moz-animation: animatedgradient 6s ease infinite alternate;
+    animation: animatedgradient 6s ease infinite alternate;
 }
 
-.navbar-container {
-    z-index: 100;
-}
-
-/* Container for the video sequence */
-.video-sequence-container {
-    width: 100%;
-    height: 91.7vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Background video styling */
-.background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -2;
-}
-
-/* Styling for text overlay */
-.text-overlay {
-    position: absolute;
-    top: 20%;
-    right: 5%;
-    color: #ffffff;
-    text-align: center;
-    z-index: 1;
-    max-width: 30%;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    animation: fadeIn 2s ease-in-out;
-}
-
-/* Fade-in-out animation for the h1 tag */
-.text-overlay h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    animation: fadeInOut 6s ease-in-out infinite;
-}
-
-.text-overlay p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-/* Fade-in-out keyframes */
-@keyframes fadeInOut {
+@keyframes animatedgradient {
     0% {
-        opacity: 0;
+        background-position: 0% 50%;
     }
 
     50% {
-        opacity: 1;
+        background-position: 100% 50%;
     }
 
     100% {
-        opacity: 0;
-    }
-}
-
-/* Fade-in animation for the text overlay */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Styling for navigation arrows */
-.arrows {
-    position: absolute;
-    bottom: 10%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    z-index: 1;
-    padding: 0 5%;
-}
-
-.arrow-btn {
-    font-size: 2rem;
-    background: rgba(255, 255, 255, 0.5);
-    color: #000;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s ease-in-out;
-}
-
-.arrow-btn:hover {
-    background: rgba(255, 255, 255, 0.8);
-    color: #007bff;
-}
-
-/* Responsive styling */
-@media (max-width: 768px) {
-    .text-overlay {
-        top: 10%;
-        right: 5%;
-        max-width: 90%;
-    }
-
-    .text-overlay h1 {
-        font-size: 2rem;
-    }
-
-    .arrows {
-        bottom: 5%;
-        padding: 0 10%;
-    }
-
-    .arrow-btn {
-        font-size: 1.5rem;
-        width: 40px;
-        height: 40px;
+        background-position: 0% 50%;
     }
 }

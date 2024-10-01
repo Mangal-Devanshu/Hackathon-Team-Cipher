@@ -10,21 +10,6 @@
     /* Full height of the viewport */
 }
 
-/* Title styling with sliding animation */
-.visualization-container h1 {
-    color: #007bff;
-    /* Bootstrap primary blue color */
-    text-align: left;
-    /* Align text to the left initially */
-    font-size: 2rem;
-    font-weight: 600;
-    /* Slightly larger font */
-    margin-bottom: 1rem;
-    /* Space below the title */
-    animation: slideRight 3s ease-in-out infinite;
-    /* Apply the slide animation */
-}
-
 /* Keyframes for slide right animation */
 @keyframes slideRight {
     0% {

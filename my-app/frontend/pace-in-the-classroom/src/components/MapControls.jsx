@@ -1,15 +1,6 @@
 import React from 'react';
-import { Row, Col, Form, Button, Spinner } from 'react-bootstrap';
-import '../styling/MapControls.css';
 
-function MapControls({
-    dataset,
-    setDataset,
-    viewMode,
-    setViewMode,
-    isFetching,
-    handleSubmit,
-}) {
+function MapControls({ dataset, setDataset, viewMode, setViewMode, isFetching, handleSubmit }) {
     const handleDatasetChange = (event) => {
         setDataset(event.target.value);
     };
@@ -19,67 +10,51 @@ function MapControls({
     };
 
     return (
-        <div className="map-controls-container">
-            <Row>
-                <Col md={4} className="left-column">
-                    <div className="map-controls">
-                        <Row className="mb-3">
-                            <Col>
-                                <Form.Label htmlFor="datasetSelect" className="text-primary">Select Dataset:</Form.Label>
-                                <Form.Control
-                                    as="select"
-                                    id="datasetSelect"
-                                    value={dataset}
-                                    onChange={handleDatasetChange}
-                                    className="bg-dark text-white border-primary"
-                                >
-                                    <option value="">Select a dataset</option>
-                                    <option value="chl">Chlorophyll</option>
-                                    <option value="carbon">Carbon</option>
-                                    <option value="sst">Sea Surface Temperature (SST)</option>
-                                </Form.Control>
-                            </Col>
-                        </Row>
+        <div class="w-80 p-8 bg-gray-900 text-white rounded-md">
+            <div class="max-w-md mx-auto">
+                <div class="mb-6">
+                    <label htmlFor="datasetSelect" class="block text-primary mb-2">
+                        Select Dataset:
+                    </label>
+                    <select
+                        id="datasetSelect"
+                        value={dataset}
+                        onChange={handleDatasetChange}
+                        class="w-full p-2 bg-gray-700 text-white border border-blue-500 rounded focus:outline-none"
+                    >
+                        <option value="">Select a dataset</option>
+                        <option value="chl">Chlorophyll</option>
+                        <option value="carbon">Carbon</option>
+                        <option value="sst">Sea Surface Temperature (SST)</option>
+                    </select>
+                </div>
 
-                        <Row className="mb-3">
-                            <Col>
-                                <Form.Label htmlFor="modeSelect" className="text-primary">Select Mode:</Form.Label>
-                                <Form.Control
-                                    as="select"
-                                    id="modeSelect"
-                                    value={viewMode}
-                                    onChange={handleModeChange}
-                                    className="bg-dark text-white border-primary"
-                                >
-                                    <option value="">Select a mode</option>
-                                    <option value="globe">3D Globe</option>
-                                    <option value="map">2D Map</option>
-                                </Form.Control>
-                            </Col>
-                        </Row>
+                <div class="mb-6">
+                    <label htmlFor="modeSelect" class="block text-primary mb-2">
+                        Select Mode:
+                    </label>
+                    <select
+                        id="modeSelect"
+                        value={viewMode}
+                        onChange={handleModeChange}
+                        class="w-full p-2 bg-gray-700 text-white border border-blue-300 rounded focus:outline-none"
+                    >
+                        <option value="">Select a mode</option>
+                        <option value="globe">3D Globe</option>
+                        <option value="map">2D Map</option>
+                    </select>
+                </div>
 
-                        <Row className="mb-4">
-                            <Col>
-                                <Button
-                                    variant="primary"
-                                    onClick={handleSubmit}
-                                    disabled={!dataset || !viewMode}
-                                >
-                                    Submit
-                                </Button>
-                            </Col>
-                        </Row>
-
-                        <Row className="mb-4">
-                            <Col>
-                                {isFetching ? (
-                                    <Spinner animation="border" variant="primary" />
-                                ) : "Loading..."}
-                            </Col>
-                        </Row>
-                    </div>
-                </Col>
-            </Row>
+                <div class="mb-6">
+                    <button
+                        onClick={handleSubmit}
+                        disabled={!dataset || !viewMode}
+                        class={`w-full mt-4 p-2 text-white bg-blue-500 rounded focus:outline-none ${!dataset || !viewMode ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'}`}
+                    >
+                        Submit
+                    </button>
+                </div>
+            </div>
         </div>
     );
 }

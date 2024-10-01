@@ -1,76 +1,65 @@
-import React, { useState } from 'react';
-import Navbar from './Navbar';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import '../styling/Temp.css'
+import { useState, useMemo, useEffect } from "react";
 
-function FormDisabledExample() {
-    const [longitude, setLongitude] = useState('');
-    const [latitude, setLatitude] = useState('');
+const sections = [
+    {
+        title: "Introduction to PACE 🌌",
+        lessons: [
+            {
+                title: "What is PACE?",
+            },
+            {
+                title: "Why PACE?",
+            },
+        ],
+    },
+    /**
+     * Other sections
+     */
+];
 
-    const handleSubmit = async (event) => {
-        event.preventDefault(); // Prevent page reload on form submission
+export default function Temp() {
+    const [section, setSection] = useState(0);
+    const [lesson, setLesson] = useState(0);
 
-        const formData = {
-            longitude: longitude,
-            latitude: latitude
-        };
+    const sectionTotal = useMemo(() => sections?.length, []);
 
-        try {
-            // Send data to the Flask API using fetch
-            const response = await fetch('http://localhost:8080/api/coordinates', { // Replace with your Flask API endpoint
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            });
+    const prevSection = () => setSection((s) => s - 1);
+    const nextSection = () => setSection((s) => s + 1);
 
-            if (response.ok) {
-                const result = await response.json();
-                console.log('Response from API:', result);
-                alert('Data sent successfully!');
-            } else {
-                console.error('Failed to send data to the API');
-                alert('Failed to send data to the API');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    };
+    const disablePrevSection = section === 0;
+    const disableNextSection = section === sectionTotal;
+    const sectionContent = sections[section];
+
+    const lessons = useMemo(() => sections[section]?.lessons, [section]);
+    const lessonTotal = useMemo(() => lessons?.length, [lessons]);
+
+    const prevLesson = () => setLesson((m) => m - 1);
+    const nextLesson = () => setLesson((m) => m + 1);
+
+    const disablePrevLesson = lesson === 0;
+    const disableNextLesson = lesson === lessonTotal;
+    const lessonContent = lessons[lesson];
+
+    useEffect(() => {
+        setLesson(0);
+    }, [section]);
 
     return (
-        <div className="temps">
-            <div className="navbar-container">
-                <Navbar />
-            </div>
-            <div className="temp-container">
-                <Form onSubmit={handleSubmit}>
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor="disabledTextInput" className="txt">Longitude:</Form.Label>
-                        <Form.Control
-                            className="form-input"
-                            type="text"
-                            placeholder="Longitude"
-                            value={longitude}
-                            onChange={(e) => setLongitude(e.target.value)} // Update longitude state
-                        />
-                    </Form.Group>
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor="disabledTextInput" className="txt">Latitude:</Form.Label>
-                        <Form.Control
-                            className="form-input"
-                            type="text"
-                            placeholder="Latitude"
-                            value={latitude}
-                            onChange={(e) => setLatitude(e.target.value)} // Update latitude state
-                        />
-                    </Form.Group>
-                    <Button type="submit">Submit</Button>
-                </Form>
-            </div>
-        </div>
+        <>
+            {/** Sections Controls */}
+            <button disabled={disablePrevSection} onClick={prevSection}>
+                Prev Section
+            </button>
+            <button disabled={disableNextSection} onClick={nextSection}>
+                Next Section
+            </button>
+            {/** Lessons Controls */}
+            <button disabled={disablePrevLesson} onClick={prevLesson}>
+                Prev Lesson
+            </button>
+            <button disabled={disableNextLesson} onClick={nextLesson}>
+                Next Lesson
+            </button>
+        </>
     );
 }
-
-export default FormDisabledExample;

@@ -8,7 +8,7 @@ const Lessons = lazy(() => import('./components/Explore'));
 const Explore = lazy(() => import('./components/Lessons'));
 const Maps = lazy(() => import('./components/Maps'));
 const About = lazy(() => import('./components/About'));
-const Form = lazy(() => import('./components/Form'));
+const Temp = lazy(() => import('./components/Temp'));
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
               <Route path="/explore" element={<Lessons />} />
               <Route path="/lessons" element={<Explore />} />
               <Route path="/maps" element={<Maps />} />
-              <Route path="/temp" element={<Form />} />
+              <Route path="/temp" element={<Temp />} />
               <Route path="/about-us" element={<About />} />
               {/* Default route handling */}
               <Route path="*" element={<Navigate to="/home" replace />} />
