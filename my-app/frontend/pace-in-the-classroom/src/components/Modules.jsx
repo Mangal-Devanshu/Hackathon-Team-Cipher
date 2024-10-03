@@ -1,13 +1,13 @@
 const sections = [
   {
-    section: "Introduction to PACE 🌌",
+    section: "Introduction To PACE 🌌",
     modules: [
       {
         module: 1,
         title: "What is PACE?",
         keyPoints: [
           "PACE stands for 'Plankton, Aerosol, Cloud, ocean Ecosystem.'",
-          "Launched in 2022, PACE is a NASA satellite designed to study the interactions between the ocean and the atmosphere.",
+          "Launched in 2024, PACE is a NASA satellite designed to study the interactions between the ocean and the atmosphere.",
           "Its mission focuses on understanding the role of ocean ecosystems, especially phytoplankton, in the global carbon cycle and climate change."
         ],
         fact: "PACE provides critical data that helps scientists monitor the health of our oceans and the atmosphere from space.",
@@ -62,7 +62,7 @@ const sections = [
     modules: [
       {
         module: 1,
-        title: "Ocean Color and Its Significance",
+        title: "Ocean Color & Its Significance",
         keyPoints: [
           "PACE's Ocean Color Instrument (OCI) measures chlorophyll and other pigments in the ocean.",
           "Monitoring ocean color helps scientists assess the health of phytoplankton populations.",
@@ -78,7 +78,7 @@ const sections = [
       },
       {
         module: 2,
-        title: "Aerosols and Cloud Formation",
+        title: "Aerosols & Cloud Formation",
         keyPoints: [
           "PACE's SPEXone instrument measures aerosols that influence air quality and climate.",
           "Aerosols can impact cloud formation and precipitation patterns.",

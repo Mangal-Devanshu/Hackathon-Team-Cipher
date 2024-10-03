@@ -1,5 +1,5 @@
 import React from 'react';
-import NasaLogo from '/assets/nasa.png'; // Import the NASA logo image
+import NasaLogo from '/assets/nasa.png';
 
 function NasaFooter() {
     return (
@@ -7,7 +7,7 @@ function NasaFooter() {
             <div class="flex flex-row">
                 <img src={NasaLogo} alt="NASA Logo" className="w-12 mr-4" />
                 <div className="overflow-hidden whitespace-nowrap mt-2">
-                    <h2 className="text-white font-bold text-lg border-r-2 border-white pr-2 animate-typing">
+                    <h2 className="text-white font-bold text-lg border-r-2 border-white pr-3 animate-typing">
                         PACE IN THE CLASSROOM
                     </h2>
                 </div>

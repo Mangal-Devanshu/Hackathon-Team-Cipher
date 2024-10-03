@@ -1,20 +1,15 @@
-.animate-gradient {
-    background-size: 300%;
-    -webkit-animation: animatedgradient 6s ease infinite alternate;
-    -moz-animation: animatedgradient 6s ease infinite alternate;
-    animation: animatedgradient 6s ease infinite alternate;
-}
+@keyframes bounce {
 
-@keyframes animatedgradient {
-    0% {
-        background-position: 0% 50%;
+    0%,
+    100% {
+        transform: translateY(0);
     }
 
     50% {
-        background-position: 100% 50%;
+        transform: translateY(-10px);
     }
+}
 
-    100% {
-        background-position: 0% 50%;
-    }
+.animate-bounce {
+    animation: bounce 1s infinite;
 }

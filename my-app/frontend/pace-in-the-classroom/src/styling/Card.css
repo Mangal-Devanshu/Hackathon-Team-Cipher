@@ -1,51 +1,15 @@
-.card {
-    height: 300px;
-    width: 600px;
-    color: whitesmoke;
-    margin: 2rem;
-    padding: 2rem;
-    background: #1c1f2b;
-    position: relative;
-    border-radius: 10px;
+.perspective {
+    perspective: 1000px;
 }
 
-@property --angle {
-    syntax: "<angle>";
-    initial-value: 0deg;
-    inherits: false;
+.backface-hidden {
+    backface-visibility: hidden;
 }
 
-.card::after,
-.card::before {
-    content: '';
-    --angle: 0deg;
-    position: absolute;
-    height: 105.5%;
-    width: 103%;
-    background-image: conic-gradient(from var(--angle), #ff4545, #ffff00, #006aff);
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-    z-index: -1;
-    border-radius: 10px;
-    animation: 3s spin linear infinite;
+.rotate-y-180 {
+    transform: rotateY(180deg);
 }
 
-.card::before {
-    filter: blur(1rem);
-    opacity: 0.5;
-}
-
-.img-tag {
-    border-radius: 5px;
-}
-
-@keyframes spin {
-    from {
-        --angle: 0deg;
-    }
-
-    to {
-        --angle: 360deg;
-    }
+.transform-style-preserve-3d {
+    transform-style: preserve-3d;
 }

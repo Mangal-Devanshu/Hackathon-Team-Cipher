@@ -1,0 +1,32 @@
+.glowing-border {
+    position: relative;
+    padding: 20px;
+    /* Add some padding for space */
+    border-radius: 15px;
+    /* Optional: round the corners */
+    background-color: black;
+    /* Ensure the background of the card is set */
+    overflow: hidden;
+    /* Ensure inner elements don't overflow */
+}
+
+.glowing-border::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    /* Adjust as needed */
+    left: -5px;
+    /* Adjust as needed */
+    right: -5px;
+    /* Adjust as needed */
+    bottom: -5px;
+    /* Adjust as needed */
+    border-radius: inherit;
+    /* Inherit the same border radius */
+    background: rgba(0, 0, 255, 0.5);
+    /* Color of the glow */
+    filter: blur(15px);
+    /* Blur effect */
+    z-index: -1;
+    /* Send the glow behind the content */
+}

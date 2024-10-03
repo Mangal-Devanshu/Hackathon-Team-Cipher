@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "lenis": "^1.1.13",
+    "react-bootstrap": "^2.10.5"
+  }
+}

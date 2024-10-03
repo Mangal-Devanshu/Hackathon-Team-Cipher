@@ -14,16 +14,8 @@ function Maps() {
 
     return (
         <div className="h-screen flex flex-col overflow-auto relative">
-            {/* Navbar */}
-            <div className="w-full fixed z-20 bg-black">
-                <Navbar />
-            </div>
             <div>
                 <NewMap />
-            </div>
-            {/* Footer - Fixed at the bottom */}
-            <div className="w-full fixed bottom-0 z-20">
-                <Footer />
             </div>
         </div>
     );

@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import getStarfield from '../three-earth/getStarfield.js';
-import { getFresnelMat } from '../three-earth/getFresnelMat.js';
+import Starfield from './Starfield.js';
+import { getFresnelMat } from './getFresnelMat.js';
 import NasaFooter from './NasaFooter'; // Import the footer component
 import '../styling/Earth.css';
 
@@ -119,8 +119,8 @@ const Earth = () => {
         earthGroup.add(glowMesh);
 
         // Starfield background
-        const stars = getStarfield({ numStars: 1600 });
-        scene.add(stars);
+        // const stars = Starfield({ numStars: 2500 });
+        // scene.add(stars);
 
         // Add sun-like directional light
         const sunLight = new THREE.DirectionalLight(0xffffff, 3.5);
@@ -160,7 +160,7 @@ const Earth = () => {
             earthMesh.rotation.y += 0.002;
             cloudsMesh.rotation.y += 0.0023;
             glowMesh.rotation.y += 0.002;
-            stars.rotation.y -= 0.0002;
+            // stars.rotation.y -= 0.0002;
 
             if (satelliteMesh) {
                 const position = path.getPointAt((time % 1) * 1);

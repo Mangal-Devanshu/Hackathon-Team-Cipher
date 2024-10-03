@@ -1,45 +1,50 @@
-import React from 'react';
-import Footer from './Footer';
-import Navbar from './Navbar';
-import '../styling/About.css';
+import React from "react";
+import TitleCard from "./TitleCard";
+import "../styling/About.css"; // Assuming you have custom CSS for animations or other styles
 
-const Data = [
-    { name: "Devanshu Mangal", field: "Database + Backend" },
-    { name: "Ronit Rathod", field: "Database + Backend" },
-    { name: "Dhairya Prajapati", field: "Frontend" },
-    { name: "Manan Tarsariya", field: "Database and Automation" },
+const cardData1 = [
+    { image: "/assets/launch.jpg", name: "John Doe", text: "Full Stack Developer" },
+    { image: "/assets/launch.jpg", name: "Jane Smith", text: "Data Scientist" },
+    { image: "/assets/launch.jpg", name: "Alex Johnson", text: "UX Designer" },
+];
+
+const cardData2 = [
+    { image: "/assets/pace.jpg", name: "John Doe", text: "Full Stack Developer" },
+    { image: "/assets/pace.jpg", name: "Jane Smith", text: "Data Scientist" },
+    { image: "/assets/pace.jpg", name: "Alex Johnson", text: "UX Designer" },
+];
+
+const cardData3 = [
+    { image: "/assets/pace.jpg", name: "John Doe", text: "Full Stack Developer" },
+    { image: "/assets/pace.jpg", name: "Jane Smith", text: "Data Scientist" },
+    { image: "/assets/pace.jpg", name: "Alex Johnson", text: "UX Designer" },
 ];
 
 function About() {
     return (
-        <div class="flex flex-col bg-black h-screen overflow-auto items-center">
-            <div class="fixed">
-                <Navbar />
-            </div>
-            <div class="my-32 w-3/4">
-                <div class="flex flex-col m-4">
-                    <span class="text-5xl text-center font-bold bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient">
+        <div className="flex flex-col bg-black min-h-screen overflow-auto items-center py-12">
+            {/* Container for the entire page */}
+            <div className="w-5/6 space-y-12">
+                {/* Our Mentors Section */}
+                <div className="text-center">
+                    <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-700 to-indigo-500 text-transparent bg-clip-text animate-gradient">
                         Our Mentors
-                    </span>
-                    <div class="grid grid-cols-2 gap-4 m-3">
-                        <div class="bg-blue-600 text-center p-5 rounded-md m-2">01</div>
-                        <div class="bg-blue-600 text-center p-5 rounded-md m-2">02</div>
-                    </div>
-                    <span class="text-5xl text-center font-bold bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient">
-                        Team Members
-                    </span>
-                    <div class="grid grid-cols-3 gap-4 m-3">
-                        <div class="bg-blue-600 text-center p-5 rounded-md m-2">03</div>
-                        <div class="bg-blue-600 text-center p-5 rounded-md m-2">04</div>
-                        <div class="bg-blue-600 text-center p-5 rounded-md m-2">05</div>
-                        <div class="bg-blue-600 text-center p-5 rounded-md m-2">06</div>
-                        <div class="bg-blue-600 text-center p-5 rounded-md m-2">07</div>
-                        <div class="bg-blue-600 text-center p-5 rounded-md m-2">08</div>
+                    </h2>
+                    <div className="mt-8">
+                        <TitleCard cardData={cardData1} numberOfCards={3} />
                     </div>
                 </div>
-            </div>
-            <div class="w-full">
-                <Footer />
+
+                {/* Team Members Section */}
+                <div className="text-center">
+                    <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-700 to-indigo-500 text-transparent bg-clip-text animate-gradient">
+                        Team Members
+                    </h2>
+                    <div className="mt-8 space-y-8">
+                        <TitleCard cardData={cardData2} numberOfCards={3} />
+                        <TitleCard cardData={cardData3} numberOfCards={3} />
+                    </div>
+                </div>
             </div>
         </div>
     );

@@ -10,29 +10,29 @@ const MarineLifeMap = () => {
             name: "Phytoplankton",
             imageSrc: '/icons/phytoplankton.png',
             description: ' Phytoplankton helps produce oxygen for the planet!',
-            coords: { top: '24%', left: '10%' },
-            size: '3.5vw', // Specific size in vw for Phytoplankton
+            coords: { top: '34%', left: '10%' },
+            size: '2.6vw', // Specific size in vw for Phytoplankton
         },
         CoralReefs: {
             name: "Coral Reefs",
             imageSrc: '/icons/coral.png',
             description: 'Coral Reefs are home to many marine species!',
-            coords: { top: '43%', left: '60%' },
-            size: '6vw', // Specific size in vw for Coral Reefs
+            coords: { top: '43%', left: '78%' },
+            size: '4vw', // Specific size in vw for Coral Reefs
         },
         Squid: {
             name: "Squid",
             imageSrc: '/icons/squid.png',
             description: ' Squid can shoot ink to escape predators!',
-            coords: { top: '65%', left: '47%' },
-            size: '6vw', // Specific size in vw for Squid
+            coords: { top: '66%', left: '57%' },
+            size: '3.2vw', // Specific size in vw for Squid
         },
         DeepSeaCreatures: {
             name: "Deep Sea Creatures",
             imageSrc: '/icons/anglerfish.png',
             description: ' Anglerfish uses light to catch prey in the deep sea!',
-            coords: { top: '89%', left: '25%' },
-            size: '5vw', // Specific size in vw for Deep Sea Creatures
+            coords: { top: '89%', left: '29%' },
+            size: '3.4vw', // Specific size in vw for Deep Sea Creatures
         },
     };
 

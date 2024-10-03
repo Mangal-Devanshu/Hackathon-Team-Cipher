@@ -10,7 +10,7 @@
     /* Adjust map width to viewport width */
     max-width: 1000px;
     /* Set a max-width for larger screens */
-    height: 100vh;
+    height: 120vh;
     /* Use viewport height for responsiveness */
     background-image: url('/Map/IntractiveMap.jpeg');
     background-size: cover;
