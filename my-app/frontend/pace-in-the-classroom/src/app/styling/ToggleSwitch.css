@@ -1,0 +1,86 @@
+/* Toggle Switch Container */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  /* Toggle Label */
+  .toggle-label {
+    margin-left: 10px;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* Toggle Switch */
+  .toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .toggle-switch input {
+    display: none; /* Hide default checkbox */
+  }
+  
+  /* Slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+  
+  /* Slider before animation */
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  /* Checked State (Globe View Active) */
+  input:checked + .slider {
+    background-color: #4CAF50; /* Green background when checked */
+  }
+  
+  /* Move the slider ball when checked */
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  /* Add some shadow and glow for creativity */
+  .slider:before {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .slider:hover:before {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Glow on hover */
+  }
+  
+  /* Optional: Animation bounce effect on toggle */
+  input:checked + .slider:before {
+    animation: bounce 0.3s ease;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateX(26px);
+    }
+    50% {
+      transform: translateX(20px);
+    }
+}  

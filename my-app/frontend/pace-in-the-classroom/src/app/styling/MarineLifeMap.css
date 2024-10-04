@@ -1,0 +1,75 @@
+.marine-life-map-container {
+    text-align: center;
+    font-family: 'Comic Sans MS';
+    padding: 20px;
+}
+
+.marine-map {
+    position: relative;
+    width: 80vw;
+    /* Adjust map width to viewport width */
+    max-width: 1000px;
+    /* Set a max-width for larger screens */
+    height: 120vh;
+    /* Use viewport height for responsiveness */
+    background-image: url('/Map/IntractiveMap.jpeg');
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.interactive-element {
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.interactive-element:hover {
+    transform: scale(1.1);
+    /* Zoom in on hover for interactivity */
+}
+
+.popup-box {
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transform: translate(60px, -20px);
+    /* Adjust position relative to icon */
+    z-index: 1000;
+    max-width: 200px;
+}
+
+.fun-facts {
+    margin-top: 40px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+    .marine-map {
+        width: 95vw;
+        /* Adjust map width for smaller screens */
+        height: 60vh;
+        /* Adjust height for smaller screens */
+    }
+
+    .popup-box {
+        transform: translate(30px, -10px);
+        /* Adjust popup position */
+    }
+
+    .fun-facts ul li {
+        font-size: 14px;
+        /* Reduce text size for mobile */
+    }
+}

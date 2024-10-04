@@ -1,0 +1,83 @@
+/* NasaFooter.css */
+.nasa-footer {
+    position: fixed;
+    bottom: 20px;
+    /* Adjusted position */
+    left: 20px;
+    /* Adjusted position */
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Semi-transparent background */
+    padding: 10px 20px;
+    /* Padding for a clean look */
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    /* Shadow effect */
+}
+
+.nasa-logo {
+    width: 50px;
+    /* Set logo size */
+    height: auto;
+    margin-right: 15px;
+    /* Spacing between logo and text */
+}
+
+.typewriter-container {
+    overflow: hidden;
+    /* Hide text overflow */
+    white-space: nowrap;
+    /* Prevent text wrapping */
+    display: flex;
+    align-items: center;
+    width: 100%;
+    /* Ensures it occupies full space */
+}
+
+.typewriter-text {
+    display: inline-block;
+    color: white;
+    font-family: 'Archivo', sans-serif;
+    padding: 0.5rem;
+    /* Use your desired font */
+    font-size: 1.1rem;
+    border-right: 3px solid white;
+    /* Cursor effect */
+    white-space: nowrap;
+    /* Prevent text wrapping */
+    overflow: hidden;
+    /* Hide overflow for animation */
+    width: 100px;
+    height: 30px;
+    /* Start with no width to enable typewriter effect */
+    animation: typing 5s steps(30, end) infinite, blink 0.75s step-end infinite;
+    /* Animation for typewriting and cursor */
+}
+
+/* Typewriter effect */
+@keyframes typing {
+    from {
+        width: 0;
+        /* Start with no width */
+    }
+
+    to {
+        width: 15em;
+        /* Adjust width to match your text */
+    }
+}
+
+/* Cursor blink effect */
+@keyframes blink {
+    from {
+        border-color: transparent;
+        /* Cursor hidden */
+    }
+
+    to {
+        border-color: white;
+        /* Cursor visible */
+    }
+}
