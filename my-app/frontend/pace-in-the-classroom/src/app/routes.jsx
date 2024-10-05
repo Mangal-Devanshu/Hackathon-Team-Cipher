@@ -46,10 +46,7 @@ export const routes = createBrowserRouter([
                 path: "/maps",
                 lazy: () => import("./views/Maps"),
             },
-            {
-                path: "/simulation",
-                lazy: () => import("./views/Simulation"),
-            },
+            
             {
                 path: "/dashboard",
                 lazy: () => import("./views/Dashboard"),
