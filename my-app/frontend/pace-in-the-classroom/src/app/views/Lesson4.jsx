@@ -15,7 +15,7 @@ const earthData = [
             <ul class="list-disc">
                 <li class="my-4">As oceans absorb more CO₂, it leads to acidification, which affects marine organisms like corals, mollusks, and plankton.</li>
                 <li class="my-4">Ocean acidification weakens coral reefs, reduces shell formation in marine organisms, and disrupts marine ecosystems.</li>
-                <li class="my-4">Healthy oceans are crucial for maintaining marine biodiversity and supporting human life through food resources.</li>
+                <li class="my-4">Healthy oceans are crucial for maintaining marine biodiversity and supporting human life through food resources.[ 1 ]</li>
             </ul>
         `
     },
@@ -26,7 +26,7 @@ const earthData = [
             <ul class="list-disc">
                 <li class="my-4">Coral bleaching occurs when rising sea temperatures cause corals to expel the algae that give them color and nutrients.</li>
                 <li class="my-4">This weakens corals, making them more susceptible to disease and leading to large-scale reef degradation.</li>
-                <li class="my-4">Healthy coral reefs are vital to supporting marine life and protecting coastlines from storms and erosion.</li>
+                <li class="my-4">Healthy coral reefs are vital to supporting marine life and protecting coastlines from storms and erosion.[ 1 ]</li>
             </ul>
         `
     },
@@ -37,7 +37,7 @@ const earthData = [
             <ul class="list-disc">
                 <li class="my-4">Harmful algal blooms (HABs) are caused by excess nutrients and warming waters, producing toxins harmful to marine life and humans.</li>
                 <li class="my-4">HABs can deplete oxygen levels in the water, creating 'dead zones' where marine organisms cannot survive.</li>
-                <li class="my-4">Monitoring ocean color helps predict and detect HABs, allowing scientists to take early action to mitigate their impact.</li>
+                <li class="my-4">Monitoring ocean color helps predict and detect HABs, allowing scientists to take early action to mitigate their impact.[ 1 ]</li>
             </ul>
         `
     }
@@ -58,7 +58,7 @@ const HeroSection = () => {
             <div class="relative flex flex-col items-center justify-center h-full text-center bg-black bg-opacity-80 p-6 rounded-lg">
                 <h1 class="text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-400 to-green-400 text-transparent bg-clip-text">Explore PACE's Instruments</h1>
                 <p class="text-xl mt-4 text-justify max-w-3xl leading-relaxed">
-                    Discover how NASA's PACE mission uses advanced instruments like the Ocean Color Instrument (OCI) to monitor ocean health and its critical role in Earth's ecosystems.
+                    Discover how NASA's PACE mission uses advanced instruments like the Ocean Color Instrument (OCI) to monitor ocean health and its critical role in Earth's ecosystems.[ 1 ]
                 </p>
 
                 <button
@@ -70,6 +70,9 @@ const HeroSection = () => {
                         <path fillRule="evenodd" d="M10 14a1 1 0 01-.707-.293l-4-4a1 1 0 011.414-1.414L10 11.586l3.293-3.293a1 1 0 111.414 1.414l-4 4A1 1 0 0110 14z" clipRule="evenodd" />
                     </svg>
                 </button>
+                <p className="absolute bottom-0 left-0 w-full text-[10px] text-right bg-opacity-50 bg-black text-white py-1">
+                     Source:-Image From Pace Ocean Organisation[ 14 ]
+                </p>
             </div>
         </div>
     );
@@ -84,22 +87,22 @@ const ObjectivesSection = () => {
                     <Card
                         image="/lessons/lessonContent/lesson4/4.1.jpg"
                         title="PACE’s Ocean Color Instrument (OCI)"
-                        points="PACE’s OCI monitors chlorophyll and ocean color changes, which are essential for understanding phytoplankton health and detecting shifts in marine ecosystems."
+                        points="PACE’s OCI monitors chlorophyll and ocean color changes, which are essential for understanding phytoplankton health and detecting shifts in marine ecosystems.[ 1 ]"
                     />
                     <Card
                         image="/lessons/lessonContent/lesson4/4.2.jpg"
                         title="Ocean Acidification"
-                        points="As CO₂ levels rise, oceans absorb more carbon dioxide, leading to acidification, which negatively impacts marine species like corals and shellfish."
+                        points="As CO₂ levels rise, oceans absorb more carbon dioxide, leading to acidification, which negatively impacts marine species like corals and shellfish.[ 1 ]"
                     />
                     <Card
                         image="/lessons/lessonContent/lesson4/4.3.jpg"
                         title="Coral Bleaching"
-                        points="Warmer ocean temperatures lead to coral bleaching, a phenomenon where stressed corals expel algae, losing their color and becoming more vulnerable to disease."
+                        points="Warmer ocean temperatures lead to coral bleaching, a phenomenon where stressed corals expel algae, losing their color and becoming more vulnerable to disease.[ 1 ]"
                     />
                     <Card
                         image="/lessons/lessonContent/lesson4/4.4.jpg"
                         title="Harmful Algal Blooms (HABs)"
-                        points="Pollution and rising temperatures can cause harmful algal blooms, which threaten marine life by producing toxins and depleting oxygen in the water."
+                        points="Pollution and rising temperatures can cause harmful algal blooms, which threaten marine life by producing toxins and depleting oxygen in the water.[ 1 ]"
                     />
                 </div>
             </div>

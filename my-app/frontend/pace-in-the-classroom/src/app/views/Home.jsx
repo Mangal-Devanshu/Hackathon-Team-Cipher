@@ -37,6 +37,7 @@ export function Component() {
                     </div>
                     <div className="md:w-1/2 p-2">
                         <img src="/assets/launch.jpg" alt="Launch" className="w-full h-auto max-h-[600px] rounded-lg shadow-xl mx-auto object-cover" />
+                        <p className="text-white text-sm mt-4 capitalize">Source: NASA’s PACE spacecraft, atop a SpaceX Falcon 9 rocket, successfully lifts off [ 2 ]</p>
                     </div>
                 </div>
             </section>
@@ -56,6 +57,7 @@ export function Component() {
                                 className="w-full h-full object-cover"
                             />
                         </div>
+                        <p className="text-white text-sm mt-4">Source: Earth: Our Living Planet [ 3 ]</p>
                     </div>
 
                     <div className="w-full md:w-1/2 p-4 md:pl-8">
@@ -70,7 +72,7 @@ export function Component() {
                                 <b>Aqua/MODIS:</b> Measured global dynamics, including changes in oceans, atmosphere, and land.
                             </li>
                             <li>
-                                <b>Suomi NPP/VIIRS:</b> Provided data on ecosystems and environmental variables. [ 2 ]
+                                <b>Suomi NPP/VIIRS:</b> Provided data on ecosystems and environmental variables. [ 1 ]
                             </li>
                         </ul>
                     </div>
@@ -90,12 +92,13 @@ export function Component() {
                                 By tracking phytoplankton, PACE helps scientists monitor marine ecosystems and oceanic changes.
                             </li>
                             <li className="my-3">
-                                PACE’s Ocean Color Instrument (OCI) studies aerosols, offering critical insights into air quality, weather, and climate. [ 3 ]
+                                PACE’s Ocean Color Instrument (OCI) studies aerosols, offering critical insights into air quality, weather, and climate. [ 1 ]
                             </li>
                         </ul>
                     </div>
                     <div className="md:w-1/2 p-2">
                         <img src="/assets/pace.jpg" alt="Launch" className="w-full h-auto max-h-[600px] rounded-lg shadow-xl mx-auto object-cover" />
+                        <p className="text-white text-sm mt-4">Source: PACE Observatory Being Inspected at Astrotech [ 4 ]</p>
                     </div>
                 </div>
             </section>
@@ -107,6 +110,7 @@ export function Component() {
                         <div className="overflow-hidden rounded-lg shadow-md">
                             <ReactPlayer url="/videos/7.mp4" playing loop muted width="85%" height="100%" />
                         </div>
+                        <p className="text-white text-sm mt-4">Source: PACE Satellite in Orbit [ 5 ]</p>
                     </div>
                     <div className="w-2/4 p-4 md:pl-2">
                         <h2 className="text-4xl font-bold text-blue-700 mb-6 text-center capitalize">Unlocking The Colors Of Ocean Health</h2>
@@ -118,7 +122,7 @@ export function Component() {
                                 It captures a broad spectrum of colors, including ultraviolet & infrared, and measures atmospheric aerosols to improve weather and climate forecasts.
                             </li>
                             <li className="my-3">
-                                PACE builds on 20 years of ocean color research, providing essential data for long-term environmental studies. [ 4 ]
+                                PACE builds on 20 years of ocean color research, providing essential data for long-term environmental studies. [ 1 ]
                             </li>
                         </ul>
                     </div>
@@ -132,6 +136,7 @@ export function Component() {
                         <div className="overflow-hidden rounded-lg shadow-md">
                             <ReactPlayer url="/videos/9.mp4" playing loop muted width="85%" height="100%" />
                         </div>
+                        <p className="text-white text-sm mt-4">Source: 50 Years of Harmful Algal Blooms [ 6 ]</p>
                     </div>
                     <div className="w-2/4 p-4 md:pl-2">
                         <h2 className="text-4xl font-bold text-blue-700 mb-6 text-center capitalize">Tackling Harmful Algal Blooms</h2>
@@ -143,7 +148,7 @@ export function Component() {
                                 These issues are exacerbated by warming waters and nutrient pollution, intensifying the problem.
                             </li>
                             <li className="my-3">
-                                The PACE satellite will improve data collection on harmful algal blooms, building on 50 years of research to address this growing global concern. [ 5 ]
+                                The PACE satellite will improve data collection on harmful algal blooms, building on 50 years of research to address this growing global concern. [ 1 ]
                             </li>
                         </ul>
                     </div>

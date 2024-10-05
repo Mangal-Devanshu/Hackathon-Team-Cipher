@@ -67,11 +67,12 @@ export function Component() {
                         points={[
                             "The Ocean Color Instrument (OCI) is NASA's PACE mission's primary sensor, designed to measure light properties across various wavelengths with high precision. This advanced optical spectrometer will enhance ocean color data records essential for climate research.",
                             "By analyzing sunlight interactions with substances like chlorophyll in seawater, the OCI will provide detailed insights into global phytoplankton distribution, improving our understanding of ocean ecology.",
-                            "Developed at Goddard Space Flight Center, the OCI features a rotating telescope and advanced calibration mechanisms that reduce sun glint and image striping. With excellent signal-to-noise ratios, it promises to significantly advance ocean observation."
+                            "Developed at Goddard Space Flight Center, the OCI features a rotating telescope and advanced calibration mechanisms that reduce sun glint and image striping. With excellent signal-to-noise ratios, it promises to significantly advance ocean observation. [ 7 ]"
                         ]}
                         images={imageSets1}
                         buttonText="Learn More"
                         buttonLink="https://pace.oceansciences.org/oci.htm"
+                        citation="Source : OCI Image Collection [ 8 ]"
                     />
                 </div>
 
@@ -82,11 +83,12 @@ export function Component() {
                         points={[
                             "The Hyper-Angular Rainbow Polarimeter #2 (HARP2) is a sophisticated wide-angle imaging polarimeter that measures aerosol particles, clouds, and surface properties of land and water. It is essential for understanding atmospheric particles related to health, climate, and precipitation.",
                             "HARP2 collects data from up to 60 viewing angles across four spectral bands in the visible and near-infrared ranges, using three angles of linear polarization. This capability allows it to evaluate microphysical properties such as size distribution, quantity, refractive indices, and particle shape.",
-                            "As a vital instrument for the PACE mission, HARP2 builds on the achievements of its predecessors, AirHARP and the HARP 3U CubeSat. AirHARP has previously operated on NASA's ER2 and UC12 aircraft, contributing valuable data for developing algorithms to accurately retrieve aerosol and cloud properties."
+                            "As a vital instrument for the PACE mission, HARP2 builds on the achievements of its predecessors, AirHARP and the HARP 3U CubeSat. AirHARP has previously operated on NASA's ER2 and UC12 aircraft, contributing valuable data for developing algorithms to accurately retrieve aerosol and cloud properties. [ 9 ]"
                         ]}
                         images={imageSets2}
                         buttonText="Learn More"
                         buttonLink="https://pace.oceansciences.org/spexone.htm"
+                        citation="Source : SPEXone Image Collection [ 10 ]"
                     />
                 </div>
 
@@ -97,11 +99,12 @@ export function Component() {
                         points={[
                             "The Hyper-Angular Rainbow Polarimeter #2 (HARP2) is an advanced wide-angle imaging polarimeter designed to measure aerosol particles, clouds, and the properties of land and water surfaces. It plays a crucial role in understanding atmospheric particles relevant to health, climate, and precipitation.",
                             "HARP2 gathers data from up to 60 viewing angles across four spectral bands in the visible and near-infrared ranges, utilizing three angles of linear polarization. This enables it to assess microphysical properties, such as size distribution, quantity, refractive indices, and particle shape.",
-                            "As a key instrument for the PACE mission, HARP2 builds on the successes of its predecessors, AirHARP and the HARP 3U CubeSat. The AirHARP has previously flown on NASA's ER2 and UC12 aircraft, providing valuable data for developing algorithms to retrieve aerosol and cloud properties effectively."
+                            "As a key instrument for the PACE mission, HARP2 builds on the successes of its predecessors, AirHARP and the HARP 3U CubeSat. The AirHARP has previously flown on NASA's ER2 and UC12 aircraft, providing valuable data for developing algorithms to retrieve aerosol and cloud properties effectively. [ 11 ]"
                         ]}
                         images={imageSets3}
                         buttonText="Learn More"
                         buttonLink="https://pace.oceansciences.org/harp2.htm"
+                        citation="Source : HARP2 Image Collection [ 12 ]"
                     />
                 </div>
             </div>

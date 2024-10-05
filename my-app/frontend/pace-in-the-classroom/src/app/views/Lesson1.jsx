@@ -57,7 +57,7 @@ const HeroSection = () => {
                 <h1 class="text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-700 to-green-400 text-transparent bg-clip-text">What Is PACE ?</h1>
                 <p class="text-xl mt-4 text-justify max-w-3xl leading-relaxed">
                     NASA's PACE (Plankton, Aerosol, Cloud, ocean Ecosystem) mission is an advanced satellite mission designed to monitor Earth's oceans, atmosphere, and ecosystems.
-                    It aims to study the intricate interactions between ocean ecosystems, atmospheric particles, and clouds, contributing to a better understanding of climate change, air quality, and how oceanic and atmospheric processes impact life on Earth.
+                    It aims to study the intricate interactions between ocean ecosystems, atmospheric particles, and clouds, contributing to a better understanding of climate change, air quality, and how oceanic and atmospheric processes impact life on Earth.[ 1 ]
                 </p>
 
                 <button
@@ -69,6 +69,9 @@ const HeroSection = () => {
                         <path fillRule="evenodd" d="M10 14a1 1 0 01-.707-.293l-4-4a1 1 0 011.414-1.414L10 11.586l3.293-3.293a1 1 0 111.414 1.414l-4 4A1 1 0 0110 14z" clipRule="evenodd" />
                     </svg>
                 </button>
+                <p className="absolute bottom-0 left-0 w-full text-[10px] text-right bg-opacity-50 bg-black text-white py-1">
+                    Source: NASA’s PACE spacecraft, atop a SpaceX Falcon 9 rocket, successfully lifts off [ 2 ]
+                </p>
             </div>
         </div>
     );
@@ -83,22 +86,22 @@ const ObjectivesSection = () => {
                     <Card
                         image="/lessons/lessonContent/lesson1/1.1.jpg"
                         title="Monitoring Ocean Health"
-                        points="PACE will study marine ecosystem health by measuring phytoplankton concentrations, which form the base of the ocean food chain. This helps assess ocean productivity and the impact of ecosystem changes on biodiversity."
+                        points="PACE will study marine ecosystem health by measuring phytoplankton concentrations, which form the base of the ocean food chain. This helps assess ocean productivity and the impact of ecosystem changes on biodiversity.[ 1 ]"
                     />
                     <Card
                         image="/lessons/lessonContent/lesson1/1.2.jpg"
                         title="Aerosol and Cloud Observations"
-                        points="The satellite helps in observing atmospheric aerosols and clouds. Aerosols influence Earth's energy balance by absorbing or reflecting sunlight, and they play a significant role in climate and weather patterns."
+                        points="The satellite helps in observing atmospheric aerosols and clouds. Aerosols influence Earth's energy balance by absorbing or reflecting sunlight, and they play a significant role in climate and weather patterns.[ 1 ]"
                     />
                     <Card
                         image="/lessons/lessonContent/lesson1/1.3.jpg"
                         title="Understanding Climate Change"
-                        points="The data provided by PACE helps in understanding how oceans and atmosphere interact and contribute to global climate change. By studying aerosols, clouds, and ocean health together, PACE contributes to better climate models."
+                        points="The data provided by PACE helps in understanding how oceans and atmosphere interact and contribute to global climate change. By studying aerosols, clouds, and ocean health together, PACE contributes to better climate models.[ 1 ]"
                     />
                     <Card
                         image="/lessons/lessonContent/lesson1/1.4.jpg"
                         title="Biogeochemical 🌱 Cycles"
-                        points="PACE focuses on how biological, geological, and chemical components of Earth’s systems interact. This contributes to the study of nutrient cycles, carbon cycles, and how human activities influence these natural systems"
+                        points="PACE focuses on how biological, geological, and chemical components of Earth’s systems interact. This contributes to the study of nutrient cycles, carbon cycles, and how human activities influence these natural systems.[ 1 ]"
                     />
                 </div>
             </div>
