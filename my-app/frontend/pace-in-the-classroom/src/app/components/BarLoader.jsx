@@ -35,11 +35,11 @@ const Example = () => {
             animate="animate"
             className="flex gap-1"
         >
-            <motion.div variants={variants} className="h-12 w-2 bg-white" />
-            <motion.div variants={variants} className="h-12 w-2 bg-white" />
-            <motion.div variants={variants} className="h-12 w-2 bg-white" />
-            <motion.div variants={variants} className="h-12 w-2 bg-white" />
-            <motion.div variants={variants} className="h-12 w-2 bg-white" />
+            <motion.div variants={variants} className="h-12 w-2 bg-blue-500" />
+            <motion.div variants={variants} className="h-12 w-2 bg-blue-600" />
+            <motion.div variants={variants} className="h-12 w-2 bg-blue-700" />
+            <motion.div variants={variants} className="h-12 w-2 bg-blue-700" />
+            <motion.div variants={variants} className="h-12 w-2 bg-blue-800" />
         </motion.div>
     );
 };

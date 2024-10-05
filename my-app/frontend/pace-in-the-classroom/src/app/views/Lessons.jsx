@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Example from '../components/Example';
 import { FaLock } from 'react-icons/fa'; // FontAwesome Lock Icon
 
 export function Component() {
-    const [completedLessons, setCompletedLessons] = useState([false, false, false, false, false, false]); // Track lesson completion
+    const [completedLessons, setCompletedLessons] = useState([false, false, false, false, false]); // Track lesson completion
+
+    // On component mount, load progress from localStorage
+    useEffect(() => {
+        const savedProgress = JSON.parse(localStorage.getItem('completedLessons'));
+        if (savedProgress) {
+            setCompletedLessons(savedProgress);
+        }
+    }, []);
 
     // Function to handle lesson completion
     const handleLessonComplete = (lessonIndex) => {
@@ -13,11 +21,12 @@ export function Component() {
             updatedCompletion[lessonIndex + 1] = false; // Unlock next lesson
         }
         setCompletedLessons(updatedCompletion);
+        localStorage.setItem('completedLessons', JSON.stringify(updatedCompletion)); // Store progress in localStorage
     };
 
     return (
         <div className="flex flex-col bg-black p-4">
-            {/* Ensure only the first lesson is unlocked initially */}
+            {/* Lesson 1 */}
             <LessonSection
                 lessonIndex={0}
                 isCompleted={completedLessons[0]}
@@ -26,7 +35,7 @@ export function Component() {
                 title="INTRODUCTION TO PACE"
                 onLessonComplete={() => handleLessonComplete(0)}
             />
-            {/* Subsequent lessons are locked until the previous one is completed */}
+            {/* Lesson 2 */}
             <LessonSection
                 lessonIndex={1}
                 isCompleted={completedLessons[1]}
@@ -35,6 +44,7 @@ export function Component() {
                 title="THE OCEAN-ATMOSPHERE INTERACTION"
                 onLessonComplete={() => handleLessonComplete(1)}
             />
+            {/* Lesson 3 */}
             <LessonSection
                 lessonIndex={2}
                 isCompleted={completedLessons[2]}
@@ -43,29 +53,25 @@ export function Component() {
                 title="PACE'S SCIENTIFIC INSTRUMENT"
                 onLessonComplete={() => handleLessonComplete(2)}
             />
+            {/* Coming Soon section after Lesson 3 */}
+            <ComingSoonSection />
+            {/* Lesson 4 */}
             <LessonSection
                 lessonIndex={3}
                 isCompleted={completedLessons[3]}
-                isUnlocked={completedLessons[2]}
+                isUnlocked={completedLessons[2]} // Locked until Lesson 3 is completed
                 cardsData={cardsData4}
                 title="APPLICATIONS OF PACE DATA"
                 onLessonComplete={() => handleLessonComplete(3)}
             />
+            {/* Lesson 5 */}
             <LessonSection
                 lessonIndex={4}
                 isCompleted={completedLessons[4]}
-                isUnlocked={completedLessons[3]}
+                isUnlocked={completedLessons[3]} // Locked until Lesson 4 is completed
                 cardsData={cardsData5}
                 title="THE IMPORTANCE OF PHYTOPLANKTON"
                 onLessonComplete={() => handleLessonComplete(4)}
-            />
-            <LessonSection
-                lessonIndex={5}
-                isCompleted={completedLessons[5]}
-                isUnlocked={completedLessons[4]}
-                cardsData={cardsData6}
-                title="THE IMPACT OF CLIMATE CHANGE ON OCEAN"
-                onLessonComplete={() => handleLessonComplete(5)}
             />
         </div>
     );
@@ -79,7 +85,7 @@ const LessonSection = ({ lessonIndex, isCompleted, isUnlocked, cardsData, title,
                 <>
                     <Example numberOfCards={cardsData.length} cardsData={cardsData} startTitle={title} />
                     <div className="flex flex-col items-center justify-center mt-4">
-                        {!isCompleted && (
+                        {!isCompleted && lessonIndex !== 2 && ( // Only show the button if it's not Lesson 3
                             <button
                                 onClick={onLessonComplete}
                                 className="mt-4 bg-blue-700 text-lg text-white font-bold px-6 py-4 rounded-lg hover:bg-blue-900 transition duration-300"
@@ -101,6 +107,15 @@ const LessonSection = ({ lessonIndex, isCompleted, isUnlocked, cardsData, title,
         </div>
     );
 };
+
+// Component to show 'Coming Soon'
+const ComingSoonSection = () => (
+    <div className="my-10 h-2/4 w-full flex flex-col items-center justify-center bg-gray-800 rounded-lg p-4 text-center text-white">
+        <FaLock className="text-blue-500 text-4xl mb-4" />
+        <h2 className="text-2xl font-bold">Coming Soon</h2>
+        <p className="text-lg mt-2">Stay tuned for more exciting lessons!</p>
+    </div>
+);
 
 const cardsData1 = [
     {
@@ -177,23 +192,6 @@ const cardsData5 = [
         title: "How PACE Monitors Phytoplankton Health",
         id: 2,
         path: "/lesson9"
-    }
-];
-
-const cardsData6 = [
-    {
-        src: "/lessons/10.jpg",
-        alternative: "Lesson-10",
-        title: "Rising Sea Temperatures & Their Effects",
-        id: 1,
-        path: "/lesson10"
-    },
-    {
-        src: "/lessons/11.jpg",
-        alternative: "Lesson-11",
-        title: "Ocean Acidification & Its Consequences",
-        id: 2,
-        path: "/lesson11"
     }
 ];
 

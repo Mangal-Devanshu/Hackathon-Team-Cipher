@@ -41,7 +41,7 @@ const CoralReefSimulation = ({ waterTexture }) => {
 
     return (
         <div className="flex justify-center items-center min-h-screen bg-black text-white">
-            <div className="border-blue-700 shadow-lg shadow-green-700 p-6 rounded-lg w-4/6 bg-black text-white">
+            <div className="border-blue-700 shadow-lg shadow-green-700 p-6 rounded-lg w-4/6 bg-neutral-950 text-white">
                 <h2 className="text-2xl text-center font-bold mb-4">Coral Reef Health Simulation</h2>
                 <p className="text-center" >Adjust the temperature and observe the impact on coral health and marine life!</p>
 
@@ -61,15 +61,15 @@ const CoralReefSimulation = ({ waterTexture }) => {
                     <UnderwaterScene key={sceneKey} coralHealth={coralHealth} waterTexture={waterTexture} />
                 </div>
 
-                <div className=" my-4 border border-blue-700 bg-black text-white p-4 rounded-lg">
-                    <h3 className="text-xl text-center bg-black font-bold">Coral Health: {coralHealth}%</h3>
-                    <p className='bg-black text-center'>
+                <div className=" my-4 border border-blue-700 bg-neutral-950 text-white p-4 rounded-lg">
+                    <h3 className="text-xl text-center bg-neutral-950 font-bold">Coral Health: {coralHealth}%</h3>
+                    <p className='bg-neutral-950 text-center'>
                         {coralHealth === 100 ? "🌿 Healthy Coral" :
                             coralHealth > 50 ? "😟 Stressed Coral" :
                                 coralHealth > 0 ? "🏳 Bleached Coral" :
                                     "💀 Dead Coral"}
                     </p>
-                    {coralHealth < 50 && <p className="text-red-500">😢 Warning: High temperatures cause coral bleaching!</p>}
+                    {coralHealth < 50 && <p className="text-red-500 ">😢 Warning: High temperatures cause coral bleaching!</p>}
                 </div>
 
 

@@ -10,13 +10,13 @@ function Navbar() {
                 { path: "/lessons", label: "Lessons" },
                 { path: "/maps", label: "Maps" },
                 { path: "/simulation", label: "Simulation" },
-                { path: "/about", label: "About Us" },
+                { path: "/about", label: "About" },
                 { path: "/references", label: "References" }
             ].map((item) => (
                 <NavLink
                     key={item.path}
                     to={item.path}
-                    className={({ isActive }) => `mx-3 font-medium text-white text-lg px-1.5 py-1.5 rounded-md transition-all duration-300 ${isActive ? 'bg-blue-700 text-black ring-2 ring-blue-700 animate-pulse' : 'hover:text-blue-700'}`}
+                    className={({ isActive }) => `mx-3 font-medium text-white text-lg px-1.2 py-1.5 rounded-md transition-all duration-300 ${isActive ? 'bg-blue-700 text-black ring-2 ring-blue-700 animate-pulse' : 'hover:text-blue-700'}`}
                 >
                     {item.label}
                 </NavLink>

@@ -51,12 +51,12 @@ const HeroSection = () => {
     return (
         <div class="relative h-screen bg-black text-white">
             {/* Background Image */}
-            <div class="absolute inset-0 bg-cover bg-center opacity-100 w-full" style={{ backgroundImage: "url('/lessons/lessonContent/lesson4/4.jpg')" }}></div>
+            <div class="absolute inset-0 bg-cover bg-center rounded-lg opacity-100 w-full" style={{ backgroundImage: "url('/lessons/lessonContent/lesson4/4.jpg')" }}></div>
 
             {/* Content */}
             <div class="relative flex flex-col items-center justify-center h-full text-center bg-black bg-opacity-80 p-6 rounded-lg">
                 <h1 class="text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-400 to-green-400 text-transparent bg-clip-text">Explore PACE's Instruments</h1>
-                <p class="text-xl mt-4 max-w-3xl leading-relaxed">
+                <p class="text-xl mt-4 text-justify max-w-3xl leading-relaxed">
                     Discover how NASA's PACE mission uses advanced instruments like the Ocean Color Instrument (OCI) to monitor ocean health and its critical role in Earth's ecosystems.
                 </p>
 
@@ -142,7 +142,7 @@ const QuizComponent = ({ questions }) => {
     return (
         <section id="quiz" class="p-6 h-screen">
             <div class="container mx-auto rounded-lg py-10">
-                <h2 class="text-4xl font-extrabold text-center mb-16 text-white">Challenge Your Knowledge</h2>
+                <h2 class="text-4xl font-extrabold text-center mb-16 text-white">Test Your Knowledge</h2>
                 <div class="bg-gradient-to-br from-zinc-900 via-neutral-950 to-black p-8 rounded-lg shadow-lg shadow-blue-700 max-w-lg mx-auto">
                     {showResult ? (
                         <div class="text-center">
@@ -165,8 +165,8 @@ const QuizComponent = ({ questions }) => {
                                         key={index}
                                         class={`p-4 rounded-lg cursor-pointer text-white ${selectedAnswer
                                             ? answer === questions[currentQuestion].correctAnswer
-                                                ? 'bg-green-600'
-                                                : 'bg-red-600'
+                                                ? 'bg-green-600 '
+                                                : 'bg-neutral-800 border border-red-600' // Add red border for incorrect answer
                                             : 'bg-neutral-800 hover:bg-neutral-600'
                                             }`}
                                         onClick={() => handleAnswerClick(answer)}
@@ -181,13 +181,16 @@ const QuizComponent = ({ questions }) => {
                                     {selectedAnswer === questions[currentQuestion].correctAnswer ? 'Correct!' : 'Incorrect!'}
                                 </p>
                             )}
-                            <button
-                                onClick={nextQuestion}
-                                class="mt-6 bg-blue-700 text-white py-3 px-6 rounded-lg"
-                                disabled={!selectedAnswer}
-                            >
-                                {currentQuestion < questions.length - 1 ? 'Next' : 'Finish'}
-                            </button>
+                            <div class="flex justify-between items-center mt-6">
+                                <button
+                                    onClick={nextQuestion}
+                                    class="bg-blue-600 text-white py-3 px-6 rounded-lg"
+                                    disabled={!selectedAnswer}
+                                >
+                                    {currentQuestion < questions.length - 1 ? 'Next' : 'Finish'}
+                                </button>
+                                <p class="text-white">Question {currentQuestion + 1} of {questions.length}</p>
+                            </div>
                         </>
                     )}
                 </div>
@@ -225,9 +228,9 @@ export function Component() {
         <div class="bg-black">
             <button
                 onClick={() => navigate('/lessons')}
-                class="mt-4 mb-8 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
+                class="mt-4 mb-8 bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700 transition-colors"
             >
-                Back to Lessons
+                X
             </button>
             <HeroSection />
             <ObjectivesSection />

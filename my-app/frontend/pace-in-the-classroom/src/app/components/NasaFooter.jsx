@@ -8,7 +8,7 @@ function NasaFooter() {
                 <img src={NasaLogo} alt="NASA Logo" className="w-12 mr-4" />
                 <div className="overflow-hidden whitespace-nowrap mt-2">
                     <h2 className="text-white font-bold text-lg border-r-2 border-white pr-3 animate-typing">
-                        PACE IN THE CLASSROOM
+                        PACE IN THE CLASSROOM...
                     </h2>
                 </div>
             </div>

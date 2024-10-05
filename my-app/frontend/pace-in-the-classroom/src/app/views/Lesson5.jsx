@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'; // For navigation
 const earthData = [
     {
         id: 'Aerosols & Air Quality',
-        image: '/updated_lessons/5.jpg', // Placeholder image, use real or generated
+        image: '/lessons/lessonContent/lesson5/5.2.1.jpg', // Placeholder image, use real or generated
         text: `
             <ul class="list-disc">
                 <li class="my-4">Aerosols are tiny particles or droplets in the atmosphere that influence air quality and climate.</li>
@@ -17,7 +17,7 @@ const earthData = [
     },
     {
         id: 'Aerosols & Cloud Formation',
-        image: '/updated_lessons/5.jpg', // Placeholder image, use real or generated
+        image: '/lessons/lessonContent/lesson5/5.2.2.jpg', // Placeholder image, use real or generated
         text: `
             <ul class="list-disc">
                 <li class="my-4">Aerosols play a significant role in cloud formation, acting as cloud condensation nuclei (CCN).</li>
@@ -28,7 +28,7 @@ const earthData = [
     },
     {
         id: 'Global Aerosol Movement',
-        image: '/updated_lessons/5.jpg', // Placeholder image, use real or generated
+        image: '/lessons/lessonContent/lesson5/5.2.3.jpg', // Placeholder image, use real or generated
         text: `
             <ul class="list-disc">
                 <li class="my-4">Aerosols can travel thousands of miles from their source, affecting weather systems and ecosystems far from where they originated.</li>
@@ -49,12 +49,12 @@ const HeroSection = () => {
     return (
         <div class="relative h-screen bg-black text-white">
             {/* Background Image */}
-            <div class="absolute inset-0 bg-cover bg-center opacity-100 w-full" style={{ backgroundImage: "url('/lessons/lessonContent/lesson2/horizon.jpg')" }}></div>
+            <div class="absolute inset-0 bg-cover bg-center rounded-lg opacity-100 w-full" style={{ backgroundImage: "url('/lessons/lessonContent/lesson5/5.jpg')" }}></div>
 
             {/* Content */}
             <div class="relative flex flex-col items-center justify-center h-full text-center bg-black bg-opacity-80 p-6 rounded-lg">
                 <h1 class="text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-400 to-green-400 text-transparent bg-clip-text">Explore Aerosols & Climate</h1>
-                <p class="text-xl mt-4 max-w-3xl leading-relaxed">
+                <p class="text-xl mt-4 text-justify  max-w-3xl leading-relaxed">
                     Discover how aerosols influence Earth's climate by affecting cloud formation and air quality. Learn how they move globally and shape weather and precipitation patterns.
                 </p>
 
@@ -79,22 +79,22 @@ const ObjectivesSection = () => {
                 <h2 class="text-4xl font-extrabold text-blue-400 my-4">Key Learning Objectives</h2>
                 <div class="flex flex-wrap justify-evenly my-4 p-4">
                     <Card
-                        image="/updated_lessons/5.jpg"
+                        image="/lessons/lessonContent/lesson5/5.1.jpg"
                         title="Aerosols & Air Quality"
                         points="Aerosols are small particles that can both cool and warm the planet by scattering or absorbing sunlight. They are essential to understand as they influence not just climate, but also public health and weather patterns."
                     />
                     <Card
-                        image="/updated_lessons/5.jpg"
+                        image="/lessons/lessonContent/lesson5/5.2.jpg"
                         title="Aerosols & Cloud Formation"
                         points="Aerosols impact cloud formation by providing nuclei around which clouds can form. This influences rainfall and global weather patterns, making their study critical for understanding climate systems."
                     />
                     <Card
-                        image="/updated_lessons/5.jpg"
+                        image="/lessons/lessonContent/lesson5/5.3.jpg"
                         title="Global Aerosol Movement"
                         points="Aerosols can travel long distances from their origin, influencing regions far away. These particles affect not just air quality, but also broader climate patterns, weather, and even health."
                     />
                     <Card
-                        image="/updated_lessons/5.jpg"
+                        image="/lessons/lessonContent/lesson5/5.4.jpg"
                         title="Climate Effects of Aerosols"
                         points="The distribution of aerosols across the globe affects climate by altering cloud properties and the Earth's radiation balance. Understanding these impacts helps predict climate change more accurately."
                     />
@@ -140,7 +140,7 @@ const QuizComponent = ({ questions }) => {
     return (
         <section id="quiz" class="p-6 h-screen">
             <div class="container mx-auto rounded-lg py-10">
-                <h2 class="text-4xl font-extrabold text-center mb-16 text-white">Challenge Your Knowledge</h2>
+                <h2 class="text-4xl font-extrabold text-center mb-16 text-white">Test Your Knowledge</h2>
                 <div class="bg-gradient-to-br from-zinc-900 via-neutral-950 to-black p-8 rounded-lg shadow-lg shadow-green-700 max-w-lg mx-auto">
                     {showResult ? (
                         <div class="text-center">
@@ -163,8 +163,8 @@ const QuizComponent = ({ questions }) => {
                                         key={index}
                                         class={`p-4 rounded-lg cursor-pointer text-white ${selectedAnswer
                                             ? answer === questions[currentQuestion].correctAnswer
-                                                ? 'bg-green-600'
-                                                : 'bg-red-600'
+                                                ? 'bg-green-600 '
+                                                : 'bg-neutral-800 border border-red-600' // Add red border for incorrect answer
                                             : 'bg-neutral-800 hover:bg-neutral-600'
                                             }`}
                                         onClick={() => handleAnswerClick(answer)}
@@ -179,13 +179,16 @@ const QuizComponent = ({ questions }) => {
                                     {selectedAnswer === questions[currentQuestion].correctAnswer ? 'Correct!' : 'Incorrect!'}
                                 </p>
                             )}
-                            <button
-                                onClick={nextQuestion}
-                                class="mt-6 bg-blue-700 text-white py-3 px-6 rounded-lg"
-                                disabled={!selectedAnswer}
-                            >
-                                {currentQuestion < questions.length - 1 ? 'Next' : 'Finish'}
-                            </button>
+                            <div class="flex justify-between items-center mt-6">
+                                <button
+                                    onClick={nextQuestion}
+                                    class="bg-blue-600 text-white py-3 px-6 rounded-lg"
+                                    disabled={!selectedAnswer}
+                                >
+                                    {currentQuestion < questions.length - 1 ? 'Next' : 'Finish'}
+                                </button>
+                                <p class="text-white">Question {currentQuestion + 1} of {questions.length}</p>
+                            </div>
                         </>
                     )}
                 </div>
@@ -224,9 +227,9 @@ export function Component() {
         <div class="bg-black">
             <button
                 onClick={() => navigate('/lessons')}
-                class="mt-4 mb-8 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
+                class="mt-4 mb-8 bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700 transition-colors"
             >
-                Back to Lessons
+                X
             </button>
             <HeroSection />
             <ObjectivesSection />

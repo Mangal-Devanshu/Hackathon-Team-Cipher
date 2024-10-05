@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import Tooltip from '../components/ToolTip';
+import BarLoader from '../components/BarLoader';
 
 export function Component() {
     return (
-        <div class="bg-black">
-            <h1 class="text-white">Reference Page</h1>
+        <div>
+            <BarLoader />
+            <Tooltip />
         </div>
     );
 }

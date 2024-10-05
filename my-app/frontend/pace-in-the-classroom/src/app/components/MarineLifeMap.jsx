@@ -69,9 +69,11 @@ const MarineLifeMap = () => {
     }, [selectedElement]);
 
     return (
-        <div className="marine-life-map-container bg-black text-white p-6 rounded-lg shadow-lg">
+        <div className="marine-life-map-container bg-neutral-950 text-white p-6 rounded-lg shadow-lg border border-blue-700">
             {/* Title Section */}
-            <h2 className="text-2xl bg-blue-700 text-white p-4 rounded-lg">🧑‍🚀 Captain Splash’s Ocean Adventure! 🐠</h2>
+            <h2 className="text-2xl bg-neutral-950 text-white p-4 rounded-lg border border-blue-700 shadow-md shadow-blue-700">
+                🧑‍🚀 Captain Splash’s Ocean Adventure! 🐠
+            </h2>
             <p className="text-lg my-4">
                 Hi there! I’m Captain Splash, and today, we’re going to dive deep into the ocean to meet some cool sea creatures! Ready? Let’s go! 🌊
             </p>
@@ -80,7 +82,7 @@ const MarineLifeMap = () => {
 
             {/* Interactive Map Section */}
             <div
-                className="marine-map bg-blue-700 p-4 rounded-lg relative mb-6"
+                className="marine-map bg-neutral-950 p-4 rounded-lg relative mb-6 border border-blue-700 shadow-md shadow-blue-700"
                 onClick={handleMapClick} // Hide the description on map click
             >
                 {/* Render interactive elements on the map */}
@@ -108,7 +110,7 @@ const MarineLifeMap = () => {
                 {/* Display a popup near the clicked element */}
                 {selectedElement && (
                     <div
-                        className="popup-box absolute bg-white text-black p-3 rounded-lg shadow-lg"
+                        className="popup-box absolute bg-white text-black p-3 rounded-lg shadow-md shadow-blue-700 border border-blue-700"
                         style={{
                             top: selectedElement.coords.top,
                             left: selectedElement.coords.left,
@@ -121,21 +123,23 @@ const MarineLifeMap = () => {
             </div>
 
             {/* Fun Facts Section */}
-            <div className="fun-facts border border-blue-700 rounded-lg bg-black shadow-lg p-4">
-                <h4 className="text-xl bg-blue-700 text-white p-3 rounded-t-lg text-center">🧑‍🚀 Captain Splash’s Fun Facts! 🌊</h4>
-                <div className="text-white text-center"> {/* Centering text inside this div */}
+            <div className="fun-facts bg-neutral-950 rounded-lg shadow-md shadow-blue-700 border border-blue-700 p-4">
+                <h4 className="text-xl bg-black text-white p-3 rounded-t-lg border border-blue-700 shadow-md shadow-blue-700 text-center">
+                    🧑‍🚀 Captain Splash’s Fun Facts! 🌊
+                </h4>
+                <div className="text-white text-center">
                     <p className="my-4">Did you know? The ocean has layers just like a cake! Let’s explore them:</p>
-                    <ul className="list-disc ml-auto mr-auto text-left w-1/2"> {/* Center the list by setting a max width */}
+                    <ul className="list-disc ml-auto mr-auto bg-neutral-950 text-left w-1/2">
                         <li>🎂 <strong>Sunlit Zone (0-200m):</strong> This is where the party happens! Most sea creatures live here.</li>
                         <li>🌑 <strong>Twilight Zone (200-1000m):</strong> It’s a bit darker here. Some fish have lights on their bodies!</li>
                         <li>⚫ <strong>Abyss (1000m+):</strong> Total darkness! Only the bravest creatures live here.</li>
                     </ul>
-                    <p className="text-center ">Tap on the creatures to learn where you can find them in the ocean!</p>
+                    <p className="text-center">Tap on the creatures to learn where you can find them in the ocean!</p>
                 </div>
             </div>
-
-
         </div>
+
+
     );
 
 };

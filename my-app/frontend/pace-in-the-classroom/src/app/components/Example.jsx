@@ -39,16 +39,20 @@ function Card({ card }) {
                         {card.title}
                     </Link>
                 </motion.p>
-                {/* Button to redirect to the lesson */}
+            </div>
+            {/* Button placed at the bottom center of the card */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20">
                 <Link to={card.path}>
                     <button
-                        className="mt-2 bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition duration-300"
+                        className="bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition duration-300"
                     >
                         Go to Lesson
                     </button>
                 </Link>
             </div>
         </div>
+
+
     );
 }
 

@@ -6,7 +6,7 @@ export function Layout() {
     return (
         <div className="flex flex-col min-h-screen">
             {/* Navbar Component */}
-            <header className="sticky top-0 z-10 flex justify-center bg-black p-2">
+            <header className="sticky top-0 z-50 flex justify-center bg-black">
                 <Navbar />
             </header>
 
@@ -16,7 +16,7 @@ export function Layout() {
             </main>
 
             {/* Footer Component */}
-            <footer className="bg-neutral-900 text-white">
+            <footer className="bg-neutral-900 text-white z-10">
                 <Footer />
             </footer>
         </div>

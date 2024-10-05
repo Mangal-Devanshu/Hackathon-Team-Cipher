@@ -92,9 +92,9 @@ function NewMap() {
   };
 
   return (
-    <div class="h-screen grid grid-rows-2 justify-center bg-black">
+    <div class="h-screen grid grid-rows-2 justify-center">
       <div class="mt-4 w-fit"> {/* Adjusted margin to bring it upwards */}
-        <h1 class="text-4xl text-black font-bold my-5">Data Visualization</h1>
+        <h1 class="text-4xl text-blue-700 font-bold my-12">Data Visualization</h1>
         <MapControls
           dataset={dataset}
           setDataset={setDataset}
