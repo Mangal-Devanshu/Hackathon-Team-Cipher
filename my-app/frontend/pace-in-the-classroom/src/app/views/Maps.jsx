@@ -1,8 +1,8 @@
-// Maps.jsx
 import { useState } from 'react';
 import NewMap from '../components/NewMap';
-import Asteroids from '../components/Asteroids';
 import ToolTip from '../components/ToolTip';  // Importing the ToolTip component
+import InfoButton from '../components/InfoButton';
+import ReactPlayer from 'react-player'; // Importing ReactPlayer for video playback
 
 export function Component() {
     const [showMap, setShowMap] = useState(false); // State to toggle the NewMap component
@@ -12,22 +12,35 @@ export function Component() {
     };
 
     return (
-        <section className="relative h-screen flex flex-col overflow-hidden"> {/* relative to contain absolute elements */}
-            {/* Asteroids component as the background */}
-            <div className="absolute inset-0 z-0 opacity-80"> {/* full-screen background with negative z-index */}
-                <Asteroids count={200} direction={"up"} />
-            </div>
-
-            {/* Tooltip for providing information */}
-            <div className="absolute top-4 right-4 z-40"> {/* Positioning the tooltip */}
-                <ToolTip
-                    message="Use the form below to search and explore different map locations. Enter the required details and click submit."
+        <section className="relative h-screen flex flex-col overflow-auto transform scale-80">
+            {/* React Player for background video */}
+            <div className="absolute inset-0 z-0">
+                <ReactPlayer
+                    url='/videos/16.mp4' // Replace with the actual path to the video
+                    playing={true}
+                    loop={true}
+                    muted={true}
+                    width='100%'
+                    height='100%'
+                    className="object-cover"
+                    style={{
+                        transform: 'scale(0.95)', // Adjust the scale value to zoom out (1.2 is 120% zoom)
+                        transformOrigin: 'center', // Ensures the video scales from the center
+                    }}
                 />
             </div>
 
-            {/* NewMap component displayed above */}
-            <div className="relative z-10 flex-grow"> {/* Ensure NewMap stays on top */}
-                <NewMap />
+            {/* Container for the map and tooltip */}
+            <div className="relative z-10 flex-grow flex items-center justify-center overflow-hidden">
+                {/* Tooltip for providing information */}
+                <div className="absolute bottom-28 right-4 z-40">
+                    <InfoButton text="You can select the dataset and the mode in order to visualize it on the 3D globe." />
+                </div>
+
+                {/* NewMap component displayed above */}
+                <div className="relative z-10 mt-24">
+                    <NewMap />
+                </div>
             </div>
         </section>
     );

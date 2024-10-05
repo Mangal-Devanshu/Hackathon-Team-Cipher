@@ -15,12 +15,12 @@ export default function ReadDocs({ text }) {
         <div className="relative flex flex-col items-center"> {/* Center items horizontally */}
             {/* Info box appears to the left of the button */}
             {showInfo && (
-                <div className={`absolute left-[-20rem] bottom-10 w-72 p-4 bg-black rounded-lg shadow-md shadow-blue-700 transition-transform duration-500 transform 
+                <div className={`absolute left-[-20rem] bottom-10 w-72 p-3 bg-black rounded-lg shadow-md shadow-blue-700 transition-transform duration-500 transform 
                                 ${showInfo ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}>
                     {/* Close (X) icon */}
                     <button
                         onClick={handleCloseInfo}
-                        className="absolute top-0 right-1 text-white hover:text-gray-400 transition-all duration-300">
+                        className="absolute top-0 right-1 text-white hover:text-gray-400 transition-all duration-300 bg-red-600 rounded-full mr-2">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                         </svg>
@@ -29,7 +29,7 @@ export default function ReadDocs({ text }) {
                     <textarea
                         readOnly
                         value={text}
-                        className="w-full h-[95px] p-2 bg-black text-white text-justify rounded-lg resize-none focus:outline-none"
+                        className="w-full h-[95px] mt-3 p-2 bg-black text-white text-justify rounded-lg resize-none focus:outline-none"
                     />
                 </div>
             )}

@@ -5,7 +5,7 @@ export default function ImageGrid({ title, images, buttonText, buttonLink, point
     const [hoveredImageIndex, setHoveredImageIndex] = useState(null);
 
     return (
-        <div className="h-3/4 relative overflow-hidden rounded-lg my-6 shadow-lg shadow-blue-800">
+        <div className="h-3/4 bg-neutral-950/60 relative overflow-hidden rounded-lg my-6 shadow-lg shadow-blue-800">
             <div className="pt-24 pb-64 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
                 <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
                     <div className="sm:max-w-lg">
@@ -26,16 +26,17 @@ export default function ImageGrid({ title, images, buttonText, buttonLink, point
                                                 {column.map((image, index) => (
                                                     <div
                                                         key={index}
-                                                        className="relative h-64 w-44 overflow-hidden rounded-lg"
+                                                        className="relative h-64 w-48 overflow-hidden rounded-lg"
                                                         onMouseEnter={() => setHoveredImageIndex(index)}
                                                         onMouseLeave={() => setHoveredImageIndex(null)}
                                                     >
                                                         <img src={image.src} alt={image.alt} className="h-full w-full object-cover object-center" />
-
                                                         {/* Tooltip for each image */}
-                                                        <div class="z-40 top-0 right-0">
-                                                            <ToolTip message={image.message} />
-                                                        </div>
+                                                        {hoveredImageIndex === index && (
+                                                            <div className="absolute z-40 p-2 text-white bg-gray-800 rounded-md shadow-md left-1/2 transform -translate-x-1/2 -translate-y-full mb-1">
+                                                                <ToolTip message={image.message} />
+                                                            </div>
+                                                        )}
                                                     </div>
                                                 ))}
                                             </div>

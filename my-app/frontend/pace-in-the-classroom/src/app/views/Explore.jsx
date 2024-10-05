@@ -21,33 +21,33 @@ export function Component() {
 
     const imageSets2 = [
         [
-            { src: '/assets/spex/1.jpg', alt: 'Image 1' },
-            { src: '/assets/spex/2.jpg', alt: 'Image 2' }
+            { src: '/assets/spex/1.jpg', alt: 'Image 1', message: "This is image 1." },
+            { src: '/assets/spex/2.jpg', alt: 'Image 2', message: "This is image 1." }
         ],
         [
-            { src: '/assets/spex/3.jpg', alt: 'Image 3' },
-            { src: '/assets/spex/4.jpg', alt: 'Image 4' },
-            { src: '/assets/spex/6.jpg', alt: 'Image 5' }
+            { src: '/assets/spex/3.jpg', alt: 'Image 3', message: "This is image 1." },
+            { src: '/assets/spex/4.jpg', alt: 'Image 4', message: "This is image 1." },
+            { src: '/assets/spex/6.jpg', alt: 'Image 5', message: "This is image 1." }
         ],
         [
-            { src: '/assets/spex/5.jpg', alt: 'Image 6' },
-            { src: '/assets/spex/7.png', alt: 'Image 7' }
+            { src: '/assets/spex/5.jpg', alt: 'Image 6', message: "This is image 1." },
+            { src: '/assets/spex/7.png', alt: 'Image 7', message: "This is image 1." }
         ]
     ];
 
     const imageSets3 = [
         [
-            { src: '/assets/harp2/1.jpg', alt: 'Image 1' },
-            { src: '/assets/harp2/2.jpg', alt: 'Image 2' }
+            { src: '/assets/harp2/1.jpg', alt: 'Image 1', message: "This is image 1." },
+            { src: '/assets/harp2/2.jpg', alt: 'Image 2', message: "This is image 1." }
         ],
         [
-            { src: '/assets/harp2/3.jpg', alt: 'Image 3' },
-            { src: '/assets/harp2/4.jpg', alt: 'Image 4' },
-            { src: '/assets/harp2/5.jpg', alt: 'Image 5' }
+            { src: '/assets/harp2/3.jpg', alt: 'Image 3', message: "This is image 1." },
+            { src: '/assets/harp2/4.jpg', alt: 'Image 4', message: "This is image 1." },
+            { src: '/assets/harp2/5.jpg', alt: 'Image 5', message: "This is image 1." }
         ],
         [
-            { src: '/assets/harp2/6.jpg', alt: 'Image 6' },
-            { src: '/assets/harp2/7.jpg', alt: 'Image 7' }
+            { src: '/assets/harp2/6.jpg', alt: 'Image 6', message: "This is image 1." },
+            { src: '/assets/harp2/7.jpg', alt: 'Image 7', message: "This is image 1." }
         ]
     ];
 
@@ -55,7 +55,7 @@ export function Component() {
         <div className="relative overflow-hidden bg-black">
             {/* Asteroids background */}
             <div className="fixed inset-0 -z-0 w-full">
-                <Asteroids count={50} direction="up" /> {/* Adjust count and direction */}
+                <Asteroids count={30} direction="left" /> {/* Adjust count and direction */}
             </div>
 
             {/* Sections */}

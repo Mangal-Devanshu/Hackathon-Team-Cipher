@@ -51,6 +51,10 @@ export const routes = createBrowserRouter([
                 lazy: () => import("./views/Simulation"),
             },
             {
+                path: "/dashboard",
+                lazy: () => import("./views/Dashboard"),
+            },
+            {
                 path: "/about",
                 lazy: () => import("./views/About"),
             },

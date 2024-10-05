@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
 import Earth from '../components/Earth';
-import ReadDocs from '../components/ReadDocs';
-import Asteroids from '../components/Asteroids';
+import InfoButton from '../components/InfoButton';
 
 export function Component() {
     return (
@@ -12,18 +11,13 @@ export function Component() {
                 <div className="absolute inset-0 z-0">
                     <Earth />
                 </div>
-                <div className="absolute bottom-28 right-3 z-10 p-4"> {/* Adjusted positioning */}
-                    <ReadDocs text={"This is an interactive earth element. Scroll down to know more."} />
+                <div className="absolute bottom-24 right-3 z-10 p-4"> {/* Adjusted positioning */}
+                    <InfoButton text={"This is an interactive earth element. Scroll down to know more."} />
                 </div>
             </section>
 
             {/* Section 1 */}
             <section class="relative p-6 py-8 rounded-lg shadow-md shadow-blue-700 my-10 overflow-hidden">
-                {/* Asteroids in the Background */}
-                <div class="absolute inset-0 -z-0 opacity-90">
-                    <Asteroids count={150} />
-                </div>
-
                 {/* Content above the background */}
                 <div class="relative flex flex-col md:flex-row w-full">
                     <div class="md:w-1/2 p-8 text-center md:text-left">
@@ -46,14 +40,8 @@ export function Component() {
                 </div>
             </section>
 
-
             {/* Section 2 */}
             <section className="relative bg-black py-10 shadow-md shadow-blue-700 rounded-lg my-8 overflow-hidden">
-                {/* Asteroids component in the background */}
-                <div className="absolute inset-0 z-0">
-                    <Asteroids count={100} />
-                </div>
-
                 {/* Content Section: Video on the left and text on the right */}
                 <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center py-8 px-4 md:px-0">
                     {/* Video on the left side */}

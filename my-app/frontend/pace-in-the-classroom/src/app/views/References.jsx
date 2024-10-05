@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import Tooltip from '../components/ToolTip';
-import BarLoader from '../components/BarLoader';
+import Accordian from '../components/Accordian';
+import ToolTip from '../components/ToolTip';
 
 export function Component() {
     return (
-        <div>
-            <BarLoader />
-            <Tooltip />
+        <div class="bg-black">
+            {/* <Accordian /> */}
+            <ToolTip text="Hello, World!!!" />
         </div>
     );
 }

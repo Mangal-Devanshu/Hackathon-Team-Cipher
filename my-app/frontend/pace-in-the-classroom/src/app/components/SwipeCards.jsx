@@ -5,10 +5,10 @@ import axios from "axios";
 const SwipeCards = () => {
     const [groups, setGroups] = useState([]);
     const [selectedGroupId, setSelectedGroupId] = useState(null);
-    const [commitments, setCommitments] = useState([]); // Commitments state
+    const [commitments, setCommitments] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [searchQuery, setSearchQuery] = useState(""); // State for search query
 
-    // Array of image URLs for groups
     const imageUrls = [
         "CommitmentCardBack/1back.jpg",
         "CommitmentCardBack/2back.jpg",
@@ -19,7 +19,6 @@ const SwipeCards = () => {
         "CommitmentCardBack/7back.jpg",
     ];
 
-    // Fetch group data from the backend
     useEffect(() => {
         const fetchGroups = async () => {
             try {
@@ -53,7 +52,7 @@ const SwipeCards = () => {
         const x = useMotionValue(0);
         const rotateRaw = useTransform(x, [-150, 150], [-18, 18]);
         const opacity = useTransform(x, [-150, 0, 150], [0, 1, 0]);
-        const isFront = _id === groups[groups.length - 1]._id;
+        const isFront = _id === groups[groups.length - 1]?._id;
 
         const rotate = useTransform(() => {
             const offset = isFront ? 0 : _id % 2 ? 6 : -6;
@@ -85,7 +84,7 @@ const SwipeCards = () => {
                     right: 0,
                 }}
                 onDragEnd={handleDragEnd}
-                onClick={onClick} // Handle the click event
+                onClick={onClick}
             >
                 <img
                     src={imgUrl}
@@ -101,18 +100,20 @@ const SwipeCards = () => {
         );
     };
 
-    // Handle clicking on a group card
     const handleCardClick = async (groupId) => {
         setSelectedGroupId(groupId);
-        await fetchCommitmentsForGroup(groupId); // Fetch commitments for the clicked group
+        await fetchCommitmentsForGroup(groupId);
     };
 
-    // If a group is selected, render commitment cards for that group
+    const filteredGroups = groups.filter((group) =>
+        group.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
     if (selectedGroupId) {
         const selectedGroup = groups.find((group) => group._id === selectedGroupId);
 
         return (
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center bg-black min-h-screen text-white">
                 <h1 className="text-3xl font-bold mb-4">{selectedGroup.name} - Commitment Cards</h1>
                 <div className="flex flex-wrap justify-center">
                     {commitments.length > 0 ? (
@@ -127,7 +128,6 @@ const SwipeCards = () => {
                                     <h2 className="font-bold text-xl text-blue-600">{commitment.title}</h2>
                                     <p className="text-gray-700">{commitment.description}</p>
                                 </div>
-
                             </div>
                         ))
                     ) : (
@@ -144,29 +144,26 @@ const SwipeCards = () => {
         );
     }
 
-    // Divide groups into columns for responsive layout
-    const columns = [[], [], []];
-    groups.forEach((group, index) => {
-        columns[index % 3].push(group);
-    });
-
     return (
-        <div className="flex flex-col items-center">
-            <div
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full bg-neutral-100"
-            >
-                {columns.map((column, columnIndex) => (
-                    column.map((group) => (
-                        <div key={group._id} className="flex flex-col items-center">
-                            <Card
-                                {...group}
-                                onClick={() => handleCardClick(group._id)} // Set the selected group on click
-                            />
-                            <h3 className="mt-2 font-semibold text-lg text-gray-800">
-                                {group.name}
-                            </h3>
-                        </div>
-                    ))
+        <div className="flex flex-col items-center bg-black min-h-screen text-white">
+            <input
+                type="text"
+                placeholder="Search for groups..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="mb-4 border border-white-700 p-2 rounded-lg bg-black text-white"
+            />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
+                {filteredGroups.map((group) => (
+                    <div key={group._id} className="flex flex-col items-center">
+                        <Card
+                            {...group}
+                            onClick={() => handleCardClick(group._id)} // Set the selected group on click
+                        />
+                        <h3 className="mt-2 font-semibold text-lg text-white-800">
+                            {group.name}
+                        </h3>
+                    </div>
                 ))}
             </div>
         </div>
