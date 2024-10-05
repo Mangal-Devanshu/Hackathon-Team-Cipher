@@ -41,7 +41,7 @@ function Card({ card }) {
                 </motion.p>
             </div>
             {/* Button placed at the bottom center of the card */}
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20">
+            <div className="absolute bottom-4 right-4 z-20">
                 <Link to={card.path}>
                     <button
                         className="bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition duration-300"
@@ -50,6 +50,7 @@ function Card({ card }) {
                     </button>
                 </Link>
             </div>
+
         </div>
 
 
@@ -71,42 +72,24 @@ function Example({ numberOfCards, cardsData, startTitle }) {
 
     return (
         <motion.div ref={targetRef} style={{ opacity }} className="relative bg-black">
-            {/* Main content */}
-            <div className="relative z-10">
-                {/* Heading with glowing animation */}
-                <div className="flex h-24 items-center justify-center bg-black rounded-lg mx-4">
-                    <motion.span
-                        className="font-extrabold text-4xl uppercase text-white"
-                        initial={{ opacity: 0, y: -50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.9, ease: "easeInOut" }}
-                    >
-                        <motion.span
-                            className="inline-block"
-                            animate={{
-                                scale: [1, 1.05, 1],
-                                textShadow: [
-                                    "0px 0px 10px rgba(255, 255, 255, 0.2)",
-                                    "0px 0px 20px rgba(255, 255, 255, 0.5)",
-                                    "0px 0px 10px rgba(255, 255, 255, 0.2)",
-                                ],
-                                opacity: [1, 0.8, 1],
-                            }}
-                            transition={{
-                                duration: 2,
-                                ease: "easeInOut",
-                                repeat: Infinity,
-                                repeatType: "mirror",
-                            }}
-                        >
-                            {startTitle}
-                        </motion.span>
-                    </motion.span>
-                </div>
-                {/* Single carousel section */}
-                <HorizontalScrollCarousel cardCount={cardCount} cardsData={cardsData} />
+        {/* Main content */}
+        <div className="relative z-10">
+            {/* Heading with fading animation */}
+            <div className="flex h-24 items-center justify-center bg-black rounded-lg mx-4">
+                <motion.span
+                    className="font-extrabold text-4xl capitalize text-white"
+                    initial={{ opacity: 0, y: -50 }} // Keep fading animation
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.9, ease: "easeInOut" }}
+                >
+                    {startTitle}
+                </motion.span>
             </div>
-        </motion.div>
+            {/* Single carousel section */}
+            <HorizontalScrollCarousel cardCount={cardCount} cardsData={cardsData} />
+        </div>
+    </motion.div>
+    
     );
 }
 

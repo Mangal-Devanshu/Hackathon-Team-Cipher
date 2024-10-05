@@ -105,7 +105,7 @@ const GroupForm = () => {
                 </div>
 
                 {/* Submit Button */}
-                <div className="flex">
+                <div className="flex justify-end">
                     <button
                         type="submit"
                         className="w-fit bg-blue-700 text-white p-3 rounded-lg font-semibold hover:bg-blue-800 transition"

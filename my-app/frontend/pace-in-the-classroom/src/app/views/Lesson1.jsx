@@ -1,3 +1,4 @@
+import { FaTimes } from 'react-icons/fa';
 import React, { useState } from "react";
 import Card from '../components/Card';
 import EarthSimulation from '../components/EarthSimulation';
@@ -82,7 +83,7 @@ const ObjectivesSection = () => {
                     <Card
                         image="/lessons/lessonContent/lesson1/1.1.jpg"
                         title="Monitoring Ocean Health"
-                        points="PACE will study marine ecosystem health by measuring phytoplankton concentrations, which form the base of the ocean food chain. This helps assess ocean productivity, carbon cycling, and the impact of ecosystem changes on biodiversity."
+                        points="PACE will study marine ecosystem health by measuring phytoplankton concentrations, which form the base of the ocean food chain. This helps assess ocean productivity and the impact of ecosystem changes on biodiversity."
                     />
                     <Card
                         image="/lessons/lessonContent/lesson1/1.2.jpg"
@@ -96,7 +97,7 @@ const ObjectivesSection = () => {
                     />
                     <Card
                         image="/lessons/lessonContent/lesson1/1.4.jpg"
-                        title="Biogeochemical Cycles"
+                        title="Biogeochemical 🌱 Cycles"
                         points="PACE focuses on how biological, geological, and chemical components of Earth’s systems interact. This contributes to the study of nutrient cycles, carbon cycles, and how human activities influence these natural systems"
                     />
                 </div>
@@ -238,12 +239,14 @@ export function Component() {
 
     return (
         <div class="bg-black">
+             <div className="bg-black flex justify-end">
             <button
                 onClick={() => navigate('/lessons')}
-                class="mt-4 mb-8 bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700 transition-colors"
+                className="mt-4 mb-8 bg-blue-600 text-white py-3 px-3 rounded-full hover:bg-blue-700 transition-colors flex items-center"
             >
-                X
+                <FaTimes />
             </button>
+        </div>
             <HeroSection />
             <ObjectivesSection />
             <EarthSimulation data={earthData} />

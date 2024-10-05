@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaTimes } from 'react-icons/fa';
 import Card from '../components/Card';
 import EarthSimulation from '../components/EarthSimulation';
 import { useNavigate } from 'react-router-dom'; // For navigation
@@ -80,7 +81,7 @@ const ObjectivesSection = () => {
                     <Card
                         image="/lessons/lessonContent/lesson2/2.1.jpg"
                         title="Ocean-Atmosphere Interaction"
-                        points="The ocean and atmosphere regulate climate by exchanging heat, moisture, and gases. Ocean currents distribute heat, while atmospheric winds drive weather patterns. Together, they are balancing Earth's energy and moderating climate variability."
+                        points="The ocean and atmosphere regulate climate by exchanging heat, moisture, and gases. Ocean currents distribute heat, while winds drive weather patterns, balancing Earth's energy and moderating climate variability."
                     />
                     <Card
                         image="/lessons/lessonContent/lesson2/2.2.jpg"
@@ -90,7 +91,8 @@ const ObjectivesSection = () => {
                     <Card
                         image="/lessons/lessonContent/lesson2/2.3.jpg"
                         title="Carbon Sequestration"
-                        points="The ocean plays a crucial role in sequestering carbon dioxide by absorbing CO₂ from the atmosphere. Phytoplankton convert it during photosynthesis, while some carbon sinks to the ocean floor. This natural process reduces atmospheric CO₂."
+                        points="
+The ocean sequesters carbon dioxide by absorbing CO₂ from the atmosphere. Phytoplankton convert it during photosynthesis, and some carbon sinks to the ocean floor, reducing atmospheric CO₂ levels."
                     />
                     <Card
                         image="/lessons/lessonContent/lesson2/2.4.jpg"
@@ -154,7 +156,7 @@ const QuizComponent = ({ questions }) => {
                     ) : (
                         <>
                             <h3 class="text-xl font-bold text-blue-500">{questions[currentQuestion].question}</h3>
-                            <p class="text-white">Question {currentQuestion + 1} of {questions.length}</p>
+                            
                             <ul class="mt-4 space-y-4">
                                 {questions[currentQuestion].answers.map((answer, index) => (
                                     <li
@@ -222,12 +224,14 @@ export function Component() {
 
     return (
         <div class="bg-black">
+            <div className="bg-black flex justify-end">
             <button
                 onClick={() => navigate('/lessons')}
-                class="mt-4 mb-8 bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700 transition-colors"
+                className="mt-4 mb-8 bg-blue-600 text-white py-3 px-3 rounded-full hover:bg-blue-700 transition-colors flex items-center"
             >
-                X
+                <FaTimes />
             </button>
+        </div>
             <HeroSection />
             <ObjectivesSection />
             <EarthSimulation data={earthData} />

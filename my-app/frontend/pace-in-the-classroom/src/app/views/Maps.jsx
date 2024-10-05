@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import NewMap from '../components/NewMap';
-import ToolTip from '../components/ToolTip';  // Importing the ToolTip component
 import InfoButton from '../components/InfoButton';
 import ReactPlayer from 'react-player'; // Importing ReactPlayer for video playback
 
@@ -12,21 +11,17 @@ export function Component() {
     };
 
     return (
-        <section className="relative h-screen flex flex-col overflow-auto transform scale-80">
+        <section className="relative bg-transparent h-screen flex flex-col overflow-hidden"> {/* Removed transform scale-80 */}
             {/* React Player for background video */}
-            <div className="absolute inset-0 z-0">
+            <div className="absolute bg-transparent inset-0 z-0 w-[100%] h-[80%] opacity-80"> {/* Fullscreen container */}
                 <ReactPlayer
                     url='/videos/16.mp4' // Replace with the actual path to the video
                     playing={true}
                     loop={true}
                     muted={true}
-                    width='100%'
-                    height='100%'
-                    className="object-cover"
-                    style={{
-                        transform: 'scale(0.95)', // Adjust the scale value to zoom out (1.2 is 120% zoom)
-                        transformOrigin: 'center', // Ensures the video scales from the center
-                    }}
+                    width='100%' // Full viewport width
+                    height='100%' // Full viewport height
+                    className="object-cover" // Ensures the video covers the background
                 />
             </div>
 

@@ -32,7 +32,7 @@ export function Component() {
                 isCompleted={completedLessons[0]}
                 isUnlocked={true}  /* First lesson is unlocked */
                 cardsData={cardsData1}
-                title="INTRODUCTION TO PACE"
+                title="Introduction To Pace"
                 onLessonComplete={() => handleLessonComplete(0)}
             />
             {/* Lesson 2 */}
@@ -41,7 +41,7 @@ export function Component() {
                 isCompleted={completedLessons[1]}
                 isUnlocked={completedLessons[0]}
                 cardsData={cardsData2}
-                title="THE OCEAN-ATMOSPHERE INTERACTION"
+                title="The Ocean-Atmosphere Intraction"
                 onLessonComplete={() => handleLessonComplete(1)}
             />
             {/* Lesson 3 */}
@@ -50,29 +50,31 @@ export function Component() {
                 isCompleted={completedLessons[2]}
                 isUnlocked={completedLessons[1]}
                 cardsData={cardsData3}
-                title="PACE'S SCIENTIFIC INSTRUMENT"
+                title="Pace's Scientific Instrument"
                 onLessonComplete={() => handleLessonComplete(2)}
             />
-            {/* Coming Soon section after Lesson 3 */}
+            
+            {/* Coming Soon section commented out
             <ComingSoonSection />
-            {/* Lesson 4 */}
-            <LessonSection
+            
+            Lesson 4 */}
+            {/* <LessonSection
                 lessonIndex={3}
                 isCompleted={completedLessons[3]}
                 isUnlocked={completedLessons[2]} // Locked until Lesson 3 is completed
                 cardsData={cardsData4}
                 title="APPLICATIONS OF PACE DATA"
                 onLessonComplete={() => handleLessonComplete(3)}
-            />
+            /> */}
             {/* Lesson 5 */}
-            <LessonSection
+            {/* <LessonSection
                 lessonIndex={4}
                 isCompleted={completedLessons[4]}
                 isUnlocked={completedLessons[3]} // Locked until Lesson 4 is completed
                 cardsData={cardsData5}
                 title="THE IMPORTANCE OF PHYTOPLANKTON"
                 onLessonComplete={() => handleLessonComplete(4)}
-            />
+            /> */}
         </div>
     );
 }

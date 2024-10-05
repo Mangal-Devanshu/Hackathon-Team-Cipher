@@ -10,9 +10,10 @@ function MapControls({ dataset, setDataset, viewMode, setViewMode, isFetching, h
     };
 
     return (
-        <div className="w-80 p-7 bg-neutral-900/80 text-white rounded-md shadow-md shadow-blue-950 mx-auto flex flex-col items-center justify-center">
+        <div className="w-96 p-5 bg-neutral-950/60 text-white rounded-xl shadow-lg shadow-blue-700 mx-auto flex flex-col items-center justify-center">
             {/* Centering the whole component */}
-            <div className="max-w-md mx-auto w-full">
+            <div className="mx-auto w-full">
+                <h1 class="text-4xl text-blue-700 font-bold my-10">Data Visualization</h1>
                 <div className="mb-6">
                     <label htmlFor="datasetSelect" className="block text-primary mb-2">
                         Select Dataset:
@@ -38,11 +39,11 @@ function MapControls({ dataset, setDataset, viewMode, setViewMode, isFetching, h
                         id="modeSelect"
                         value={viewMode}
                         onChange={handleModeChange}
-                        className="w-full p-2 bg-neutral-900/80 text-white border border-blue-300 rounded focus:outline-none"
+                        className="w-full p-2 bg-neutral-900/80 text-white border border-blue-700 rounded focus:outline-none"
                     >
                         <option value="">Select a mode</option>
                         <option value="globe">3D Globe</option>
-                        <option value="map">2D Map</option>
+                        <option value="map">Graph</option>
                     </select>
                 </div>
 

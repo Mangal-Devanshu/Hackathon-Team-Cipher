@@ -72,14 +72,15 @@ const CommitmentCardForm = ({ selectedGroup }) => {
                 )}
 
                 {/* Submit Button */}
-                <div className="flex">
-                    <button
-                        type="submit"
-                        className="w-fit bg-blue-700 text-white p-3 rounded-lg font-semibold hover:bg-blue-800 transition"
-                    >
-                        Add Commitment
-                    </button>
-                </div>
+                <div className="flex justify-end">
+                <button
+                    type="submit"
+                    className="w-fit bg-blue-700 text-white p-3 rounded-lg font-semibold hover:bg-blue-800 transition"
+                >
+                    Add Commitment
+                </button>
+            </div>
+
                 
                 {/* Feedback Message */}
                 {feedbackMessage && (

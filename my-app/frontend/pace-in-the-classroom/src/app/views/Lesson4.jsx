@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaTimes } from 'react-icons/fa';
 import Card from '../components/Card';
 import EarthSimulation from '../components/EarthSimulation';
 import { useNavigate } from 'react-router-dom'; // For navigation
@@ -158,7 +159,7 @@ const QuizComponent = ({ questions }) => {
                     ) : (
                         <>
                             <h3 class="text-xl font-bold text-blue-500">{questions[currentQuestion].question}</h3>
-                            <p class="text-white">Question {currentQuestion + 1} of {questions.length}</p>
+                            
                             <ul class="mt-4 space-y-4">
                                 {questions[currentQuestion].answers.map((answer, index) => (
                                     <li
@@ -226,12 +227,14 @@ export function Component() {
 
     return (
         <div class="bg-black">
+            <div className="bg-black flex justify-end">
             <button
                 onClick={() => navigate('/lessons')}
-                class="mt-4 mb-8 bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700 transition-colors"
+                className="mt-4 mb-8 bg-blue-600 text-white py-3 px-3 rounded-full hover:bg-blue-700 transition-colors flex items-center"
             >
-                X
+                <FaTimes />
             </button>
+        </div>
             <HeroSection />
             <ObjectivesSection />
             <EarthSimulation data={earthData} />

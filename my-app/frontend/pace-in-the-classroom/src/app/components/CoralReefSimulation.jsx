@@ -54,7 +54,7 @@ const CoralReefSimulation = ({ waterTexture }) => {
                     onChange={handleTemperatureChange}
                     className="temperature-slider flex justify-center my-4"
                 />
-                <p className='text-center'>Temperature: {temperature}°C</p>
+                <p className='text-center'>Water Temperature: {temperature}°C</p>
 
                 <div className="my-4" style={{ height: '400px' }}>
                     {/* Use sceneKey to force reloading the UnderwaterScene */}
@@ -62,7 +62,7 @@ const CoralReefSimulation = ({ waterTexture }) => {
                 </div>
 
                 <div className=" my-4 border border-blue-700 bg-neutral-950 text-white p-4 rounded-lg">
-                    <h3 className="text-xl text-center bg-neutral-950 font-bold">Coral Health: {coralHealth}%</h3>
+                    <h3 className="text-xl text-center bg-neutral-950 font-bold">Coral Health: {coralHealth.toFixed(2)}%</h3>
                     <p className='bg-neutral-950 text-center'>
                         {coralHealth === 100 ? "🌿 Healthy Coral" :
                             coralHealth > 50 ? "😟 Stressed Coral" :
