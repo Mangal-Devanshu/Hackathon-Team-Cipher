@@ -71,7 +71,7 @@ const HeroSection = () => {
                     </svg>
                 </button>
                 <p className="absolute bottom-0 left-0 w-full text-[10px] text-right bg-opacity-50 bg-black text-white py-1">
-                     Source:-Image From Pace Ocean Organisation[ 14 ]
+                     Source:-Image From Pace Ocean Organisation[ 15 ]
                 </p>
             </div>
         </div>

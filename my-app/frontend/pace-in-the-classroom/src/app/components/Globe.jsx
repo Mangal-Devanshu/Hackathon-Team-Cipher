@@ -216,7 +216,7 @@ function Globe({ data, dataType }) {
         {/* Plot points on the globe */}
         {data && data.data_values.length > 0 && (
           <points geometry={geometryRef.current} renderOrder={0}>
-            <pointsMaterial size={0.04} vertexColors />
+            <pointsMaterial size={0.024} vertexColors />
           </points>
         )}
         <mesh ref={globeRef} renderOrder={1}>

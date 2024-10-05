@@ -43,7 +43,8 @@ function MapControls({ dataset, setDataset, viewMode, setViewMode, isFetching, h
                     >
                         <option value="">Select a mode</option>
                         <option value="globe">3D Globe</option>
-                        <option value="map">Graph</option>
+                        <option value="graph">Graph Visuals</option>
+                        {/* <option value="map">2D Map</option> */}
                     </select>
                 </div>
 

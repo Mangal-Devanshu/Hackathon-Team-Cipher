@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Globe from './Globe'; // 3D Globe component
 import Map2D from './Map2D'; // 2D Map component
+import Chart from './Chart';
 import MapControls from './MapControls';
 import '../styling/NewMap.css'; // Custom styles if any
 import { useNavigate } from 'react-router-dom'; // For navigation
@@ -113,8 +114,8 @@ function NewMap() {
           <div id="visualization" class="w-full h-full mt-5">
             {data.latitudes.length > 0 && viewMode === 'globe' ? (
               <Globe data={data} dataType={dataset} />
-            ) : data.latitudes.length > 0 && viewMode === 'map' ? (
-              <Map2D data={data} dataType={dataset} />
+            ) : data.latitudes.length > 0 && viewMode === 'graph' ? (
+              <Chart dataFile={dataset+".json"} labelName={dataset} color={"#ff5733"}/>
             ) : (
               <p class="text-white">Please select options and submit to see the visualization.</p>
             )}

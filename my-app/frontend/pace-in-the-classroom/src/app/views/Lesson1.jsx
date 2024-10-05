@@ -12,7 +12,7 @@ const earthData = [
             <ul class="list-disc">
                 <li class="my-4">By capturing detailed data on aerosols, clouds, and phytoplankton, PACE helps refine climate models, improving predictions of future climate changes.</li>
                 <li class="my-4">PACE will monitor how the ocean absorbs carbon dioxide, which is critical for understanding the ocean's role in mitigating climate change.</li>
-                <li class="my-4">Changes in phytoplankton also provide early warnings about shifts in marine ecosystems that can affect global fish stocks and biodiversity.</li>
+                <li class="my-4">Changes in phytoplankton also provide early warnings about shifts in marine ecosystems that can affect global fish stocks and biodiversity.[ 1 ]</li>
             </ul>
         `
     },
@@ -23,7 +23,7 @@ const earthData = [
             <ul class="list-disc">
                 <li class="my-4">PACE introduces advanced sensor technologies for more precise measurements of ocean color, atmospheric particles, and clouds.</li>
                 <li class="my-4">These technologies improve the resolution and accuracy of satellite imagery.</li>
-                <li class="my-4">The new instruments pave the way for future Earth observation missions.</li>
+                <li class="my-4">The new instruments pave the way for future Earth observation missions.[ 1 ]</li>
             </ul>
         `
     },
@@ -34,7 +34,7 @@ const earthData = [
             <ul class="list-disc">
                 <li class="my-4">The PACE mission began development in 2014, with a planned launch in 2024.</li>
                 <li class="my-4">After launch, PACE will collect data for at least five years, contributing to long-term climate research.</li>
-                <li class="my-4">PACE's data will be continuously analyzed to improve climate models and forecasts.</li>
+                <li class="my-4">PACE's data will be continuously analyzed to improve climate models and forecasts.[ 1 ]</li>
             </ul>
 
         `
@@ -101,7 +101,7 @@ const ObjectivesSection = () => {
                     <Card
                         image="/lessons/lessonContent/lesson1/1.4.jpg"
                         title="Biogeochemical 🌱 Cycles"
-                        points="PACE focuses on how biological, geological, and chemical components of Earth’s systems interact. This contributes to the study of nutrient cycles, carbon cycles, and how human activities influence these natural systems.[ 1 ]"
+                        points="PACE focuses on how biological, geological, and chemical components of Earth’s systems interact. This contributes to the study of nutrient cycles, carbon cycles, and how human activities influence these natural systems.[ 1  ]"
                     />
                 </div>
             </div>
