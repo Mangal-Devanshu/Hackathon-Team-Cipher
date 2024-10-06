@@ -13,7 +13,7 @@ const earthData = [
             <ul class="list-disc">
                 <li class="my-4">Sunlight penetrates the ocean surface, which is essential for photosynthesis in marine ecosystems.</li>
                 <li class="my-4">Phytoplankton rely on sunlight to produce oxygen and form the base of the marine food web.</li>
-                <li class="my-4">Understanding light's role is crucial for assessing the health of ocean ecosystems.[ 1 ]</li>
+                <li class="my-4">Understanding light's role is crucial for assessing the health of ocean ecosystems [ 1 ].</li>
             </ul>
         `
     },
@@ -24,7 +24,7 @@ const earthData = [
             <ul class="list-disc">
                 <li class="my-4">Different wavelengths of light are absorbed at varying depths, affecting marine life.</li>
                 <li class="my-4">Red light is absorbed quickly, while blue light penetrates deeper, influencing ocean color.</li>
-                <li class="my-4">The depth of light penetration impacts the distribution of marine organisms.[ 1 ]</li>
+                <li class="my-4">The depth of light penetration impacts the distribution of marine organisms [ 1 ].</li>
             </ul>
         `
     },
@@ -35,7 +35,7 @@ const earthData = [
             <ul class="list-disc">
                 <li class="my-4">The color of the ocean changes based on light absorption, with deeper water appearing darker.</li>
                 <li class="my-4">Different organisms adapt to the varying light conditions in their environments.</li>
-                <li class="my-4">Understanding these color changes helps in studying marine biodiversity.[ 1 ]</li>
+                <li class="my-4">Understanding these color changes helps in studying marine biodiversity [ 1 ].</li>
             </ul>
         `
     }
@@ -56,7 +56,7 @@ const HeroSection = () => {
             <div class="relative flex flex-col items-center justify-center h-full text-center bg-black bg-opacity-80 p-6 rounded-lg">
                 <h1 class="text-5xl font-extrabold mb-6 bg-gradient-to-r from-blue-400 to-green-400 text-transparent bg-clip-text">Explore the Role of Light in the Ocean</h1>
                 <p class="text-xl mt-4 text-justify max-w-3xl leading-relaxed">
-                    Discover how sunlight penetrates the ocean and supports marine ecosystems. Understand how different wavelengths of light influence ocean color and marine life.[ 1 ]
+                    Discover how sunlight penetrates the ocean and supports marine ecosystems. Understand how different wavelengths of light influence ocean color and marine life [ 1 ].
                 </p>
 
                 <button
@@ -68,9 +68,7 @@ const HeroSection = () => {
                         <path fillRule="evenodd" d="M10 14a1 1 0 01-.707-.293l-4-4a1 1 0 011.414-1.414L10 11.586l3.293-3.293a1 1 0 111.414 1.414l-4 4A1 1 0 0110 14z" clipRule="evenodd" />
                     </svg>
                 </button>
-                <p className="absolute bottom-0 left-0 w-full text-[10px] text-right bg-opacity-50 bg-black text-white py-1">
-                     Source:-Image by AmericansOcean Organization[ 14 ]
-                </p>
+                
             </div>
         </div>
     );
@@ -85,22 +83,22 @@ const ObjectivesSection = () => {
                     <Card
                         image="/lessons/lessonContent/lesson3/3.1.jpg"
                         title="Sunlight Penetration"
-                        points="Sunlight is crucial for photosynthesis in marine ecosystems. It penetrates the ocean surface, enabling phytoplankton to produce oxygen, forming the foundation of the marine food web.[ 1 ]"
+                        points="Sunlight is crucial for photosynthesis in marine ecosystems. It penetrates the ocean surface, enabling phytoplankton to produce oxygen, forming the foundation of the marine food web [ 1 ]."
                     />
                     <Card
                         image="/lessons/lessonContent/lesson3/3.2.jpg"
                         title="Wavelength Absorption"
-                        points="Different wavelengths of light are absorbed at different depths in the ocean. Red light is absorbed quickly, while blue light penetrates deeper, influencing marine life behavior and the ocean's appearance.[ 1 ]"
+                        points="Different wavelengths of light are absorbed at different depths in the ocean. Red light is absorbed quickly, while blue light penetrates deeper, influencing marine life behavior and the ocean's appearance [ 1 ]."
                     />
                     <Card
                         image="/lessons/lessonContent/lesson3/3.3.jpg"
                         title="Impact on Marine Life"
-                        points="Light availability influences the distribution and behavior of marine organisms. Many species rely on sunlight for navigation, reproduction, and finding food, making light a critical factor in marine biodiversity.[ 1 ]"
+                        points="Light availability influences the distribution and behavior of marine organisms. Many species rely on sunlight for navigation, reproduction, and finding food, making light a critical factor in marine biodiversity [ 1 ]."
                     />
                     <Card
                         image="/lessons/lessonContent/lesson3/3.4.jpg"
                         title="Ocean Color Dynamics"
-                        points="The varying absorption of light gives the ocean its distinctive colors. The ocean appears blue due to the deep penetration of blue light, while other colors like red are absorbed quickly, affecting our perception of water quality.[ 1 ]"
+                        points="The varying absorption of light gives the ocean its distinctive colors. The ocean appears blue due to the deep penetration of blue light, while other colors like red are absorbed quickly, affecting our perception of water quality [ 1 ]."
                     />
                 </div>
             </div>

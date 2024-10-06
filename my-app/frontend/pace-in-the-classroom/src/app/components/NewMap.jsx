@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Globe from './Globe'; // 3D Globe component
 import Map2D from './Map2D'; // 2D Map component
+import { FaTimes } from 'react-icons/fa';
 import Chart from './Chart';
 import MapControls from './MapControls';
 import '../styling/NewMap.css'; // Custom styles if any
@@ -108,14 +109,33 @@ function NewMap() {
         <div class="fixed inset-0 z-50 bg-black flex items-center justify-center">
           <button
             onClick={handleClose}
-            class="absolute top-24 left-4 bg-blue-600 text-white my-2.5 mx-2.5 px-4 py-2 rounded-lg z-40 hover:bg-blue-900">
-            Close
+            class="absolute top-24 right-4 bg-blue-600 text-white my-1 mx-7 px-3 py-3 rounded-full z-40 hover:bg-blue-900">
+            <FaTimes/>
           </button>
           <div id="visualization" class="w-full h-full mt-5">
             {data.latitudes.length > 0 && viewMode === 'globe' ? (
               <Globe data={data} dataType={dataset} />
             ) : data.latitudes.length > 0 && viewMode === 'graph' ? (
-              <Chart dataFile={dataset+".json"} labelName={dataset} color={"#ff5733"}/>
+              <div className='mt-32'>
+                    <Chart dataFile={`${dataset}.json`} labelName={dataset} dataType={dataset} color={"#ff5733"} />
+                    <h3 className="text-blue-700 font-semibold text-center my-10 text-4xl">
+                        {dataset === 'chl' ? 'Chlorophyll Concentration' :
+                        dataset === 'sst' ? 'Sea Surface Temperature' :
+                        dataset === 'carbon' ? 'Carbon Concentration' :
+                        'Unknown Dataset'}
+                    </h3>
+                    <p className="text-white font-semibold text-justify px-32 text-2xl">
+                        {dataset === 'chl' ? 
+                            'This graph illustrates the average Chlorophyll Concentration levels over a 30-day period for April 2024, providing insights into the variations in chlorophyll levels throughout the month and highlighting trends that may affect marine ecosystems.' :
+                        dataset === 'sst' ? 
+                            'This graph displays the average Sea Surface Temperature (SST) levels over a 30-day period for April 2024, revealing trends and variations in temperature that are crucial for assessing ocean health, climate patterns, and their effects on marine life.' :
+                        dataset === 'carbon' ? 
+                            'This graph presents the average Carbon Concentration levels over a 30-day period for April 2024, offering insights into fluctuations in carbon levels throughout the month and underscoring their significance in understanding oceanic carbon cycles and their impact on climate change.' :
+                            'Unknown Dataset'}
+                    </p>
+                </div>
+
+              
             ) : (
               <p class="text-white">Please select options and submit to see the visualization.</p>
             )}

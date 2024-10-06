@@ -39,14 +39,9 @@ export const routes = createBrowserRouter([
                 lazy: () => import("./views/Lesson5"),
             },
             {
-                path: "/lesson6",
-                lazy: () => import("./views/Lesson6"),
-            },
-            {
                 path: "/maps",
                 lazy: () => import("./views/Maps"),
             },
-            
             {
                 path: "/dashboard",
                 lazy: () => import("./views/Dashboard"),

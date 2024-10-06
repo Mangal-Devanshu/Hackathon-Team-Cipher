@@ -96,7 +96,7 @@ const LessonSection = ({ lessonIndex, isCompleted, isUnlocked, cardsData, title,
                             </button>
                         )}
                         {isCompleted && (
-                            <div className="mt-4 text-blue-400 text-center text-xl">Lesson Completed! You can proceed to the next one.</div>
+                            <div className="mt-4 text-white text-center text-xl">Lesson Completed! You can proceed to the next one.</div>
                         )}
                     </div>
                 </>

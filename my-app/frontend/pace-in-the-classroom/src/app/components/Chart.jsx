@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactEcharts from 'echarts-for-react'; // Ensure you have this package installed via npm/yarn
 
-const Chart = ({ dataFile, labelName, color }) => {
+const Chart = ({ dataFile, labelName,dataType, color }) => {
   const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
@@ -90,9 +90,15 @@ const Chart = ({ dataFile, labelName, color }) => {
   });
 
   return (
-    <div>
+    
+   
+    <div className='mt-10'>
+      
       <ReactEcharts option={getOption()} style={{ height: '400px', width: '100%' }} />
     </div>
+  
+  
+
   );
 };
 

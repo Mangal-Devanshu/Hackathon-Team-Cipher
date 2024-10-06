@@ -12,7 +12,7 @@ const earthData = [
             <ul class="list-disc">
                 <li class="my-4">The ocean and atmosphere exchange heat, moisture, and carbon, which are crucial for regulating Earth's climate.</li>
                 <li class="my-4">These interactions influence weather patterns, including storms, rainfall, and wind systems globally.</li>
-                <li class="my-4">Understanding these interactions helps us predict climate changes and weather variations.[ 1 ]</li>
+                <li class="my-4">Understanding these interactions helps us predict climate changes and weather variations [ 1 ].</li>
             </ul>
         `
     },
@@ -23,7 +23,7 @@ const earthData = [
             <ul class="list-disc">
                 <li class="my-4">The ocean absorbs about 30% of human-made carbon dioxide, helping mitigate climate change effects.</li>
                 <li class="my-4">Ocean currents distribute heat globally, influencing regional climates, especially near coastlines.</li>
-                <li class="my-4">Changes in ocean temperature can lead to extreme weather events like El Niño and La Niña.[ 1 ]</li>
+                <li class="my-4">Changes in ocean temperature can lead to extreme weather events like El Niño and La Niña [ 1 ].</li>
             </ul>
         `
     },
@@ -34,7 +34,7 @@ const earthData = [
             <ul class="list-disc">
                 <li class="my-4">The ocean plays a vital role in sequestering carbon, absorbing large quantities of CO₂ from the atmosphere.</li>
                 <li class="my-4">Excess CO₂ absorption is causing ocean acidification, which threatens marine ecosystems.</li>
-                <li class="my-4">Healthy oceans are critical to balancing the global carbon cycle and slowing climate change.[ 1 ]</li>
+                <li class="my-4">Healthy oceans are critical to balancing the global carbon cycle and slowing climate change [ 1 ].</li>
             </ul>
         `
     }
@@ -55,7 +55,7 @@ const HeroSection = () => {
             <div class="relative flex flex-col items-center justify-center h-full text-center bg-black bg-opacity-80 p-6 rounded-lg">
                 <h1 class="text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-400 to-green-400 text-transparent bg-clip-text">Explore Earth's Climate</h1>
                 <p class="text-xl mt-4 text-justify max-w-3xl leading-relaxed">
-                    Discover how the ocean and atmosphere interact to regulate Earth's climate. Understand the balance between heat exchange, carbon cycling, and their impact on global weather systems.[ 1 ]
+                    Discover how the ocean and atmosphere interact to regulate Earth's climate. Understand the balance between heat exchange, carbon cycling, and their impact on global weather systems [ 1 ].
                 </p>
 
                 <button
@@ -67,9 +67,7 @@ const HeroSection = () => {
                         <path fillRule="evenodd" d="M10 14a1 1 0 01-.707-.293l-4-4a1 1 0 011.414-1.414L10 11.586l3.293-3.293a1 1 0 111.414 1.414l-4 4A1 1 0 0110 14z" clipRule="evenodd" />
                     </svg>
                 </button>
-                <p className="absolute bottom-0 left-0 w-full text-[10px] text-right bg-opacity-50 bg-black text-white py-1">
-                     Source:-Nasa Science Gov Home Page Image[ 13 ]
-                </p>
+               
             </div>
         </div>
     );
@@ -84,18 +82,17 @@ const ObjectivesSection = () => {
                     <Card
                         image="/lessons/lessonContent/lesson2/2.1.jpg"
                         title="Ocean-Atmosphere Interaction"
-                        points="The ocean and atmosphere regulate climate by exchanging heat, moisture, and gases. Ocean currents distribute heat, while winds drive weather patterns, balancing Earth's energy and moderating climate variability.[ 1 ]"
+                        points="The ocean and atmosphere regulate climate by exchanging heat, moisture, and gases. Ocean currents distribute heat, while winds drive weather patterns, balancing Earth's energy and moderating climate variability [ 1 ]."
                     />
                     <Card
                         image="/lessons/lessonContent/lesson2/2.2.jpg"
                         title="Climate Regulation"
-                        points="The ocean stabilizes Earth's climate by absorbing excess heat from the atmosphere and storing it in deep waters. It also dissolves CO₂, where it's sequestered or used by marine organisms, reducing atmospheric carbon levels.[1]"
+                        points="The ocean stabilizes Earth's climate by absorbing excess heat from the atmosphere and storing it in deep waters. It also dissolves CO₂, where it's sequestered or used by marine organisms, reducing the atmospheric carbon levels [ 1 ]."
                     />
                     <Card
                         image="/lessons/lessonContent/lesson2/2.3.jpg"
                         title="Carbon Sequestration"
-                        points="
-The ocean sequesters carbon dioxide by absorbing CO₂ from the atmosphere. Phytoplankton convert it during photosynthesis, and some carbon sinks to the ocean floor, reducing atmospheric CO₂ levels.[ 1 ]"
+                        points="The ocean sequesters carbon dioxide by absorbing CO₂ from the atmosphere. Phytoplankton convert it during photosynthesis, and some carbon sinks to the ocean floor, reducing atmospheric CO₂ levels [ 1 ]."
                     />
                     <Card
                         image="/lessons/lessonContent/lesson2/2.4.jpg"

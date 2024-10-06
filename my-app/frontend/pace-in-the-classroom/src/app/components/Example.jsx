@@ -30,7 +30,7 @@ function Card({ card }) {
             {/* Title on the image with React Router Link */}
             <div className="absolute inset-0 z-10 grid place-content-center">
                 <motion.p
-                    className="rounded-lg bg-gradient-to-br from-bg-neutral-100 to-white/0 p-4 text-3xl font-black uppercase text-white backdrop-blur-lg"
+                    className="rounded-lg bg-gradient-to-br from-bg-neutral-100 to-white/0 p-4 text-3xl font-black capitalize text-white backdrop-blur-lg"
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
@@ -77,7 +77,7 @@ function Example({ numberOfCards, cardsData, startTitle }) {
             {/* Heading with fading animation */}
             <div className="flex h-24 items-center justify-center bg-black rounded-lg mx-4">
                 <motion.span
-                    className="font-extrabold text-4xl capitalize text-white"
+                    className="font-extrabold text-4xl capitalize text-blue-700"
                     initial={{ opacity: 0, y: -50 }} // Keep fading animation
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.9, ease: "easeInOut" }}

@@ -1,4 +1,5 @@
-import { FaTwitter, FaInstagram, FaGithub, FaFacebook } from "react-icons/fa";
+import { FaTwitter, FaInstagram, FaGithub } from "react-icons/fa"; // Import Threads icon
+import { BsFillThreadsFill } from "react-icons/bs";
 
 export default function Footer() {
     return (
@@ -7,7 +8,7 @@ export default function Footer() {
                 <p className="font-semibold text-lg">&copy; Team Space Ciphers 2024. All Rights Reserved</p>
                 <div className="mt-4 flex justify-center">
                     <a
-                        href="https://twitter.com/NASA"
+                        href="https://x.com/spaceciphers"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-neutral-300 hover:text-blue-700 mx-4"
@@ -15,7 +16,7 @@ export default function Footer() {
                         <FaTwitter size={24} />
                     </a>
                     <a
-                        href="https://www.instagram.com/NASA"
+                        href="https://www.instagram.com/teamspaceciphers/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-neutral-300 hover:text-blue-700 mx-4"
@@ -23,7 +24,7 @@ export default function Footer() {
                         <FaInstagram size={24} />
                     </a>
                     <a
-                        href="https://github.com/NASA"
+                        href="https://github.com/teamspaceciphers"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-neutral-300 hover:text-blue-700 mx-4"
@@ -31,12 +32,12 @@ export default function Footer() {
                         <FaGithub size={24} />
                     </a>
                     <a
-                        href="https://facebook.com/NASA"
+                        href="https://www.threads.net/@teamspaceciphers"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-neutral-300 hover:text-blue-700 mx-4"
                     >
-                        <FaFacebook size={24} />
+                        <BsFillThreadsFill size={24} /> {/* Use Threads icon here */}
                     </a>
                 </div>
             </div>

@@ -2,24 +2,24 @@ import React from "react";
 import TitleCard from "../components/TitleCard";
 
 const cardData1 = [
-    { image: "/assets/launch.jpg", name: "Nishant Painter", text: "Full Stack Developer" },
-    { image: "/assets/launch.jpg", name: "Bintu Kadhiwala", text: "UX Designer" },
+    { image: "/about/1.jpeg", name: "Mr. Nishant Painter", text: "CEO & Founder, Shivantra", href: "" },
+    { image: "/assets/launch.jpg", name: "Prof. (Dr.) Bintu Kadhiwala", text: "Assistant Professor, Computer Department, SCET", href: "" },
 ];
 
 const cardData2 = [
-    { image: "/assets/pace.jpg", name: "Devanshu Mangal", text: "Full Stack Developer" },
-    { image: "/assets/pace.jpg", name: "Dhairya Prajapati", text: "Data Scientist" },
-    { image: "/assets/pace.jpg", name: "Ronit Rathod", text: "UX Designer" },
+    { image: "/assets/pace.jpg", name: "Devanshu Mangal", text: "Frontend + Backend", href: "" },
+    { image: "/assets/pace.jpg", name: "Ronit Rathod", text: "Backend + Database", href: "" },
+    { image: "/assets/pace.jpg", name: "Dhairya Prajapati", text: "Frontend", href: "" },
 ];
 
 const cardData3 = [
-    { image: "/assets/pace.jpg", name: "Manan Tarsairya", text: "Full Stack Developer" },
-    { image: "/assets/pace.jpg", name: "Jit Prajapati", text: "Data Scientist" },
-    { image: "/assets/pace.jpg", name: "Jainex Pumbhaidiya", text: "UX Designer" },
+    { image: "/assets/pace.jpg", name: "Manan Tarsairya", text: "Backend + Literature Survey", href: "" },
+    { image: "/assets/pace.jpg", name: "Jit Prajapati", text: "Website Deployment", href: "" },
+    { image: "/assets/pace.jpg", name: "Jainex Pumbhaidiya", text: "Website Deployment", href: "" },
 ];
 
 const cardData4 = [
-    { image: "/assets/pace.jpg", name: "Dhatri Pandya", text: "Full Stack Developer" },
+    { image: "/assets/pace.jpg", name: "Prof. Dhatri Pandya", text: "Assistant Professor, Computer Department, SCET", href: "" },
 ];
 
 export function Component() {
@@ -29,7 +29,7 @@ export function Component() {
             <div className="w-5/6 space-y-12">
                 {/* Our Mentors Section */}
                 <div className="text-center">
-                    <h2 className="text-5xl text-white font-bold text-transparent bg-clip-text animate-gradient">
+                    <h2 className="text-5xl text-blue-700 font-bold bg-clip-text animate-gradient">
                         Our Mentors
                     </h2>
                     <div className="mt-8">
@@ -38,7 +38,7 @@ export function Component() {
                 </div>
                 {/* Special Thanks Section */}
                 <div className="text-center">
-                    <h2 className="text-5xl text-white font-bold text-transparent bg-clip-text animate-gradient">
+                    <h2 className="text-5xl text-blue-700 font-bold bg-clip-text animate-gradient">
                         Special Thanks
                     </h2>
                     <div className="mt-8">
@@ -48,7 +48,7 @@ export function Component() {
 
                 {/* Team Members Section */}
                 <div className="text-center">
-                    <h2 className="text-5xl text-white font-bold text-transparent bg-clip-text animate-gradient">
+                    <h2 className="text-5xl text-blue-700 font-bold bg-clip-text animate-gradient">
                         Team Members
                     </h2>
                     <div className="mt-8 space-y-8">

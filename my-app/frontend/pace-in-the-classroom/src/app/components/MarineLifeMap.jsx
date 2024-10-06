@@ -71,7 +71,7 @@ const MarineLifeMap = () => {
     return (
         <div className="marine-life-map-container bg-neutral-950 text-white p-6 rounded-lg shadow-lg border border-blue-700">
             {/* Title Section */}
-            <h2 className="text-2xl bg-neutral-950 text-white p-4 rounded-lg border border-blue-700 shadow-md shadow-blue-700">
+            <h2 className="text-4xl bg-neutral-950 text-blue-700 p-4 rounded-lg border  border-blue-700 shadow-md shadow-blue-700">
                 🧑‍🚀 Captain Splash’s Ocean Adventure! 🐠
             </h2>
             <p className="text-lg my-4">

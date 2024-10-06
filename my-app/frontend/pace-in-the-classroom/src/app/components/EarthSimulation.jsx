@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'; // Importing the arrow icons
 
 const EarthSimulation = ({ data }) => {
     const [selectedEarth, setSelectedEarth] = useState(data[0]); // Initialize with the first item in the data prop
@@ -58,7 +59,7 @@ const EarthSimulation = ({ data }) => {
                 <div className="flex flex-col justify-center">
                     {/* Previous Arrow */}
                     <button onClick={handlePrevious} className="text-4xl cursor-pointer hover:text-blue-600 transition-colors duration-300">
-                        &lt;
+                        <FaChevronLeft /> {/* Left arrow icon */}
                     </button>
                 </div>
 
@@ -84,7 +85,7 @@ const EarthSimulation = ({ data }) => {
                 <div className="flex flex-col justify-center">
                     {/* Next Arrow */}
                     <button onClick={handleNext} className="text-4xl cursor-pointer hover:text-blue-600 transition-colors duration-300">
-                        &gt;
+                        <FaChevronRight /> {/* Right arrow icon */}
                     </button>
                 </div>
             </div>

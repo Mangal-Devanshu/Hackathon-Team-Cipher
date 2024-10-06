@@ -12,7 +12,7 @@ const earthData = [
             <ul class="list-disc">
                 <li class="my-4">Aerosols are tiny particles or droplets in the atmosphere that influence air quality and climate.</li>
                 <li class="my-4">The PACE mission, using the SPEXone instrument, measures aerosols to better understand their role in climate dynamics.</li>
-                <li class="my-4">Aerosols can scatter or absorb sunlight, impacting the Earth's temperature and energy balance.[ 1 ]</li>
+                <li class="my-4">Aerosols can scatter or absorb sunlight, impacting the Earth's temperature and energy balance [ 1 ].</li>
             </ul>
         `
     },
@@ -23,7 +23,7 @@ const earthData = [
             <ul class="list-disc">
                 <li class="my-4">Aerosols play a significant role in cloud formation, acting as cloud condensation nuclei (CCN).</li>
                 <li class="my-4">They can influence precipitation patterns by altering cloud microphysical properties.</li>
-                <li class="my-4">Understanding these interactions is essential for predicting weather and long-term climate changes.[ 1 ]</li>
+                <li class="my-4">Understanding these interactions is essential for predicting weather and long-term climate changes [ 1 ].</li>
             </ul>
         `
     },
@@ -34,7 +34,7 @@ const earthData = [
             <ul class="list-disc">
                 <li class="my-4">Aerosols can travel thousands of miles from their source, affecting weather systems and ecosystems far from where they originated.</li>
                 <li class="my-4">They can influence air quality across regions, with potential health impacts on populations globally.</li>
-                <li class="my-4">Tracking aerosol movement helps in assessing their environmental and climate impact on a global scale.[ 1 ]</li>
+                <li class="my-4">Tracking aerosol movement helps in assessing their environmental and climate impact on a global scale [ 1 ].</li>
             </ul>
         `
     }
@@ -56,7 +56,7 @@ const HeroSection = () => {
             <div class="relative flex flex-col items-center justify-center h-full text-center bg-black bg-opacity-80 p-6 rounded-lg">
                 <h1 class="text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-400 to-green-400 text-transparent bg-clip-text">Explore Aerosols & Climate</h1>
                 <p class="text-xl mt-4 text-justify  max-w-3xl leading-relaxed">
-                    Discover how aerosols influence Earth's climate by affecting cloud formation and air quality. Learn how they move globally and shape weather and precipitation patterns.[ 1 ]
+                    Discover how aerosols influence Earth's climate by affecting cloud formation and air quality. Learn how they move globally and shape weather and precipitation patterns [ 1 ].
                 </p>
 
                 <button
@@ -85,22 +85,22 @@ const ObjectivesSection = () => {
                     <Card
                         image="/lessons/lessonContent/lesson5/5.1.jpg"
                         title="Aerosols & Air Quality"
-                        points="Aerosols are small particles that can both cool and warm the planet by scattering or absorbing sunlight. They are essential to understand as they influence not just climate, but also public health and weather patterns.[ 1 ]"
+                        points="Aerosols are small particles that can both cool and warm the planet by scattering or absorbing sunlight. They are essential to understand as they influence not just climate, but also public health and weather patterns [ 1 .]"
                     />
                     <Card
                         image="/lessons/lessonContent/lesson5/5.2.jpg"
                         title="Aerosols & Cloud Formation"
-                        points="Aerosols impact cloud formation by providing nuclei around which clouds can form. This influences rainfall and global weather patterns, making their study critical for understanding climate systems.[ 1 ]"
+                        points="Aerosols impact cloud formation by providing nuclei around which clouds can form. This influences rainfall and global weather patterns, making their study critical for understanding climate systems [ 1 ]."
                     />
                     <Card
                         image="/lessons/lessonContent/lesson5/5.3.jpg"
                         title="Global Aerosol Movement"
-                        points="Aerosols can travel long distances from their origin, influencing regions far away. These particles affect not just air quality, but also broader climate patterns, weather, and even health.[ 1 ]"
+                        points="Aerosols can travel long distances from their origin, influencing regions far away. These particles affect not just air quality, but also broader climate patterns, weather, and even health [ 1 ]."
                     />
                     <Card
                         image="/lessons/lessonContent/lesson5/5.4.jpg"
                         title="Climate Effects of Aerosols"
-                        points="The distribution of aerosols across the globe affects climate by altering cloud properties and the Earth's radiation balance. Understanding these impacts helps predict climate change more accurately.[ 1 ]"
+                        points="The distribution of aerosols across the globe affects climate by altering cloud properties and the Earth's radiation balance. Understanding these impacts helps predict climate change more accurately [ 1 ]."
                     />
 
                 </div>

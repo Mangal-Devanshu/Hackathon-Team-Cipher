@@ -11,196 +11,96 @@ export function Component() {
                 </p>
                 <ol className="list-inside space-y-4 text-justify">
                     <li>
-                        <span className="text-blue-700 font-semibold"></span>
-                        <span><b>[ 1 ]</b> <a>Generated Using AI Tools like ChatGPT & Leonardo AI.</a></span>
-                        <a
-                            href="https://chatgpt.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-600 underline hover:text-blue-700 mx-2"
-                        >
-                            Click Here
-                        </a>
+                        <div className="flex flex-col space-y-1">
+                            <div className="flex items-center space-x-2">
+                                <p className="text-blue-700 font-bold">[ 1 ]</p>
+                                <p>Generated Using AI Tools :</p>
+                            </div>
+                            <ul className="list-disc ml-8 space-y-1">
+                                <li>
+                                    <a href="https://chatgpt.com/" className="underline">ChatGPT</a>
+                                </li>
+                                <li>
+                                    <a href="https://leonardo.ai/" className="underline">Leonardo AI</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <span>
+                            <b class="text-blue-700">[ 2 ]</b> <a href="https://pace.oceansciences.org/gallery_more.htm?id=2179" className="underline">NASA's Pace Satellite Launch</a>
+                        </span>
                     </li>
                     <li>
-                        <span className="text-blue-700 font-semibold"></span>
-                        <span><b>[ 2 ]</b> <a>NASA's Pace Satellite Launch.</a></span>
-                        <a
-                            href="https://pace.oceansciences.org/gallery_more.htm?id=2179"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-600 underline hover:text-blue-700 mx-2"
-                        >
-                            Click Here
-                        </a>
+                        <span>
+                            <b class="text-blue-700">[ 3 ]</b> <a href="https://pace.oceansciences.org/gallery_more.htm?id=1597" className="underline">Earth: Our Living Planet</a>
+                        </span>
                     </li>
                     <li>
-                        <span className="text-blue-700 font-semibold"></span>
-                        <span><b>[ 3 ]</b> <a>Earth: Our Living Planet</a></span>
-                        <a
-                            href="https://pace.oceansciences.org/gallery_more.htm?id=1597"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-600 underline hover:text-blue-700 mx-2"
-                        >
-                            Click Here
-                        </a>
+                        <span>
+                            <b class="text-blue-700">[ 4 ]</b> <a href="https://pace.oceansciences.org/gallery_more.htm?id=2145" className="underline">PACE Observatory Being Inspected at Astrotech</a>
+                        </span>
                     </li>
                     <li>
-                        <span className="text-blue-700 font-semibold"></span>
-                        <span><b>[ 4 ]</b> <a>PACE Observatory Being Inspected at Astrotech</a></span>
-                        <a
-                            href="https://pace.oceansciences.org/gallery_more.htm?id=2145"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-600 underline hover:text-blue-700 mx-2"
-                        >
-                            Click Here
-                        </a>
+                        <span>
+                            <b class="text-blue-700">[ 5 ]</b> <a href="https://pace.oceansciences.org/gallery_more.htm?id=1735" className="underline">PACE Satellite in Orbit</a>
+                        </span>
                     </li>
                     <li>
-                        <span className="text-blue-700 font-semibold"></span>
-                        <span><b>[ 5 ]</b> <a>PACE Satellite in Orbit</a></span>
-                        <a
-                            href="https://pace.oceansciences.org/gallery_more.htm?id=1735"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-600 underline hover:text-blue-700 mx-2"
-                        >
-                            Click Here
-                        </a>
+                        <span>
+                            <b class="text-blue-700">[ 6 ]</b> <a href="https://pace.oceansciences.org/gallery_more.htm?id=2171" className="underline">50 Years of Harmful Algal Blooms</a>
+                        </span>
                     </li>
                     <li>
-                        <span className="text-blue-700 font-semibold"></span>
-                        <span><b>[ 6 ]</b> <a>50 Years of Harmful Algal Blooms</a></span>
-                        <a
-                            href="https://pace.oceansciences.org/gallery_more.htm?id=2171"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-600 underline hover:text-blue-700 mx-2"
-                        >
-                            Click Here
-                        </a>
+                        <span>
+                            <b class="text-blue-700">[ 7 ]</b> <a href="https://pace.oceansciences.org/oci.htm" className="underline">Ocean Color Instrument</a>
+                        </span>
                     </li>
                     <li>
-                        <span className="text-blue-700 font-semibold"></span>
-                        <span><b>[ 7 ]</b> <a>Ocean Color Instrument</a></span>
-                        <a
-                            href="https://pace.oceansciences.org/oci.htm"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-600 underline hover:text-blue-700 mx-2"
-                        >
-                            Click Here
-                        </a>
+                        <span>
+                            <b class="text-blue-700">[ 8 ]</b> <a href="https://pace.oceansciences.org/gallery_more.htm?id=2179" className="underline">OCI Image Collection</a>
+                        </span>
                     </li>
                     <li>
-                        <span className="text-blue-700 font-semibold"></span>
-                        <span><b>[ 8 ]</b> <a>OCI Image Collection</a></span>
-                        <a
-                            href="https://pace.oceansciences.org/gallery_more.htm?id=2179"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-600 underline hover:text-blue-700 mx-2"
-                        >
-                            Click Here
-                        </a>
+                        <span>
+                            <b class="text-blue-700">[ 9 ]</b> <a href="https://pace.oceansciences.org/spexone.htm" className="underline">SPEXone Polarimeter</a>
+                        </span>
                     </li>
                     <li>
-                        <span className="text-blue-700 font-semibold"></span>
-                        <span><b>[ 9 ]</b> <a>SPEXone Polarimeter</a></span>
-                        <a
-                            href="https://pace.oceansciences.org/spexone.htm"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-600 underline hover:text-blue-700 mx-2"
-                        >
-                            Click Here
-                        </a>
+                        <span>
+                            <b class="text-blue-700">[ 10 ]</b> <a href="https://pace.oceansciences.org/slideshow_gallery.htm?id=18" className="underline">SPEXone Image Collection</a>
+                        </span>
                     </li>
                     <li>
-                        <span className="text-blue-700 font-semibold"></span>
-                        <span><b>[ 10 ]</b> <a>SPEXone Image Collection</a></span>
-                        <a
-                            href="https://pace.oceansciences.org/slideshow_gallery.htm?id=18"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-600 underline hover:text-blue-700 mx-2"
-                        >
-                            Click Here
-                        </a>
+                        <span>
+                            <b class="text-blue-700">[ 11 ]</b> <a href="https://pace.oceansciences.org/harp2.htm" className="underline">HARP2 Polarimeter</a>
+                        </span>
                     </li>
                     <li>
-                        <span className="text-blue-700 font-semibold"></span>
-                        <span><b>[ 11 ]</b> <a>HARP2 Polarimeter</a></span>
-                        <a
-                            href="https://pace.oceansciences.org/harp2.htm"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-600 underline hover:text-blue-700 mx-2"
-                        >
-                            Click Here
-                        </a>
+                        <span>
+                            <b class="text-blue-700">[ 12 ]</b> <a href="https://pace.oceansciences.org/slideshow_gallery.htm?id=19" className="underline">HARP2 Image Collection</a>
+                        </span>
                     </li>
                     <li>
-                        <span className="text-blue-700 font-semibold"></span>
-                        <span><b>[ 12 ]</b> <a>HARP2 Image Collection</a></span>
-                        <a
-                            href="https://pace.oceansciences.org/slideshow_gallery.htm?id=19"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-600 underline hover:text-blue-700 mx-2"
-                        >
-                            Click Here
-                        </a>
+                        <span>
+                            <b class="text-blue-700">[ 13 ]</b> <a href="https://science.nasa.gov/wp-content/uploads/2024/02/304765158-615003676989374-3689670236967468275-n.jpg?w=1536&format=webp" className="underline">Climate Change Image</a>
+                        </span>
                     </li>
                     <li>
-                        <span className="text-blue-700 font-semibold"></span>
-                        <span><b>[ 13 ]</b> <a>Climate Change Image</a></span>
-                        <a
-                            href="https://science.nasa.gov/wp-content/uploads/2024/02/304765158-615003676989374-3689670236967468275-n.jpg?w=1536&format=webp"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-600 underline hover:text-blue-700 mx-2"
-                        >
-                            Click Here
-                        </a>
+                        <span>
+                            <b class="text-blue-700">[ 14 ]</b> <a href="https://www.americanoceans.org/facts/how-deep-does-light-penetrate-the-ocean/" className="underline">Light Ocean Penetration Image</a>
+                        </span>
                     </li>
                     <li>
-                        <span className="text-blue-700 font-semibold"></span>
-                        <span><b>[ 14 ]</b> <a>Light Ocean Penetration Image</a></span>
-                        <a
-                            href="https://www.americanoceans.org/facts/how-deep-does-light-penetrate-the-ocean/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-600 underline hover:text-blue-700 mx-2"
-                        >
-                            Click Here
-                        </a>
+                        <span>
+                            <b class="text-blue-700">[ 15 ]</b> <a href="https://pace.oceansciences.org/images/GSFC_20220805_PACE_064914_400w.jpg" className="underline">Pace OCI Instrument Image</a>
+                        </span>
                     </li>
                     <li>
-                        <span className="text-blue-700 font-semibold"></span>
-                        <span><b>[ 15 ]</b> <a>Pace OCI Instrument Image</a></span>
-                        <a
-                            href="https://pace.oceansciences.org/images/GSFC_20220805_PACE_064914_400w.jpg"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-600 underline hover:text-blue-700 mx-2"
-                        >
-                            Click Here
-                        </a>
-                    </li>
-                    <li>
-                        <span className="text-blue-700 font-semibold"></span>
-                        <span><b>[ 16 ]</b> <a>Aresols And Sandstorm Image</a></span>
-                        <a
-                            href="https://pixabay.com/photos/sandstorm-sand-dune-travel-5427661/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-600 underline hover:text-blue-700 mx-2"
-                        >
-                            Click Here
-                        </a>
+                        <span>
+                            <b class="text-blue-700">[ 16 ]</b> <a href="https://pixabay.com/photos/sandstorm-sand-dune-travel-5427661/" className="underline">Aerosols and Sandstorm Image</a>
+                        </span>
                     </li>
                 </ol>
             </div>

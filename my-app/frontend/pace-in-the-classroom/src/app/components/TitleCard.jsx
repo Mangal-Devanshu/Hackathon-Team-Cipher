@@ -1,12 +1,19 @@
 import React, { useRef } from "react";
 import { motion, useMotionTemplate, useMotionValue, useSpring } from "framer-motion";
+import { FaLinkedin } from "react-icons/fa"; // Import LinkedIn icon
 
 // TitleCard now accepts cardData and numberOfCards as props
 const TitleCard = ({ cardData, numberOfCards }) => {
     return (
         <div className="flex flex-row justify-center gap-8 w-full px-4 py-12 text-slate-900">
             {cardData.slice(0, numberOfCards).map((card, index) => (
-                <TiltCard key={index} image={card.image} text={card.text} name={card.name} />
+                <TiltCard
+                    key={index}
+                    image={card.image}
+                    text={card.text}    
+                    name={card.name}
+                    href={card.href} // Pass href as a prop
+                />
             ))}
         </div>
     );
@@ -15,7 +22,7 @@ const TitleCard = ({ cardData, numberOfCards }) => {
 const ROTATION_RANGE = 32.5;
 const HALF_ROTATION_RANGE = 32.5 / 2;
 
-const TiltCard = ({ image, name, text }) => {
+const TiltCard = ({ image, name, text, href }) => { // Accept href as a prop
     const ref = useRef(null);
 
     const x = useMotionValue(0);
@@ -57,28 +64,28 @@ const TiltCard = ({ image, name, text }) => {
                 transformStyle: "preserve-3d",
                 transform,
             }}
-            className="relative h-96 w-72 rounded-xl bg-gradient-to-br from-blue-700 to-neutral-900 shadow-xl transition-transform duration-300"
+            className="relative h-96 w-80 rounded-xl bg-black  transition-transform duration-300"
         >
             <div
                 style={{
                     transform: "translateZ(75px)",
                     transformStyle: "preserve-3d",
                 }}
-                className="absolute inset-4 grid place-content-center rounded-xl bg-neutral-200 shadow-lg"
+                className="absolute inset-6 grid place-content-center rounded-xl bg-neutral-900 shadow-lg shadow-blue-700 p-2"
             >
                 <img
                     src={image}
                     alt="Profile"
                     style={{
-                        transform: "translateZ(75px)",
+                        transform: "translateZ(70px)",
                     }}
-                    className="mx-auto h-24 w-24 rounded-full object-cover border-4 border-blue-700"
+                    className="mx-auto h-28 w-28 rounded-full object-center shadow-lg shadow-blue-700/60"
                 />
                 <h1
                     style={{
                         transform: "translateZ(60px)",
                     }}
-                    className="mt-4 text-xl text-center font-semibold text-gray-800"
+                    className="mt-4 text-lg text-center font-semibold text-white"
                 >
                     {name}
                 </h1>
@@ -86,10 +93,23 @@ const TiltCard = ({ image, name, text }) => {
                     style={{
                         transform: "translateZ(50px)",
                     }}
-                    className="mt-2 text-center text-md font-bold text-blue-800"
+                    className="mt-2 text-center text-md font-semibold text-blue-700"
                 >
                     {text}
                 </p>
+
+                {/* LinkedIn icon */}
+                <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex justify-center items-center mt-4 text-blue-700 hover:text-blue-800"
+                    style={{
+                        transform: "translateZ(40px)",
+                    }}
+                >
+                    <FaLinkedin size={28} /> {/* Add LinkedIn icon */}
+                </a>
             </div>
         </motion.div>
     );

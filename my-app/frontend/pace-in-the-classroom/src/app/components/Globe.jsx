@@ -178,7 +178,7 @@ function Globe({ data, dataType }) {
     const validMax = validRanges[dataType].max;
 
     // Create gradient stops
-    const numSteps = 10;
+    const numSteps = 12;
     const steps = Array.from({ length: numSteps }, (_, i) => {
       const value = validMin + ((validMax - validMin) / numSteps) * i;
       const color = colorInterpolation(i / numSteps);
@@ -188,13 +188,13 @@ function Globe({ data, dataType }) {
           className="color-step"
           style={{ backgroundColor: color }}
         >
-          <span>{value.toFixed(2)}</span>
+          <span>{value.toFixed(1)}</span>
         </div>
       );
     });
 
     return (
-      <div className="color-scale">
+      <div className="color-scale mt-28">
         <div className="color-steps">
           {steps}
         </div>
@@ -238,12 +238,16 @@ function Globe({ data, dataType }) {
       </Canvas>
 
       {/* Render the color scale */}
-      {renderColorScale()}
+      <div className='mt-4'> {/* Adjust the mt (margin-top) value as needed */}
+        {renderColorScale()}
+      </div>
+
+
       {/* Description box with dataset info */}
-      <div className="data-info">
-        <h2>Dataset: {dataType === 'chl' ? 'Chlorophyll Concentration' : dataType === 'sst' ? 'Sea Surface Temperature' : 'Carbon Concentration'}</h2>
-        <p>This scale shows the concentration of {dataType === 'chl' ? 'chlorophyll, indicating phytoplankton biomass in the ocean' : dataType === 'sst' ? 'sea surface temperature, which affects marine ecosystems' : 'carbon, a key element in the ocean’s carbon cycle.'}</p>
-        <p>High values indicate nutrient-rich or warmer waters, while low values represent nutrient-poor or cooler regions.</p>
+      <div className="data-info mb-64">
+        <h2 className="text-blue-600 font-semibold text-center text-2xl ">Dataset: {dataType === 'chl' ? 'Chlorophyll Concentration' : dataType === 'sst' ? 'Sea Surface Temperature' : 'Carbon Concentration'}</h2>
+        <p className='text-justify text-white text-lg '>This scale shows the concentration of {dataType === 'chl' ? 'chlorophyll, indicating phytoplankton biomass in the ocean' : dataType === 'sst' ? 'sea surface temperature, which affects marine ecosystems' : 'carbon, a key element in the ocean’s carbon cycle.'}
+        High values indicate nutrient-rich or warmer waters, while low values represent nutrient-poor or cooler regions.</p>
       </div>
     </div>
   );

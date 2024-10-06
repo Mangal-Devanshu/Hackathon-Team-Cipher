@@ -83,20 +83,5 @@
     /* Subtle shadow for emphasis */
 }
 
-.data-info h2 {
-    font-size: 1.5vw;
-    color: rgba(255, 255, 255, 0.84);
-    /* Responsive font size for the heading */
-    margin: 0;
-    font-weight: bold;
-}
 
-.data-info p {
-    font-size: 1.1vw;
-    /* Responsive font size for the paragraph */
-    margin: 0.5vh 0;
-    /* Spacing between paragraphs */
-    line-height: 1.4;
-    color: rgba(212, 212, 212, 0.84);
-    /* Increased line height for readability */
-}
+
