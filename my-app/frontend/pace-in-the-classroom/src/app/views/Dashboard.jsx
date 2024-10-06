@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "../components/Searchbar";
 import GroupForm from "../components/GroupForm";
 import SwipeCards from "../components/SwipeCards";
 import CommitmentCardForm from "../components/CommitmentCardForm"; // Ensure this path is correct
