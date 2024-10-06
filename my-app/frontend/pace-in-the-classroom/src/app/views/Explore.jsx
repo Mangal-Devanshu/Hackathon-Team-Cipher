@@ -93,7 +93,7 @@ export function Component() {
                         images={imageSets1}
                         buttonText="Learn More"
                         buttonLink="https://pace.oceansciences.org/oci.htm"
-                        citation="Fig. 6 [ 8 ]"
+                        citation="OCI Image Collection Fig. 6 [ 8 ]"
                     />
                 </div>
 
@@ -109,7 +109,7 @@ export function Component() {
                         images={imageSets2}
                         buttonText="Learn More"
                         buttonLink="https://pace.oceansciences.org/spexone.htm"
-                        citation="Fig. 7 [ 10 ]"
+                        citation="SPEXone Image Collection Fig. 7 [ 10 ]"
                     />
                 </div>
 
@@ -125,7 +125,7 @@ export function Component() {
                         images={imageSets3}
                         buttonText="Learn More"
                         buttonLink="https://pace.oceansciences.org/harp2.htm"
-                        citation="Fig. 8 [ 12 ]"
+                        citation="HARP2 Image Collection Fig. 8 [ 12 ]"
                     />
                 </div>
             </div>

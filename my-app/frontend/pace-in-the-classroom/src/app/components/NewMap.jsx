@@ -3,7 +3,7 @@ import axios from 'axios';
 import Globe from './Globe'; // 3D Globe component
 import Map2D from './Map2D'; // 2D Map component
 import { FaTimes } from 'react-icons/fa';
-import Chart from './Chart';
+import Chart from './Chart'; // Chart component
 import MapControls from './MapControls';
 import '../styling/NewMap.css'; // Custom styles if any
 import { useNavigate } from 'react-router-dom'; // For navigation
@@ -14,9 +14,9 @@ function NewMap() {
   const [startLon, setStartLon] = useState(-180);
   const [isFetching, setIsFetching] = useState(false);
   const [isLoading, setIsLoading] = useState(true); // For loading animation
-  const [viewMode, setViewMode] = useState('');
-  const [dataset, setDataset] = useState('');
-  const [isFullScreen, setIsFullScreen] = useState(false); // To manage full-screen view
+  const [viewMode, setViewMode] = useState(''); // 'globe' or 'graph'
+  const [dataset, setDataset] = useState(''); // Dataset type ('chl', 'sst', 'carbon')
+  const [isFullScreen, setIsFullScreen] = useState(false); // Manage full-screen view
 
   const latChunkSize = 90;
   const lonChunkSize = 180;
@@ -94,8 +94,8 @@ function NewMap() {
   };
 
   return (
-    <div class="h-screen grid grid-rows-2 justify-center">
-      <div class="mt-10 w-fit"> {/* Adjusted margin to bring it upwards */}
+    <div className="h-screen grid grid-rows-2 justify-center">
+      <div className="mt-10 w-fit"> {/* Adjusted margin to bring it upwards */}
         <MapControls
           dataset={dataset}
           setDataset={setDataset}
@@ -106,38 +106,65 @@ function NewMap() {
         />
       </div>
       {isFullScreen && (
-        <div class="fixed inset-0 z-50 bg-black flex items-center justify-center">
+        <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
           <button
             onClick={handleClose}
-            class="absolute top-24 right-4 bg-blue-600 text-white my-1 mx-7 px-3 py-3 rounded-full z-40 hover:bg-blue-900">
+            className="absolute top-24 right-4 bg-blue-600 text-white my-1 mx-7 px-3 py-3 rounded-full z-40 hover:bg-blue-900">
             <FaTimes/>
           </button>
-          <div id="visualization" class="w-full h-full mt-5">
+          <div id="visualization" className="w-full h-full mt-5">
             {data.latitudes.length > 0 && viewMode === 'globe' ? (
               <Globe data={data} dataType={dataset} />
             ) : data.latitudes.length > 0 && viewMode === 'graph' ? (
               <div className='mt-32'>
-                    <Chart dataFile={`${dataset}.json`} labelName={dataset} dataType={dataset} color={"#ff5733"} />
-                    <h3 className="text-blue-700 font-semibold text-center my-10 text-4xl">
-                        {dataset === 'chl' ? 'Chlorophyll Concentration' :
-                        dataset === 'sst' ? 'Sea Surface Temperature' :
-                        dataset === 'carbon' ? 'Carbon Concentration' :
-                        'Unknown Dataset'}
-                    </h3>
-                    <p className="text-white font-semibold text-justify px-32 text-2xl">
-                        {dataset === 'chl' ? 
-                            'This graph illustrates the average Chlorophyll Concentration levels over a 30-day period for April 2024, providing insights into the variations in chlorophyll levels throughout the month and highlighting trends that may affect marine ecosystems.' :
-                        dataset === 'sst' ? 
-                            'This graph displays the average Sea Surface Temperature (SST) levels over a 30-day period for April 2024, revealing trends and variations in temperature that are crucial for assessing ocean health, climate patterns, and their effects on marine life.' :
-                        dataset === 'carbon' ? 
-                            'This graph presents the average Carbon Concentration levels over a 30-day period for April 2024, offering insights into fluctuations in carbon levels throughout the month and underscoring their significance in understanding oceanic carbon cycles and their impact on climate change.' :
-                            'Unknown Dataset'}
-                    </p>
-                </div>
+                {/* Render the Chart component with dataset props */}
+            <Chart 
+            dataFile={`${dataset}.json`}  // Use dataset as the file name dynamically
+            labelName={
+              dataset === 'chl' ? 'Chlorophyll Concentration' :
+              dataset === 'sst' ? 'Sea Surface Temperature' :
+              dataset === 'carbon' ? 'Carbon Concentration' :
+              'Unknown Dataset'
+            } 
+            // Pass dataset name as the label for the chart
+            dataType={dataset} // Pass dataset type for any further use
+            color={"#ff5733"}  // Example color, modify as necessary
+            xLabel="Date"  // X-axis label
+            yLabel={dataset === 'chl' ? 'Concentration (mg/m^3)' : 
+                    dataset === 'sst' ? 'Temperature (°C)' : 
+                    dataset === 'carbon' ? 'Concentration (ppm)' : 
+                    'Value'}  // Y-axis label based on dataset
+            xLabelOptions={{
+              font: {
+                size: 16, // Increase font size
+                weight: 'bold', // Make the font bold
+              },
+              padding: {
+                top: 10, // Increase the padding to move it down
+              },
+            }}
+          />
 
-              
+                {/* Display a dataset-specific title */}
+                <h3 className="text-blue-700 font-semibold text-center my-10 text-4xl">
+                  {dataset === 'chl' ? 'Chlorophyll Concentration' :
+                  dataset === 'sst' ? 'Sea Surface Temperature' :
+                  dataset === 'carbon' ? 'Carbon Concentration' :
+                  'Unknown Dataset'}
+                </h3>
+                {/* Conditionally render the dataset-specific description */}
+                <p className="text-white font-semibold text-justify px-32 text-2xl">
+                  {dataset === 'chl' ? 
+                    'This graph illustrates the average Chlorophyll Concentration levels over a 30-day period for April 2024, providing insights into the variations in chlorophyll levels throughout the month and highlighting trends that may affect marine ecosystems.' :
+                  dataset === 'sst' ? 
+                    'This graph displays the average Sea Surface Temperature (SST) levels over a 30-day period for April 2024, revealing trends and variations in temperature that are crucial for assessing ocean health, climate patterns, and their effects on marine life.' :
+                  dataset === 'carbon' ? 
+                    'This graph presents the average Carbon Concentration levels over a 30-day period for April 2024, offering insights into fluctuations in carbon levels throughout the month and underscoring their significance in understanding oceanic carbon cycles and their impact on climate change.' :
+                  'Unknown Dataset'}
+                </p>
+              </div>
             ) : (
-              <p class="text-white">Please select options and submit to see the visualization.</p>
+              <p className="text-white">Please select options and submit to see the visualization.</p>
             )}
           </div>
         </div>

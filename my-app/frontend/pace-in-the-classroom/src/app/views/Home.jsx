@@ -75,7 +75,7 @@ export function Component() {
                     </div>
                     <div className="md:w-1/2 p-2">
                         <img src="/assets/launch.jpg" alt="Launch" className="w-full h-auto max-h-[600px] rounded-lg shadow-xl mx-auto object-cover" />
-                        <p className="text-white text-sm mt-8 capitalize text-center">Fig. 1 [ 2 ]</p>
+                        <p className="text-white text-sm mt-8 capitalize text-center">NASA’s PACE spacecraft, atop a SpaceX Falcon 9 rocket, successfully lifts off Fig. 1 [ 2 ]</p>
                     </div>
                 </div>
             </section>
@@ -95,7 +95,7 @@ export function Component() {
                                 className="w-full h-full object-cover"
                             />
                         </div>
-                        <p className="text-white text-sm mt-8 text-center">Fig. 2 [ 3 ]</p>
+                        <p className="text-white text-sm mt-8 text-center">Earth: Our Living Planet Fig. 2 [ 3 ]</p>
                     </div>
 
                     <div className="w-full md:w-1/2 p-4 md:pl-8">
@@ -136,7 +136,7 @@ export function Component() {
                     </div>
                     <div className="md:w-1/2 p-2">
                         <img src="/assets/pace.jpg" alt="Launch" className="w-full h-auto max-h-[600px] rounded-lg shadow-xl mx-auto object-cover" />
-                        <p className="text-white text-sm mt-8 text-center">Fig. 3 [ 4 ]</p>
+                        <p className="text-white text-sm mt-8 text-center">PACE Observatory Being Inspected at Astrotech Fig. 3 [ 4 ]</p>
                     </div>
                 </div>
             </section>
@@ -148,7 +148,7 @@ export function Component() {
                         <div className="overflow-hidden rounded-lg shadow-md">
                             <ReactPlayer url="/videos/7.mp4" playing loop muted width="85%" height="100%" />
                         </div>
-                        <p className="text-white text-sm mt-8 text-center">Fig. 4 [ 5 ]</p>
+                        <p className="text-white text-sm mt-8 text-center">PACE Satellite in Orbit Fig. 4 [ 5 ]</p>
                     </div>
                     <div className="w-2/4 p-4 md:pl-2">
                         <h2 className="text-4xl font-bold text-blue-700 mb-6 text-center capitalize">Unlocking The Colors Of Ocean Health</h2>
@@ -174,7 +174,7 @@ export function Component() {
                         <div className="overflow-hidden rounded-lg shadow-md">
                             <ReactPlayer url="/videos/9.mp4" playing loop muted width="85%" height="100%" />
                         </div>
-                        <p className="text-white text-sm mt-8 text-center">Fig. 5 [ 6 ]</p>
+                        <p className="text-white text-sm mt-8 text-center">50 Years of Harmful Algal Blooms Fig. 5 [ 6 ]</p>
                     </div>
                     <div className="w-2/4 p-4 md:pl-2">
                         <h2 className="text-4xl font-bold text-blue-700 mb-6 text-center capitalize">Earth’s Carbon Cycle From Space</h2>
@@ -195,15 +195,13 @@ export function Component() {
 
             {/* "Back to Top" button */}
             {showButton && (
-                <div className="fixed bottom-8 right-8 z-20">
-                    <button
-                        onClick={scrollToTop}
-                        className="p-4 rounded-full bg-blue-500 text-white shadow-md"
-                    >
-                        <FaArrowUp size={24} />
-                    </button>
-                </div>
-            )}
+                        <button
+                            onClick={scrollToTop}
+                            className="fixed bottom-8 right-8 bg-blue-700 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 transition duration-300 z-20"
+                        >
+                            <FaArrowUp size={24} /> {/* Replace button text with icon */}
+                        </button>
+                    )}
         </div>
     );
 }

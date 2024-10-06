@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactEcharts from 'echarts-for-react'; // Ensure you have this package installed via npm/yarn
 
-const Chart = ({ dataFile, labelName,dataType, color }) => {
+const Chart = ({ dataFile, labelName, dataType, color, xLabel, yLabel }) => {
   const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
@@ -44,7 +44,12 @@ const Chart = ({ dataFile, labelName,dataType, color }) => {
     },
     title: {
       left: 'center',
-      text: labelName // Use the labelName prop for the chart title
+      text: labelName,
+      textStyle: {
+        fontWeight: 'bold', // Make the font bold
+        fontSize: 20, // Optional: adjust font size as needed
+        color: '#333', // Optional: change color if desired
+      }, // Use the labelName prop for the chart title
     },
     toolbox: {
       feature: {
@@ -57,11 +62,33 @@ const Chart = ({ dataFile, labelName,dataType, color }) => {
     },
     xAxis: {
       type: 'time',
-      boundaryGap: false
+      boundaryGap: false,
+      name: xLabel, // Use the xLabel prop for the x-axis label
+      nameLocation: 'middle',
+      nameTextStyle: {
+        fontSize: 24,
+        padding: [20, 0, 0, 0], // Adds spacing below the x-axis label
+      },
+      textStyle: {
+        fontWeight: 'bold', // Make the font bold
+        fontSize: 20, // Optional: adjust font size as needed
+        color: '#333', // Optional: change color if desired
+      },
     },
     yAxis: {
       type: 'value',
-      boundaryGap: [0, '100%']
+      boundaryGap: [0, '100%'],
+      name: yLabel, // Use the yLabel prop for the y-axis label
+      nameLocation: 'middle',
+      nameTextStyle: {
+        fontSize: 24,
+        padding: [0, 0, 30, 0], // Adds spacing to the y-axis label
+      },
+      textStyle: {
+        fontWeight: 'bold', // Make the font bold
+        fontSize: 20, // Optional: adjust font size as needed
+        color: '#333', // Optional: change color if desired
+      },
     },
     dataZoom: [
       {
@@ -90,15 +117,9 @@ const Chart = ({ dataFile, labelName,dataType, color }) => {
   });
 
   return (
-    
-   
     <div className='mt-10'>
-      
       <ReactEcharts option={getOption()} style={{ height: '400px', width: '100%' }} />
     </div>
-  
-  
-
   );
 };
 

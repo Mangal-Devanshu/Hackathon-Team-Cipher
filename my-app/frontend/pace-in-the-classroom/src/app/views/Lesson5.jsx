@@ -68,9 +68,6 @@ const HeroSection = () => {
                         <path fillRule="evenodd" d="M10 14a1 1 0 01-.707-.293l-4-4a1 1 0 011.414-1.414L10 11.586l3.293-3.293a1 1 0 111.414 1.414l-4 4A1 1 0 0110 14z" clipRule="evenodd" />
                     </svg>
                 </button>
-                <p className="absolute bottom-0 left-0 w-full text-[10px] text-right bg-opacity-50 bg-black text-white py-1">
-                     Source:-Image From Pixabay[ 16 ]
-                </p>
             </div>
         </div>
     );

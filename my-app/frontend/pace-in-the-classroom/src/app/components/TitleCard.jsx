@@ -78,8 +78,10 @@ const TiltCard = ({ image, name, text, href }) => { // Accept href as a prop
                     alt="Profile"
                     style={{
                         transform: "translateZ(70px)",
+                        height: "95px", // Set height to a fixed size
+                        width: "95px", // Set width to a fixed size
                     }}
-                    className="mx-auto h-28 w-28 rounded-full object-center shadow-lg shadow-blue-700/60"
+                    className="mx-auto rounded-full object-center shadow-lg shadow-blue-700/60"
                 />
                 <h1
                     style={{
