@@ -9,15 +9,15 @@ CORS(app, resources={r"/*": {"origins": "http://localhost:5173"}})
 
 
 # MongoDB connection
-uri = "mongodb+srv://devanshu:Rathod%40pace01@cluster0.lvq61.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+uri = "mongodb+srv://manan:Rathod%40pace01@manan0.hskga.mongodb.net/chlorophyll_data?retryWrites=true&w=majority"
 client = MongoClient(uri)
-db = client['earthDataDB']
+db = client['APRIL_DownSample']
 
 # Collections
 collections = {
-    'chl': db['paceOCI_chlor_downsampled'],
-    'carbon': db['paceOCI_carbon_downsampled'],
-    'sst': db['paceOCI_sst_downsampled']
+    'chl': db['Chlorophyll_6'],
+    'carbon': db['Carbon_6'],
+    'sst': db['SST_6']
 }
 
 # In-memory cache to avoid fetching the same data multiple times

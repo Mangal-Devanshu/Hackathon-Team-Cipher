@@ -1,9 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player';
 import Earth from '../components/Earth';
 import InfoButton from '../components/InfoButton';
 
 export function Component() {
+    const [showButton, setShowButton] = useState(false);
+
+    // Function to handle scrolling back to top
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    };
+
+    // Track scroll position and toggle visibility of "Back to Top" button
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 300) {
+                setShowButton(true);
+            } else {
+                setShowButton(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
         <div className="flex flex-col">
             {/* Earth Section */}
@@ -142,18 +169,29 @@ export function Component() {
                         <h2 className="text-4xl font-bold text-blue-700 mb-6 text-center capitalize">Tackling Harmful Algal Blooms</h2>
                         <ul className="list-disc text-lg text-white mt-6 pl-2 text-justify">
                             <li className="my-3">
-                                Global mass fish deaths and harmful algal blooms pose a significant threat to coastal communities and fishery jobs.
+                                Harmful algal blooms (HABs) pose a threat to marine life, ecosystems, and coastal economies. PACE aids in early detection, providing data to predict and mitigate the effects of these toxic events.
                             </li>
                             <li className="my-3">
-                                These issues are exacerbated by warming waters and nutrient pollution, intensifying the problem.
+                                PACE helps scientists study the drivers behind HABs, offering insights into environmental and human health impacts.
                             </li>
                             <li className="my-3">
-                                The PACE satellite will improve data collection on harmful algal blooms, building on 50 years of research to address this growing global concern. [ 1 ]
+                                With PACE’s advanced sensors, scientists can monitor coastal regions at risk for HABs, improving response strategies. [ 7 ]
                             </li>
                         </ul>
                     </div>
                 </div>
             </section>
+
+            {/* Back to Top Button */}
+            {showButton && (
+                <button
+                    onClick={scrollToTop}
+                    className="fixed bottom-5 right-5 bg-blue-700 text-white p-3 rounded-full z-30 shadow-lg hover:bg-blue-600 transition duration-300"
+                    aria-label="Back to Top"
+                >
+                    Back To Top
+                </button>
+            )}
         </div>
     );
 }

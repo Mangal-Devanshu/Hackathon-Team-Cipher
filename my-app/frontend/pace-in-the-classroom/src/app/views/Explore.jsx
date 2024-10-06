@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ImageGrid from '../components/ImageGrid';
 import Asteroids from '../components/Asteroids'; // Import the Asteroids component
 
 export function Component() {
+    const [showButton, setShowButton] = useState(false);
+
+    // Function to scroll back to top
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    // Monitor scroll position to show or hide the "Back to Top" button
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.pageYOffset > 300) {
+                setShowButton(true);
+            } else {
+                setShowButton(false);
+            }
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     const imageSets1 = [
         [
             { src: '/assets/oci/1.jpg', alt: 'Image 1', message: "This is image 1." },
@@ -108,6 +128,16 @@ export function Component() {
                     />
                 </div>
             </div>
+
+            {/* Back to Top Button */}
+            {showButton && (
+                <button
+                    onClick={scrollToTop}
+                    className="fixed bottom-8 right-8 bg-blue-700 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 transition duration-300 z-20"
+                >
+                    Back to Top
+                </button>
+            )}
         </div>
     );
 }

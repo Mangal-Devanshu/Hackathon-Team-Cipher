@@ -108,7 +108,7 @@ function NewMap() {
         <div class="fixed inset-0 z-50 bg-black flex items-center justify-center">
           <button
             onClick={handleClose}
-            class="absolute top-4 left-4 bg-blue-600 text-white my-2.5 mx-2.5 px-4 py-2 rounded-lg z-10 hover:bg-blue-900">
+            class="absolute top-24 left-4 bg-blue-600 text-white my-2.5 mx-2.5 px-4 py-2 rounded-lg z-40 hover:bg-blue-900">
             Close
           </button>
           <div id="visualization" class="w-full h-full mt-5">
