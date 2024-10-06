@@ -29,7 +29,7 @@ export function Component() {
             <div className="relative z-10 flex-grow flex items-center justify-center overflow-hidden">
                 {/* Tooltip for providing information */}
                 <div className="absolute bottom-28 right-4 z-40">
-                    <InfoButton text="You can select from three datasets—Carbon, Sea Surface Temperature (SST), and Chlorophyll (CHL) from the PACE program—and visualize the data in two ways: on a dynamic 3D globe to explore global patterns and trends, or through graph visuals showing concentration levels over the past 30 days for detailed analysis. Use these tools to deepen your understanding of oceanic conditions and their effects on marine ecosystems."/>
+                    <InfoButton text="You can choose from three PACE dataset: Carbon, Sea Surface Temperature (SST), and Chlorophyll (CHL) and visualize them on a 3D globe or as 30-day concentration graphs." />
                 </div>
                 
 

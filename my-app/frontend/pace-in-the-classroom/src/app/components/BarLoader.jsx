@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 
 const BarLoader = () => {
     return (
-        <div className="grid place-content-center bg-black px-4 py-24">
+        <div className="grid place-content-center py-2">
             <Example />
         </div>
-    );
+    );  
 };
 
 const variants = {

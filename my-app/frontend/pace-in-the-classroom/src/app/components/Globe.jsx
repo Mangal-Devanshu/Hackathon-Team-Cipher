@@ -212,6 +212,12 @@ function Globe({ data, dataType }) {
       >
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} />
+         {/* Base blue mesh and textured globe */}
+         <mesh ref={globeRef} renderOrder={1}>
+          <sphereGeometry args={[5, 64, 64]} />
+          {/* Base blue mesh that will always render */}
+          <meshStandardMaterial color="blue" />
+        </mesh>
 
         {/* Plot points on the globe */}
         {data && data.data_values.length > 0 && (
