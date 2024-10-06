@@ -1,13 +1,38 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import SearchBar from "../components/SearchBar";
 import GroupForm from "../components/GroupForm";
 import SwipeCards from "../components/SwipeCards";
 import CommitmentCardForm from "../components/CommitmentCardForm"; // Ensure this path is correct
+import { FaArrowUp } from 'react-icons/fa'; // FontAwesome Lock Icon & Arrow
 
 export function Component() {
     const [selectedGroup, setSelectedGroup] = useState(null);
     const [commitments, setCommitments] = useState([]);
     const [newCommitment, setNewCommitment] = useState({ title: "", description: "", password: "" });
+    const [showButton, setShowButton] = useState(false); // Track scroll position for the "Back to Top" button
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 300) {
+                setShowButton(true);
+            } else {
+                setShowButton(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     const handleSelectGroup = (group, commitments) => {
         setSelectedGroup(group);
@@ -62,6 +87,15 @@ export function Component() {
             <div className="flex-grow">
                 <SwipeCards commitments={commitments} selectedGroup={selectedGroup} />
             </div>
+             {/* Back to Top Button */}
+             {showButton && (
+                        <button
+                            onClick={scrollToTop}
+                            className="fixed bottom-8 right-8 bg-blue-700 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 transition duration-300 z-20"
+                        >
+                            <FaArrowUp size={24} /> {/* Replace button text with icon */}
+                        </button>
+            )}
         </div>
     );
 }

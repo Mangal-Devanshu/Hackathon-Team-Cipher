@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Example from '../components/Example';
 import { FaLock } from 'react-icons/fa'; // FontAwesome Lock Icon
-
+import { FaArrowUp } from 'react-icons/fa'; // FontAwesome Lock Icon & Arro
 export function Component() {
     const [completedLessons, setCompletedLessons] = useState([false, false, false, false, false]); // Track lesson completion
+    const [showButton, setShowButton] = useState(false); // Track scroll position for the "Back to Top" button
 
     // On component mount, load progress from localStorage
     useEffect(() => {
@@ -11,7 +12,21 @@ export function Component() {
         if (savedProgress) {
             setCompletedLessons(savedProgress);
         }
+        const handleScroll = () => {
+            if (window.scrollY > 300) {
+                setShowButton(true);
+            } else {
+                setShowButton(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
+    
 
     // Function to handle lesson completion
     const handleLessonComplete = (lessonIndex) => {
@@ -22,6 +37,14 @@ export function Component() {
         }
         setCompletedLessons(updatedCompletion);
         localStorage.setItem('completedLessons', JSON.stringify(updatedCompletion)); // Store progress in localStorage
+    };
+
+    // Scroll to top function
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
     };
 
     return (
@@ -75,6 +98,15 @@ export function Component() {
                 title="THE IMPORTANCE OF PHYTOPLANKTON"
                 onLessonComplete={() => handleLessonComplete(4)}
             /> */}
+            {/* Back to Top Button */}
+            {showButton && (
+                <button
+                    onClick={scrollToTop}
+                    className="fixed bottom-8 right-8 bg-blue-700 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 transition duration-300 z-20"
+                >
+                    <FaArrowUp size={24} /> {/* Replace button text with icon */}
+                </button>
+            )}
         </div>
     );
 }

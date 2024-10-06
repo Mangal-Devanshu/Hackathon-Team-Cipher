@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useEffect,useState} from "react";
 import TitleCard from "../components/TitleCard";
+import { FaArrowUp } from 'react-icons/fa'; // FontAwesome Lock Icon & Arro
 
 const cardData1 = [
     { image: "/about/1.jpeg", name: "Mr. Nishant Painter", text: "CEO & Founder, Shivantra", href: "https://www.linkedin.com/in/nishant-painter-31388582/" },
@@ -22,7 +23,32 @@ const cardData4 = [
     { image: "/about/3.1.jpeg", name: "Prof. Dhatri Pandya", text: "Assistant Professor, Computer Department, SCET", href: "https://www.linkedin.com/in/dhatri-pandya-a76569a8/" },
 ];
 
+const scrollToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+};
+
 export function Component() {
+    const [showButton, setShowButton] = useState(false); // Track scroll position for the "Back to Top" button
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 300) {
+                setShowButton(true);
+            } else {
+                setShowButton(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+
     return (
         <div className="flex flex-col bg-black min-h-screen overflow-auto items-center py-12">
             {/* Container for the entire page */}
@@ -55,6 +81,15 @@ export function Component() {
                         <TitleCard cardData={cardData2} numberOfCards={3} />
                         <TitleCard cardData={cardData3} numberOfCards={3} />
                     </div>
+                     {/* Back to Top Button */}
+                    {showButton && (
+                        <button
+                            onClick={scrollToTop}
+                            className="fixed bottom-8 right-8 bg-blue-700 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 transition duration-300 z-20"
+                        >
+                            <FaArrowUp size={24} /> {/* Replace button text with icon */}
+                        </button>
+                    )}
                 </div>
             </div>
         </div>

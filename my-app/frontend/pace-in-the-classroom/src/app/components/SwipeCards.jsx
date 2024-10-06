@@ -67,7 +67,7 @@ const SwipeCards = () => {
 
         return (
             <motion.div
-                className="relative h-96 w-72 bg-white text-white rounded-lg shadow-md p-4 flex flex-col justify-between border-4 cursor-pointer"
+                className="relative h-96 w-96 bg-white text-white rounded-lg shadow-md p-4 flex flex-col justify-between border-4 cursor-pointer"
                 style={{
                     borderColor: "#0B3D91", // NASA blue color
                     x,
